@@ -1,4 +1,5 @@
 title: 重学数学
+baseurl: "/awesome-math"
 markdown: kramdown
 plugins:
   - jekyll-relative-links

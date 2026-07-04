@@ -317,7 +317,7 @@ $$
 在集合里，两个集合的笛卡尔积 $A\times B$ 是有序对集合：
 
 $$
-A\times B=\{(a,b):a\in A,b\in B\}
+A\times B=\left\{(a,b)\mid a\in A,\ b\in B\right\}
 $$
 
 但范畴论不这么定义。它说：乘积是一个对象 $P$，带两个投影：

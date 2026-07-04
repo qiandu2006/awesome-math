@@ -160,7 +160,7 @@ $$
 是可测的，如果对任意阈值 $a$：
 
 $$
-\{\omega:f(\omega)>a\}\in\mathcal F
+\left\{\omega\mid f(\omega)>a\right\}\in\mathcal F
 $$
 
 这句话的概率解释非常清楚：
@@ -212,7 +212,7 @@ $$
 $$
 \int f\,d\mu
 =
-\sup\left\{\int s\,d\mu:0\le s\le f,\ s\text{ 是简单函数}\right\}
+\sup\left\{\int s\,d\mu\ \middle|\ 0\le s\le f,\ s\text{ 是简单函数}\right\}
 $$
 
 ![Riemann 与 Lebesgue 积分的直觉差别](images/fig3_riemann_vs_lebesgue.png)

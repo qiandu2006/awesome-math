@@ -435,7 +435,7 @@ $$
 给定一个吸引子 $A$，所有最终会趋向它的初始点组成吸引盆：
 
 $$
-B(A)=\{x:\operatorname{dist}(\varphi_t(x),A)\to0\}
+B(A)=\left\{x\mid \operatorname{dist}(\varphi_t(x),A)\to0\right\}
 $$
 
 吸引盆告诉我们：从哪里出发会落到哪个长期状态。

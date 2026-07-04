@@ -27,7 +27,7 @@ $$
 代数几何研究的是由多项式方程定义的空间：
 
 $$
-V(I)=\{x:f(x)=0,\ \forall f\in I\}
+V(I)=\left\{x\mid f(x)=0,\ \forall f\in I\right\}
 $$
 
 这里 $I$ 是一个多项式理想。
