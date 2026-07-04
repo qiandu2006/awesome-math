@@ -1,0 +1,12 @@
+title: 重学数学
+markdown: kramdown
+plugins:
+  - jekyll-relative-links
+relative_links:
+  enabled: true
+  collections: true
+kramdown:
+  input: GFM
+  hard_wrap: false
+  math_engine: mathjax
+  syntax_highlighter: rouge

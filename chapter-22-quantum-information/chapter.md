@@ -1,5 +1,9 @@
+---
+layout: default
+---
+
 # 重学数学之二十二: 量子信息——当信息住进 Hilbert 空间
-![](../images/Pasted image 20260628173725.png)
+![](../images/Pasted%20image%2020260628173725.png)
 ## 一、从一个比特不够用开始
 
 经典信息的基本单位是 bit。它只有两个状态：

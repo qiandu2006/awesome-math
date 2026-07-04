@@ -1,5 +1,9 @@
+---
+layout: default
+---
+
 # 重学数学之六: 同调与上同调——把洞变成线性代数
-![](../images/Pasted image 20260627230343.png)
+![](../images/Pasted%20image%2020260627230343.png)
 
 ## 一、从一句话开始：边界的边界为零
 
