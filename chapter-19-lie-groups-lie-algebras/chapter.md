@@ -19,7 +19,7 @@ layout: default
 最简单的例子是单位圆：
 
 $$
-S^1=\left\{e^{i\theta}\mid \theta\in\mathbb R\right\}
+S^1=\lbrace e^{i\theta}\mid \theta\in\mathbb R\rbrace
 $$
 
 它既是圆形流形，又是复数乘法下的群。
@@ -154,7 +154,7 @@ $$
 第一个问题是轨道：
 
 $$
-G\cdot x=\left\{g\cdot x\mid g\in G\right\}
+G\cdot x=\lbrace g\cdot x\mid g\in G\rbrace
 $$
 
 它表示从 $x$ 出发，通过对称变换能到达哪里。
@@ -162,7 +162,7 @@ $$
 第二个问题是稳定子：
 
 $$
-G_x=\left\{g\in G\mid g\cdot x=x\right\}
+G_x=\lbrace g\in G\mid g\cdot x=x\rbrace
 $$
 
 它表示哪些对称变换看起来没有改变 $x$。

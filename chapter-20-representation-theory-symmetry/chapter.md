@@ -149,7 +149,7 @@ $$
 取向量空间：
 
 $$
-\mathbb C[G]=\left\{\sum_{g\in G}a_g e_g\right\}
+\mathbb C[G]=\lbrace\sum_{g\in G}a_g e_g\rbrace
 $$
 
 群元素 $h$ 通过左乘作用：

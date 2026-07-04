@@ -146,9 +146,9 @@ $$
 路径连通更强：任意两点之间都能用一条连续路径连接。路径连通一定连通，但连通不一定路径连通。拓扑学有很多反直觉例子，比如拓扑学家的正弦曲线：
 
 $$
-\left\{(x,\sin(1/x))\mid 0<x\le 1\right\}
+\lbrace(x,\sin(1/x))\mid 0<x\le 1\rbrace
 \cup
-\left\{(0,y)\mid -1\le y\le 1\right\}
+\lbrace(0,y)\mid -1\le y\le 1\rbrace
 $$
 
 它是连通的，但不是路径连通的。
@@ -261,7 +261,7 @@ $$
 用 Betti 数记这些洞的数量：
 
 $$
-\beta_k = \operatorname{rank} H_k
+\beta_k = \mathrm{rank} H_k
 $$
 
 几个典型空间：
@@ -282,7 +282,7 @@ $$
 洞的定义是：
 
 $$
-H_k = \ker \partial_k / \operatorname{im}\partial_{k+1}
+H_k = \ker \partial_k / \mathrm{im}\partial_{k+1}
 $$
 
 翻译成人话：

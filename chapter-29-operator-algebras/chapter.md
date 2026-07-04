@@ -71,7 +71,7 @@ $$
 矩阵有特征值。无限维算子更自然的对象是谱：
 
 $$
-\sigma(a)=\left\{\lambda\mid a-\lambda I\ \text{不可逆}\right\}
+\sigma(a)=\lbrace\lambda\mid a-\lambda I\ \text{不可逆}\rbrace
 $$
 
 谱不是只属于单个算子的数值集合。它是算子代数内部几何的影子。

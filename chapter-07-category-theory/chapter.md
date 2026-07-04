@@ -75,13 +75,13 @@ $$
 2. **单位态射**：每个对象 $A$ 都有一个身份箭头：
 
 $$
-\operatorname{id}_A:A\to A
+\mathrm{id}_A:A\to A
 $$
 
 满足：
 
 $$
-f\circ \operatorname{id}_A=f,\quad \operatorname{id}_B\circ f=f
+f\circ \mathrm{id}_A=f,\quad \mathrm{id}_B\circ f=f
 $$
 
 这就是范畴的全部定义。简单到几乎不像一个理论。
@@ -172,7 +172,7 @@ $$
 并且保留组合与单位：
 
 $$
-F(g\circ f)=F(g)\circ F(f),\quad F(\operatorname{id}_A)=\operatorname{id}_{F(A)}
+F(g\circ f)=F(g)\circ F(f),\quad F(\mathrm{id}_A)=\mathrm{id}_{F(A)}
 $$
 
 这说明函子不是随便搬运对象，而是搬运整个结构。
@@ -317,7 +317,7 @@ $$
 在集合里，两个集合的笛卡尔积 $A\times B$ 是有序对集合：
 
 $$
-A\times B=\left\{(a,b)\mid a\in A,\ b\in B\right\}
+A\times B=\lbrace(a,b)\mid a\in A,\ b\in B\rbrace
 $$
 
 但范畴论不这么定义。它说：乘积是一个对象 $P$，带两个投影：
@@ -379,9 +379,9 @@ $$
 如果存在自然双射：
 
 $$
-\operatorname{Hom}_{\mathcal{D}}(F(C),D)
+\mathrm{Hom}_{\mathcal{D}}(F(C),D)
 \cong
-\operatorname{Hom}_{\mathcal{C}}(C,G(D))
+\mathrm{Hom}_{\mathcal{C}}(C,G(D))
 $$
 
 就说 $F$ 是 $G$ 的左伴随，$G$ 是 $F$ 的右伴随，记作：
@@ -409,9 +409,9 @@ $$
 伴随关系是：
 
 $$
-\operatorname{Hom}_{\mathbf{Grp}}(F(S),G)
+\mathrm{Hom}_{\mathbf{Grp}}(F(S),G)
 \cong
-\operatorname{Hom}_{\mathbf{Set}}(S,U(G))
+\mathrm{Hom}_{\mathbf{Set}}(S,U(G))
 $$
 
 这句话的意思是：从自由群 $F(S)$ 到群 $G$ 的群同态，完全由生成元集合 $S$ 到 $G$ 底层集合的函数决定。
@@ -427,7 +427,7 @@ $$
 伴随大量出现在数学中：
 
 - 自由群 $\dashv$ 忘却函子
-- 固定一个对象时，$(-\otimes A)\dashv \operatorname{Hom}(A,-)$
+- 固定一个对象时，$(-\otimes A)\dashv \mathrm{Hom}(A,-)$
 - 离散拓扑 $\dashv$ 忘却函子
 - Stone-Čech 紧化 $\dashv$ 包含函子
 - 几何实现 $\dashv$ 奇异复形
@@ -459,7 +459,7 @@ $$
 
 Yoneda 的直觉是：一个对象在范畴中的身份，由它和所有其他对象的关系完全决定。
 
-这听起来很哲学，但它非常具体。集合中的元素可以看成从单点集 $\{\ast\}$ 到集合 $X$ 的映射；拓扑空间中的点、代数几何里的广义点、表示论里的矩阵元，都有类似味道。
+这听起来很哲学，但它非常具体。集合中的元素可以看成从单点集 $\lbrace \ast\rbrace$ 到集合 $X$ 的映射；拓扑空间中的点、代数几何里的广义点、表示论里的矩阵元，都有类似味道。
 
 所以范畴论不是简单地“更抽象”。它把“对象是什么”改写成“对象如何被其他对象探测”。这一步，是从内部描述转向关系描述的真正 aha moment。
 

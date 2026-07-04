@@ -160,7 +160,7 @@ $$
 是可测的，如果对任意阈值 $a$：
 
 $$
-\left\{\omega\mid f(\omega)>a\right\}\in\mathcal F
+\lbrace\omega\mid f(\omega)>a\rbrace\in\mathcal F
 $$
 
 这句话的概率解释非常清楚：
@@ -212,7 +212,7 @@ $$
 $$
 \int f\,d\mu
 =
-\sup\left\{\int s\,d\mu\ \middle|\ 0\le s\le f,\ s\text{ 是简单函数}\right\}
+\sup\lbrace\int s\,d\mu\ \mid\ 0\le s\le f,\ s\text{ 是简单函数}\rbrace
 $$
 
 ![Riemann 与 Lebesgue 积分的直觉差别](images/fig3_riemann_vs_lebesgue.png)
@@ -520,7 +520,7 @@ $$
 
 ### 13.2 量子测度与非交换积分
 
-经典测度论在量子力学中被**量子概率**（von Neumann 代数上的迹态）推广：状态 $\phi: \mathcal{A}\to\mathbb{C}$ 是正规化正线性泛函，积分变为迹 $\tau(A) = \operatorname{tr}(\rho A)$。Lp 空间推广为非交换 $L^p(\mathcal{A},\tau)$ 空间（Segal 1953），保留了 Hölder 不等式和 Riesz-Thorin 插值定理。这是算子代数（第二十九章）与量子信息（第二十二章）的共同基础。
+经典测度论在量子力学中被**量子概率**（von Neumann 代数上的迹态）推广：状态 $\phi: \mathcal{A}\to\mathbb{C}$ 是正规化正线性泛函，积分变为迹 $\tau(A) = \mathrm{tr}(\rho A)$。Lp 空间推广为非交换 $L^p(\mathcal{A},\tau)$ 空间（Segal 1953），保留了 Hölder 不等式和 Riesz-Thorin 插值定理。这是算子代数（第二十九章）与量子信息（第二十二章）的共同基础。
 
 ### 13.3 概率编程与测度语义
 

@@ -42,7 +42,7 @@ $$
 |\psi\rangle=\alpha|0\rangle+\beta|1\rangle
 $$
 
-在计算基 $\{|0\rangle,|1\rangle\}$ 下测量，得到：
+在计算基 $\lbrace |0\rangle,|1\rangle\rbrace$ 下测量，得到：
 
 $$
 P(0)=|\alpha|^2,\quad P(1)=|\beta|^2
@@ -235,7 +235,7 @@ $$
 |\psi\rangle=\sum_i \lambda_i |u_i\rangle\otimes |v_i\rangle
 $$
 
-其中 $\lambda_i\ge0$，$\{|u_i\rangle\},\{|v_i\rangle\}$ 是两边的正交基。这叫 Schmidt 分解。
+其中 $\lambda_i\ge0$，$\lbrace |u_i\rangle\rbrace,\lbrace |v_i\rangle\rbrace$ 是两边的正交基。这叫 Schmidt 分解。
 
 它就像对一个矩阵做奇异值分解。Schmidt 系数 $\lambda_i$ 直接告诉我们纠缠有多少。
 
@@ -259,7 +259,7 @@ $$
 
 错误不是直接被“备份”抵消，而是通过 syndrome measurement 被诊断。测量 syndrome 时，我们只提取错误类型，不测出逻辑态本身。
 
-Knill-Laflamme 条件给出一个清楚判据。若错误集合为 $\{E_a\}$，编码子空间投影为 $P$，可纠错当且仅当：
+Knill-Laflamme 条件给出一个清楚判据。若错误集合为 $\lbrace E_a\rbrace$，编码子空间投影为 $P$，可纠错当且仅当：
 
 $$
 P E_a^\dagger E_b P=c_{ab}P

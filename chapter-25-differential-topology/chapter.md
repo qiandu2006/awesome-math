@@ -105,7 +105,7 @@ $$
 观察子水平集：
 
 $$
-M_a=\left\{p\in M\mid f(p)\le a\right\}
+M_a=\lbrace p\in M\mid f(p)\le a\rbrace
 $$
 
 当 $a$ 从低到高变化，如果没有经过临界值，拓扑不变；一旦经过临界点，拓扑可能改变。

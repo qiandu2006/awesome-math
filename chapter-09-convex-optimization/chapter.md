@@ -149,9 +149,9 @@ $$
 $$
 \partial |x|=
 \begin{cases}
-\{1\}, & x>0\\
+\lbrace 1\rbrace, & x>0\\
 [-1,1], & x=0\\
-\{-1\}, & x<0
+\lbrace -1\rbrace, & x<0
 \end{cases}
 $$
 
@@ -192,11 +192,11 @@ $$
 proximal operator 定义为：
 
 $$
-\operatorname{prox}_{\lambda r}(v)
+\mathrm{prox}_{\lambda r}(v)
 =
-\arg\min_x\left\{
+\arg\min_x\lbrace
 r(x)+\frac{1}{2\lambda}\|x-v\|^2
-\right\}
+\rbrace
 $$
 
 它在做一件事：
@@ -220,9 +220,9 @@ $$
 如果 $r(x)=\|x\|_1$，prox 给出软阈值操作：
 
 $$
-\operatorname{prox}_{\lambda\|\cdot\|_1}(v)_i
+\mathrm{prox}_{\lambda\|\cdot\|_1}(v)_i
 =
-\operatorname{sign}(v_i)\max(|v_i|-\lambda,0)
+\mathrm{sign}(v_i)\max(|v_i|-\lambda,0)
 $$
 
 这条公式很值得停一下看。小于阈值的坐标会被直接压成零，大于阈值的坐标会被往零方向拉一截。于是稀疏性不是事后筛出来的，而是在每一步更新里自然长出来的。Lasso、压缩感知和很多特征选择方法都靠这个机制工作。
@@ -339,7 +339,7 @@ $$
 对任意函数 $f$，Fenchel 共轭定义为：
 
 $$
-f^\ast(y)=\sup_x\{\langle y,x\rangle-f(x)\}
+f^\ast(y)=\sup_x\lbrace \langle y,x\rangle-f(x)\rbrace
 $$
 
 这看起来抽象，但几何意义清楚：
@@ -458,7 +458,7 @@ $$
 $$
 x_{k+1}
 =
-\operatorname{prox}_{\alpha r}(x_k-\alpha\nabla f(x_k))
+\mathrm{prox}_{\alpha r}(x_k-\alpha\nabla f(x_k))
 $$
 
 先让光滑部分告诉你下降方向，再让 prox 处理约束或稀疏性。这样一来，投影梯度、ISTA、许多正则化学习算法，都变成了同一个模板。
@@ -511,7 +511,7 @@ $$
 标准梯度下降的步骤 $x \leftarrow x - \alpha \nabla f(x)$ 等价于在 $L_2$ 距离下的近端投影。**镜像下降**（Nemirovski & Yudin 1983）将其推广为在 **Bregman 散度** $D_\phi(y,x) = \phi(y) - \phi(x) - \langle\nabla\phi(x),y-x\rangle$ 下的近端步骤：
 
 $$
-x_{k+1} = \arg\min_{x\in C}\left\{\eta_k\langle \nabla f(x_k), x\rangle + D_\phi(x, x_k)\right\}
+x_{k+1} = \arg\min_{x\in C}\lbrace\eta_k\langle \nabla f(x_k), x\rangle + D_\phi(x, x_k)\rbrace
 $$
 
 选择不同的镜像映射 $\phi$（指数函数、负熵）给出在不同几何下自适应最优的算法——对稀疏可行域（概率单纯形）选择负熵，收敛速率仅与 $\log n$ 相关而非维度 $n$。镜像下降是在线学习（multiplicative weight update、EWA）、指数梯度（AdaGrad 的先驱）的统一理论基础。
