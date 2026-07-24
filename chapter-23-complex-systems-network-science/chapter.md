@@ -239,7 +239,7 @@ $$
 
 Xu 等（2019）证明了 GNN 的表达能力上界由 Weisfeiler-Leman（WL）图同构测试决定：标准消息传递 GNN 不能区分 WL 测试无法区分的图。超越 WL 极限的方向包括：高阶 WL 测试（$k$-WL，对应 $k$-GNN）、随机特征（RWGNN）、端口编号（Port-Numbered GNN）以及将节点位置信息（SignNet、RWPE）注入 GNN。
 
-**图变换器**（Graph Transformer，Kreuzer 等 2021；Rampasek 等 2022）在传统 GNN 基础上加入全局注意力，解决消息传递的长程依赖问题，在分子性质预测和 3D 蛋白质结构图上达到最优性能。
+**图变换器**（Graph Transformer，Kreuzer 等 2021；Rampasek 等 2022）在传统 GNN 基础上加入全局注意力，缓解消息传递的长程依赖问题；在部分分子性质预测和 3D 蛋白质结构任务上取得了有竞争力的结果，但效果依赖数据集、模型规模和计算预算。
 
 ### 15.2 时序网络与因果传播
 

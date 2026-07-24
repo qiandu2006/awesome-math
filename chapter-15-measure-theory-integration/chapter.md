@@ -516,7 +516,7 @@ $$
 
 ### 13.1 最优传输与测度推动
 
-测度论为最优传输（第十八章）提供了最自然的语言：Kantorovich 问题在概率测度空间 $\mathcal{P}(\mathcal{X})$ 上寻找最优耦合测度 $\pi \in \mathcal{P}(\mathcal{X}\times\mathcal{X})$。Brenier 定理（1991）给出了绝对连续测度间 $W_2$ 最优映射存在且唯一的充要条件，其证明依赖 Radon-Nikodym 定理和凸函数的 Legendre 变换。Wasserstein 梯度流（Jordan-Kinderlehrer-Otto 1998）把 Fokker-Planck 方程理解为在 $(\mathcal{P}_2,W_2)$ 度量空间上的梯度流，是连接概率测度与 PDE 的核心桥梁。
+测度论为最优传输（第十八章）提供了最自然的语言：Kantorovich 问题在概率测度空间 $\mathcal{P}(\mathcal{X})$ 上寻找最优耦合测度 $\pi \in \mathcal{P}(\mathcal{X}\times\mathcal{X})$。在欧氏空间的二次成本下，若源测度对 Lebesgue 测度绝对连续且二阶矩有限，Brenier 定理保证最优计划由凸函数梯度给出的传输映射表示，并且该映射在源测度意义下几乎处处唯一；这是一个充分条件，不是所有成本和测度情形下的充要条件。Wasserstein 梯度流（Jordan-Kinderlehrer-Otto 1998）把 Fokker-Planck 方程理解为在 $(\mathcal{P}_2,W_2)$ 度量空间上的梯度流，是连接概率测度与 PDE 的核心桥梁。
 
 ### 13.2 量子测度与非交换积分
 

@@ -250,7 +250,7 @@ $$
 
 Langlands（1967）预言数域 $F$ 上的自守表示（L-函数、模形式、自守型）与其绝对 Galois 群 $\text{Gal}(\bar{F}/F)$ 的 $n$ 维复线性表示（Galois 表示）之间存在深刻对应。这个"宏大统一纲领"连接了：
 
-- **局部 Langlands 对应**（Harris-Taylor 2001，Henniart 2000）：$p$-进域上的不可约光滑表示与 Weil-Deligne 表示的精确对应，是 Wiles 证明 Fermat 大定理的理论背景。
+- **局部 Langlands 对应**（Harris-Taylor 2001，Henniart 2000）：对若干 $p$-进域和一般线性群，局部 Langlands 将不可约光滑表示与 Weil-Deligne 表示对应起来。它属于 Langlands 纲领的局部理论，并不是 Wiles 证明 Fermat 大定理所需的直接背景；后者主要使用模性提升和 Galois 表示。
 - **几何 Langlands 纲领**（第二十章前沿展望）：复曲线上代数 D-模与局部系的对应。
 - **算术 Langlands**（Fargues-Fontaine 2021 曲线）：用完美拟 Adic 空间统一 $p$-进表示理论，推进 $p$-进 Langlands 对应。
 

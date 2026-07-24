@@ -270,7 +270,7 @@ $$
 
 经典最优传输寻找两个分布之间的确定性最优映射。**Schrödinger 桥**问题（Schrödinger 1931；Léonard 2013）引入熵正则化：在连接 $\mu_0$ 与 $\mu_1$ 的所有随机过程中，寻找 KL 散度最小者（最接近参考布朗运动）。极限 $\varepsilon\to 0$ 时回退到标准 OT；有限 $\varepsilon$ 时得到一对耦合扩散过程，其漂移项满足 Sinkhorn-like 迭代（IPFP 算法）。
 
-De Bortoli 等（2021）将 Schrödinger 桥与扩散生成模型结合：把数据分布和噪声分布之间的 Schrödinger 桥转化为一对配对 SDE，无需显式 score matching 即可进行生成采样，且对小数据集的生成质量优于标准 DDPM。
+De Bortoli 等（2021）将 Schrödinger 桥与扩散生成模型结合：把数据分布和噪声分布之间的 Schrödinger 桥转化为一对配对 SDE，并可用迭代比例拟合和得分估计等方法近似采样。它在特定数据规模和实验设置下有优势，但不能概括为普遍优于标准 DDPM。
 
 ### 13.2 非平衡最优传输与部分传输
 
