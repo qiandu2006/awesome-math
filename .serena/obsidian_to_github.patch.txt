@@ -1,0 +1,172 @@
+*** Begin Patch
+*** Update File: /Users/duqian/dev/learn/chapter-01-fourier-transform/chapter.md
+@@
+-![[ChatGPT Image 2026年6月20日 23_26_06.png]]
++![](../images/ChatGPT Image 2026年6月20日 23_26_06.png)
+*** Update File: /Users/duqian/dev/learn/chapter-02-wavelet-transform/chapter.md
+@@
+-![[ChatGPT Image 2026年6月22日 21_27_37.png]]
++![](../images/ChatGPT Image 2026年6月22日 21_27_37.png)
+*** Update File: /Users/duqian/dev/learn/chapter-03-functional-analysis/chapter.md
+@@
+-![[ChatGPT Image 2026年6月22日 21_40_01.png]]
++![](../images/ChatGPT Image 2026年6月22日 21_40_01.png)
+@@
+-![[functional_analysis_space_hierarchy_final_v2.png]]
++![](../images/functional_analysis_space_hierarchy_final_v2.png)
+@@
+-![[ChatGPT Image 2026年6月22日 22_00_47.png]]
++![](../images/ChatGPT Image 2026年6月22日 22_00_47.png)
+@@
+-![[ChatGPT Image 2026年6月22日 22_02_01.png]]
++![](../images/ChatGPT Image 2026年6月22日 22_02_01.png)
+*** Update File: /Users/duqian/dev/learn/chapter-04-differential-geometry/chapter.md
+@@
+-![[Pasted image 20260625214110.png]]
++![](../images/Pasted image 20260625214110.png)
+@@
+-![[Pasted image 20260625214143.png]]
++![](../images/Pasted image 20260625214143.png)
+@@
+-![[Pasted image 20260625214217.png]]
++![](../images/Pasted image 20260625214217.png)
+@@
+-![[Pasted image 20260625214248.png]]
++![](../images/Pasted image 20260625214248.png)
+@@
+-![[Pasted image 20260625214319.png]]
++![](../images/Pasted image 20260625214319.png)
+@@
+-![[Pasted image 20260625214345.png]]
++![](../images/Pasted image 20260625214345.png)
+@@
+-![[Pasted image 20260625214403.png]]
++![](../images/Pasted image 20260625214403.png)
+*** Update File: /Users/duqian/dev/learn/chapter-05-topology/chapter.md
+@@
+-![[Pasted image 20260627001011.png]]
++![](../images/Pasted image 20260627001011.png)
+*** Update File: /Users/duqian/dev/learn/chapter-06-homology-cohomology/chapter.md
+@@
+-![[Pasted image 20260627230343.png]]
++![](../images/Pasted image 20260627230343.png)
+*** Update File: /Users/duqian/dev/learn/chapter-07-category-theory/chapter.md
+@@
+-![[Pasted image 20260628161840.png]]
++![](../images/Pasted image 20260628161840.png)
+@@
+-![[Pasted image 20260628161902.png]]
++![](../images/Pasted image 20260628161902.png)
+@@
+-![[Pasted image 20260628161918.png]]
++![](../images/Pasted image 20260628161918.png)
+@@
+-![[Pasted image 20260628161933.png]]
++![](../images/Pasted image 20260628161933.png)
+@@
+-![[Pasted image 20260628161954.png]]
++![](../images/Pasted image 20260628161954.png)
+@@
+-![[Pasted image 20260628162006.png]]
++![](../images/Pasted image 20260628162006.png)
+*** Update File: /Users/duqian/dev/learn/chapter-08-stochastic-analysis/chapter.md
+@@
+-![[Pasted image 20260628162557.png]]
++![](../images/Pasted image 20260628162557.png)
+*** Update File: /Users/duqian/dev/learn/chapter-09-convex-optimization/chapter.md
+@@
+-![[Pasted image 20260628163127.png]]
++![](../images/Pasted image 20260628163127.png)
+*** Update File: /Users/duqian/dev/learn/chapter-10-information-theory/chapter.md
+@@
+-![[Pasted image 20260628225123.png]]
++![](../images/Pasted image 20260628225123.png)
+*** Update File: /Users/duqian/dev/learn/chapter-11-statistical-learning-theory/chapter.md
+@@
+-![[Pasted image 20260628225141.png]]
++![](../images/Pasted image 20260628225141.png)
+*** Update File: /Users/duqian/dev/learn/chapter-12-bayesian-statistics-graphical-models/chapter.md
+@@
+-![[Pasted image 20260628225159.png]]
++![](../images/Pasted image 20260628225159.png)
+*** Update File: /Users/duqian/dev/learn/chapter-13-causal-inference/chapter.md
+@@
+-![[Pasted image 20260628225220.png]]
++![](../images/Pasted image 20260628225220.png)
+*** Update File: /Users/duqian/dev/learn/chapter-14-dynamical-systems-chaos/chapter.md
+@@
+-![[Pasted image 20260628225233.png]]
++![](../images/Pasted image 20260628225233.png)
+*** Update File: /Users/duqian/dev/learn/chapter-15-measure-theory-integration/chapter.md
+@@
+-![[Pasted image 20260628225246.png]]
++![](../images/Pasted image 20260628225246.png)
+*** Update File: /Users/duqian/dev/learn/chapter-16-partial-differential-equations/chapter.md
+@@
+-![[Pasted image 20260628171336.png]]
++![](../images/Pasted image 20260628171336.png)
+*** Update File: /Users/duqian/dev/learn/chapter-17-numerical-analysis-scientific-computing/chapter.md
+@@
+-![[Pasted image 20260628171346.png]]
++![](../images/Pasted image 20260628171346.png)
+*** Update File: /Users/duqian/dev/learn/chapter-18-optimal-transport/chapter.md
+@@
+-![[Pasted image 20260628173635.png]]
++![](../images/Pasted image 20260628173635.png)
+*** Update File: /Users/duqian/dev/learn/chapter-19-lie-groups-lie-algebras/chapter.md
+@@
+-![[Pasted image 20260628173649.png]]
++![](../images/Pasted image 20260628173649.png)
+*** Update File: /Users/duqian/dev/learn/chapter-20-representation-theory-symmetry/chapter.md
+@@
+-![[Pasted image 20260628173700.png]]
++![](../images/Pasted image 20260628173700.png)
+*** Update File: /Users/duqian/dev/learn/chapter-21-algebraic-geometry/chapter.md
+@@
+-![[Pasted image 20260628173711.png]]
++![](../images/Pasted image 20260628173711.png)
+*** Update File: /Users/duqian/dev/learn/chapter-22-quantum-information/chapter.md
+@@
+-![[Pasted image 20260628173725.png]]
++![](../images/Pasted image 20260628173725.png)
+*** Update File: /Users/duqian/dev/learn/chapter-23-complex-systems-network-science/chapter.md
+@@
+-![[Pasted image 20260628173752.png]]
++![](../images/Pasted image 20260628173752.png)
+*** Update File: /Users/duqian/dev/learn/chapter-24-deep-learning-theory/chapter.md
+@@
+-![[Pasted image 20260628173818.png]]
++![](../images/Pasted image 20260628173818.png)
+*** Update File: /Users/duqian/dev/learn/chapter-25-differential-topology/chapter.md
+@@
+-![[Pasted image 20260628173840.png]]
++![](../images/Pasted image 20260628173840.png)
+*** Update File: /Users/duqian/dev/learn/chapter-26-symplectic-geometry-hamiltonian-systems/chapter.md
+@@
+-![[Pasted image 20260628173904.png]]
++![](../images/Pasted image 20260628173904.png)
+*** Update File: /Users/duqian/dev/learn/chapter-27-fiber-bundles-characteristic-classes/chapter.md
+@@
+-![[Pasted image 20260628173927.png]]
++![](../images/Pasted image 20260628173927.png)
+*** Update File: /Users/duqian/dev/learn/chapter-28-algebraic-number-theory/chapter.md
+@@
+-![[Pasted image 20260628173936.png]]
++![](../images/Pasted image 20260628173936.png)
+*** Update File: /Users/duqian/dev/learn/chapter-29-operator-algebras/chapter.md
+@@
+-![[Pasted image 20260628173945.png]]
++![](../images/Pasted image 20260628173945.png)
+*** Update File: /Users/duqian/dev/learn/chapter-30-stochastic-control-reinforcement-learning/chapter.md
+@@
+-![[Pasted image 20260628173956.png]]
++![](../images/Pasted image 20260628173956.png)
+*** Update File: /Users/duqian/dev/learn/chapter-31-information-geometry/chapter.md
+@@
+-![[Pasted image 20260628174007.png]]
++![](../images/Pasted image 20260628174007.png)
+*** Update File: /Users/duqian/dev/learn/chapter-32-tensor-networks-modern-physics/chapter.md
+@@
+-![[Pasted image 20260628174021.png]]
++![](../images/Pasted image 20260628174021.png)
+*** End Patch

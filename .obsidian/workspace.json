@@ -1,0 +1,238 @@
+{
+  "main": {
+    "id": "45686ba808e0117e",
+    "type": "split",
+    "children": [
+      {
+        "id": "f5ed6cf052096a29",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e9a0cae7c463eff8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "chapter-01-fourier-transform/chapter.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "chapter"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "3345cb1903ffd3b3",
+    "type": "split",
+    "children": [
+      {
+        "id": "1db1d90b6a3ca74e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a3e92987c39eaeea",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "1ecc66b479bef02b",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "7b7a325deae68a1e",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "right": {
+    "id": "0d5aa60fe9ea4bab",
+    "type": "split",
+    "children": [
+      {
+        "id": "a7d99ea544c73697",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a2201511fe8abe8b",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "chapter-01-fourier-transform/chapter.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "chapter 的反向链接列表"
+            }
+          },
+          {
+            "id": "bfad5bdf141c4e90",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "chapter-01-fourier-transform/chapter.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "chapter 的出链列表"
+            }
+          },
+          {
+            "id": "18719c21636e6d7f",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "b685ad98fd7a7ac0",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "58edc34ed2f83dac",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "chapter-01-fourier-transform/chapter.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "chapter 的大纲"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:新建数据库": false
+    }
+  },
+  "active": "e9a0cae7c463eff8",
+  "lastOpenFiles": [
+    "chapter-01-fourier-transform/images/heat_diffusion_scale.png",
+    "chapter-01-fourier-transform/images/microscopic_heat_transport.png",
+    "chapter-01-fourier-transform/images/heat_flux_gradient.png",
+    "chapter-01-fourier-transform/images/curvature_temperature_change.png",
+    "chapter-01-fourier-transform/images/heat_control_volume.png",
+    "chapter-01-fourier-transform/scripts/plot_curvature_temperature_change.py",
+    "chapter-01-fourier-transform/scripts/plot_heat_diffusion_scale.py",
+    "chapter-01-fourier-transform/scripts/plot_heat_control_volume.py",
+    "chapter-01-fourier-transform/scripts/plot_microscopic_heat_transport.py",
+    "chapter-01-fourier-transform/scripts/plot_heat_flux_gradient.py",
+    "chapter-02-wavelet-transform/chapter.md",
+    "chapter-01-fourier-transform/chapter.md",
+    "chapter-27-fiber-bundles-characteristic-classes/chapter.md",
+    "chapter-03-functional-analysis/chapter.md",
+    "package-lock.json",
+    "chapter-21-algebraic-geometry/chapter.md",
+    "chapter-04-differential-geometry/chapter.md",
+    "chapter-22-quantum-information/chapter.md",
+    "chapter-25-differential-topology/chapter.md",
+    "chapter-28-algebraic-number-theory/chapter.md",
+    "chapter-26-symplectic-geometry-hamiltonian-systems/chapter.md",
+    "chapter-17-numerical-analysis-scientific-computing/chapter.md",
+    "chapter-05-topology/chapter.md",
+    "chapter-06-homology-cohomology/chapter.md",
+    "Gemfile",
+    "_layouts/default.html",
+    "_layouts",
+    "_config.yml",
+    "chapter-32-tensor-networks-modern-physics/chapter.md",
+    "README.md",
+    "AGENT.md",
+    "content.md",
+    "skills/unclecheng-reduce-ai-perception-v2/SKILL.md",
+    "images/Pasted image 20260628225113.png",
+    "chapter-16-partial-differential-equations/chapter.md",
+    "chapter-15-measure-theory-integration/chapter.md",
+    "chapter-14-dynamical-systems-chaos/chapter.md",
+    "chapter-13-causal-inference/chapter.md",
+    "chapter-12-bayesian-statistics-graphical-models/chapter.md",
+    "chapter-11-statistical-learning-theory/chapter.md",
+    "chapter-10-information-theory/chapter.md",
+    "images/Pasted image 20260628225246.png",
+    "images/Pasted image 20260628225233.png",
+    "images/Pasted image 20260628225220.png",
+    "images/Pasted image 20260628225159.png",
+    "images/Pasted image 20260628225141.png"
+  ]
+}
