@@ -2,21 +2,46 @@
 layout: default
 ---
 
-# 重学数学之一: 傅里叶变换
-![](../images/ChatGPT%20Image%202026%E5%B9%B46%E6%9C%8820%E6%97%A5%2023_26_06.png)
+# 重学数学之一：傅里叶变换
+
+![傅里叶变换把复杂信号分解为频率成分](../images/ChatGPT%20Image%202026%E5%B9%B46%E6%9C%8820%E6%97%A5%2023_26_06.png)
+
+## 阅读说明
+
+| 项目 | 内容 |
+| --- | --- |
+| 主问题 | 为什么正弦、余弦能够分解热扩散与信号问题？连续 Fourier 变换、DFT 和 FFT 之间是什么关系？ |
+| 预备知识 | 一元与多元微积分、常微分方程、复数、线性代数中的内积与正交基；接触过偏微分方程会更顺畅，但不是必需。 |
+| 核心结果 | 正弦系统在 $L^2(0,L)$ 中的完备性；热方程的 Fourier 级数解；Schwartz 函数的 Fourier 反演；卷积定理；DFT 反演与 radix-2 FFT 分解。 |
+| 本章边界 | 重点讨论一维 Fourier 分析。一般 $L^p$ 乘子、分布、抽象局部紧群上的调和分析只作提示。 |
+
+除非另有说明，本章函数取复值；实值函数是其特例。连续 Fourier 变换统一采用角频率约定
+
+$$
+\widehat f(\omega)=\int_{\mathbb R}f(t)e^{-i\omega t}\,dt,
+\qquad
+f(t)=\frac{1}{2\pi}\int_{\mathbb R}\widehat f(\omega)e^{i\omega t}\,d\omega.
+$$
+
+在复 Hilbert 空间中使用对第一个变量线性的内积
+
+$$
+\langle f,g\rangle=\int f(x)\overline{g(x)}\,dx.
+$$
+
+$\mathcal S(\mathbb R)$ 表示 Schwartz 空间：其中的函数无限可微，并且函数及其每阶导数都比任意多项式倒数衰减得更快。需要交换积分、求和、极限或微分时，正文会明确说明条件。
+
 ## 一、一个大胆的问题
 
-1807 年，约瑟夫·傅里叶向法国科学院提交了一篇论文。在这篇论文里，他提出了一个在当时看来近乎狂妄的主张：
+1807 年，约瑟夫·傅里叶向法国科学院提交了关于固体热传播的论文；1811 年的扩充稿获得科学院征文奖，但评审仍指出论证的严格性与一般性不足。1822 年，他在《热的解析理论》中系统整理了这套方法（见参考资料 [1, 2]）。
 
-> **非常广泛的一类周期函数，都可以用正弦波与余弦波的叠加来表示。**
+傅里叶方法的核心主张可以用现代语言谨慎地概括为：
 
-傅里叶当年的说法比现代定理更大胆，常被概括成“任何周期函数都可以这样展开”。
+> **相当广泛的一类周期函数，可以用正弦、余弦的叠加表示；但“表示”的含义取决于函数空间与收敛方式。**
 
-现代数学必须立刻追问：函数属于什么空间，“写成”又是哪一种收敛？例如，平方可积的周期函数可以在 $L^2$ 的平方平均意义下由 Fourier 级数逼近；若希望逐点或一致收敛，还要增加别的条件。傅里叶当年的大胆之处，在于先抓住了正确的结构直觉，而严格的收敛理论后来才由 Dirichlet、Riemann、Lebesgue、Hilbert 等人逐步补齐。
+现代数学必须继续追问：函数属于什么空间？等式是逐点成立、几乎处处成立，还是仅在 $L^2$ 的平方平均意义下成立？例如，平方可积周期函数的 Fourier 级数在 $L^2$ 意义下收敛；若要保证逐点或一致收敛，则必须增加正则性条件。早期争论不宜简化成“光滑正弦不能拼出尖角”，真正困难在于如何界定可展开的函数类，以及如何证明相应的收敛。
 
-今天我们回头看，这个主张几乎定义了整个信号处理、现代物理学、以及一大块应用数学。但在当时，拉格朗日和拉普拉斯等数学界权威认为这显然是错的——你怎么能用光滑的正弦波拼出一个有尖角的函数？
-
-傅里叶最终在 1822 年的《热的解析理论》中系统地展开了他的想法。顺带一提，他研究这个问题的出发点非常具体：**热传导方程**——一个偏微分方程。他是为了解决物理问题才发明了这套数学工具。这并非孤例：数学里最伟大的发明，几乎从来没有在纯粹的形式推导中诞生，它们总是从某个具体问题中获得生命。
+这套理论的起点不是抽象的频谱概念，而是一个具体的偏微分方程：给定物体最初的温度分布，怎样预测热量随时间传播？
 
 ## 二、如果你是傅里叶，你会怎么想？
 
@@ -178,7 +203,7 @@ $$
 
 ### 2.2 先解决最简单的情况
 
-你可能会想："如果我把困难的问题化简为一些基本情况的组合呢？"
+你可能会想：“如果我把困难的问题化简为一些基本情况的组合呢？”
 
 正弦函数有一个极其美妙的性质：它在求导之后**仍然是正弦函数**（顶多差一个常数因子和相位）。具体来说：
 
@@ -264,6 +289,75 @@ $$
 
 这正是**线性叠加原理**的威力：把复杂初始状态分解为算子的基本模式，分别演化后再合并。用线性代数的语言说，$\sin(n\pi x/L)$ 是二阶微分算子在固定端点边界条件下的特征函数，特征值是 $-(n\pi/L)^2$；热方程只是让每个特征方向乘上相应的指数衰减因子。这个方法后来演变为整个数学物理的核心范式。
 
+### 2.4 核心定理：热方程的正弦级数解
+
+先从有限个模式开始，这样所有求导与求和都不涉及极限交换。
+
+**定理 1（有限 Fourier 模式的热方程解）**  
+设 $L>0$、$\alpha>0$，并令
+$$
+f_N(x)=\sum_{n=1}^{N}b_n\sin\left(\frac{n\pi x}{L}\right).
+$$
+则初边值问题
+$$
+\begin{cases}
+u_t=\alpha u_{xx},&0<x<L,\ t>0,\\
+u(0,t)=u(L,t)=0,&t\ge 0,\\
+u(x,0)=f_N(x),&0\le x\le L
+\end{cases}
+$$
+在 $C([0,L]\times[0,\infty))\cap C^{2,1}([0,L]\times(0,\infty))$ 中有唯一经典解
+$$
+u_N(x,t)=\sum_{n=1}^{N}
+b_n e^{-\alpha(n\pi/L)^2t}
+\sin\left(\frac{n\pi x}{L}\right).
+$$
+
+**证明。**
+
+**存在性。** 上式是有限和，所以可以逐项求导。记 $k_n=n\pi/L$，则
+
+$$
+\begin{aligned}
+\partial_t u_N
+&=\sum_{n=1}^{N}(-\alpha k_n^2)b_ne^{-\alpha k_n^2t}\sin(k_nx),\\
+\partial_{xx}u_N
+&=\sum_{n=1}^{N}(-k_n^2)b_ne^{-\alpha k_n^2t}\sin(k_nx).
+\end{aligned}
+$$
+
+因此 $\partial_tu_N=\alpha\partial_{xx}u_N$。又因 $\sin(0)=0$ 且 $\sin(n\pi)=0$，有 $u_N(0,t)=u_N(L,t)=0$；令 $t=0$ 则 $u_N(x,0)=f_N(x)$。存在性得证。
+
+**唯一性。** 若 $u$ 与 $v$ 是两个经典解，令 $w=u-v$。则 $w$ 满足齐次热方程、齐次边界条件和零初值。定义能量
+
+$$
+E(t)=\frac12\int_0^L|w(x,t)|^2\,dx.
+$$
+
+对复值解应取实部；利用分部积分和 $w(0,t)=w(L,t)=0$，
+
+$$
+\begin{aligned}
+E'(t)
+&=\operatorname{Re}\int_0^L w_t\overline w\,dx\\
+&=\alpha\operatorname{Re}\int_0^L w_{xx}\overline w\,dx\\
+&=\alpha\operatorname{Re}\left([w_x\overline w]_0^L-\int_0^L|w_x|^2\,dx\right)\\
+&=-\alpha\int_0^L|w_x|^2\,dx\le 0.
+\end{aligned}
+$$
+
+对任意 $0<\varepsilon<t$，上述不等式给出 $E(t)\le E(\varepsilon)$。又因 $w$ 在 $t=0$ 连续且初值为零，$E(\varepsilon)\to E(0)=0$。因此 $E(t)=0$；于是 $w(\cdot,t)=0$，即 $u=v$。证毕。
+
+**从有限和到一般初值。** 定理 2 将证明归一化正弦函数构成 $L^2(0,L)$ 的正交基。因此任意 $f\in L^2(0,L)$ 都有 $L^2$ 收敛的正弦展开。相同公式定义热半群解；由 Parseval 等式，
+
+$$
+\|u(\cdot,t)-f\|_2^2
+=\frac L2\sum_{n=1}^{\infty}|b_n|^2
+\left|e^{-\alpha(n\pi/L)^2t}-1\right|^2\longrightarrow0
+$$
+
+当 $t\downarrow0$。这里可用支配收敛，因为括号内绝对值不超过 $2$，而 $\sum |b_n|^2<\infty$。对每个 $t>0$，指数衰减还保证级数可以任意次逐项求导，所以解立即变得光滑。这一“粗糙初值被瞬间平滑”的性质正是热方程的典型特征。
+
 ![用正弦波拼出方波](images/fig1_square_wave.png)
 
 上图展示了这个思想在几何上是什么样子的：一个尖锐的方波，仅用几个最低频率的正弦波就能大致逼近。随着我们加入更多高频项，逼近越来越精确——尽管在跳变点处总会留有过冲（Gibbs 现象），但它在平方平均的意义上确实收敛。
@@ -302,11 +396,13 @@ $$
 
 这里可以把 $f$ 看作定义在 $[0,\pi]$ 上的函数；如果要把它看成 $[-\pi,\pi]$ 上的傅里叶级数，就先对 $f$ 作奇延拓，因此只出现正弦项。
 
-函数空间 $L^2(0,\pi)$ 上的内积定义为
+函数空间 $L^2(0,\pi;\mathbb C)$ 上的内积定义为
 
 $$
-\langle f,g\rangle=\int_0^\pi f(x)g(x)\,dx.
+\langle f,g\rangle=\int_0^\pi f(x)\overline{g(x)}\,dx.
 $$
+
+若只讨论实值函数，共轭号可以省略。这里的 $L^2$ 元素严格说是“几乎处处相等”的函数等价类；积分与范数不区分代表元。
 
 正弦函数满足
 
@@ -358,6 +454,85 @@ $$
 $$
 
 坐标就可以直接写成 $\langle f,\phi_m\rangle$。
+
+正交性只能说明系数彼此不混淆，还不能说明这些函数足以逼近所有 $L^2$ 函数；后者需要完备性。
+
+**定理 2（正弦系统的完备性）**  
+$$
+\left\{\sqrt{\frac{2}{\pi}}\sin(nx):n=1,2,\ldots\right\}
+$$
+是 $L^2(0,\pi)$ 的一组完备正交系统。等价地，对每个 $f\in L^2(0,\pi)$，其部分和
+$$
+S_Nf=\sum_{n=1}^{N}\left\langle f,\sqrt{\frac2\pi}\sin(n\,\cdot)\right\rangle
+\sqrt{\frac2\pi}\sin(nx)
+$$
+满足 $\|S_Nf-f\|_2\to0$。
+
+**证明。** 正交归一性已经由前面的积分计算得到。只需证明：若 $h\in L^2(0,\pi)$ 与所有 $\sin(nx)$ 正交，则 $h=0$。
+
+把 $h$ 奇延拓到 $(-\pi,\pi)$，得到 $2\pi$-周期函数
+
+$$
+H(x)=
+\begin{cases}
+h(x),&0<x<\pi,\\
+-h(-x),&-\pi<x<0.
+\end{cases}
+$$
+
+因为 $H$ 是奇函数，它与常数及所有 $\cos(nx)$ 正交；由假设，
+
+$$
+\int_{-\pi}^{\pi}H(x)\sin(nx)\,dx
+=2\int_0^\pi h(x)\sin(nx)\,dx=0.
+$$
+
+所以 $H$ 的全部复 Fourier 系数都为零。
+
+现在令 Fejér 核为
+
+$$
+K_N(t)=\frac1{N+1}
+\left(\frac{\sin((N+1)t/2)}{\sin(t/2)}\right)^2,
+$$
+
+并在 $t=0$ 处取连续延拓值 $K_N(0)=N+1$。由有限等比和，
+
+$$
+K_N(t)=\frac1{N+1}\left|\sum_{j=0}^{N}e^{ijt}\right|^2
+=\sum_{k=-N}^{N}\left(1-\frac{|k|}{N+1}\right)e^{ikt}.
+$$
+
+因此 $K_N\ge0$，且积分只保留常数项，从而
+$\frac1{2\pi}\int_{-\pi}^{\pi}K_N(t)\,dt=1$。Fejér 平均
+
+$$
+\sigma_NH(x)=\frac1{2\pi}\int_{-\pi}^{\pi}H(x-t)K_N(t)\,dt
+$$
+
+的 Fourier 系数是 $H$ 的 Fourier 系数乘以三角权重 $1-|k|/(N+1)$，故此处 $\sigma_NH=0$。
+
+另一方面，平移在 $L^2$ 中连续，即
+$\|H(\,\cdot-t)-H\|_2\to0$ 当 $t\to0$。这个事实可先对连续周期函数由一致连续性证明，再利用连续函数在 $L^2$ 中稠密推广。由 Minkowski 积分不等式，
+
+$$
+\|\sigma_NH-H\|_2
+\le\frac1{2\pi}\int_{-\pi}^{\pi}
+K_N(t)\|H(\,\cdot-t)-H\|_2\,dt.
+$$
+
+给定 $\varepsilon>0$，先选 $\delta>0$，使 $|t|<\delta$ 时平移差的 $L^2$ 范数小于 $\varepsilon$。这部分积分不超过 $\varepsilon$。当 $\delta\le|t|\le\pi$ 时，
+
+$$
+K_N(t)\le
+\frac{1}{(N+1)\sin^2(\delta/2)},
+$$
+
+而平移差不超过 $2\|H\|_2$，所以剩余积分随 $N\to\infty$ 趋于零。因此 $\sigma_NH\to H$ 于 $L^2$。但每个 $\sigma_NH=0$，故 $H=0$，进而 $h=0$。证毕。
+
+把变量作线性缩放，立即得到
+$\{\sqrt{2/L}\sin(n\pi x/L)\}_{n\ge1}$
+是 $L^2(0,L)$ 的完备正交系统。
 
 严格来说，对无穷级数直接交换求和与积分需要收敛条件。更稳妥的理解是：先在前 $N$ 个正弦函数张成的空间中寻找 $f$ 的正交投影，要求误差
 
@@ -509,28 +684,110 @@ $$
 
 可见，当频率格子宽度 $\Delta\omega$ 趋于零时，单个格子的系数 $c_n$ 也趋于零；不趋于零的是除去格子宽度后留下的密度 $\widehat f(\omega)$。积分 $\widehat f(\omega)\,d\omega/(2\pi)$ 才是一个无穷小频带对原函数的贡献。
 
-还可以检查这两个公式为什么互为逆变换。把正变换代入逆变换，形式上有
+上面的“周期趋于无穷”解释了公式的来源和归一化，却还不是反演定理的证明：黎曼和是否收敛、极限能否交换，都需要统一控制。下面在 Schwartz 空间中给出一个不依赖形式 $\delta$ 计算的严格版本。
+
+**定理 3（Schwartz 函数的 Fourier 反演）**  
+若 $f\in\mathcal S(\mathbb R)$，则 $\widehat f\in L^1(\mathbb R)$，并且对每个 $x\in\mathbb R$，
+$$
+f(x)=\frac1{2\pi}\int_{\mathbb R}\widehat f(\omega)e^{i\omega x}\,d\omega.
+$$
+
+**证明。**
+
+首先证明逆变换积分绝对收敛。由定义，
+$|\widehat f(\omega)|\le\|f\|_1$。当 $\omega\ne0$ 时，对定义积分分部积分两次；Schwartz 衰减保证边界项为零，因此
+
+$$
+|\widehat f(\omega)|
+=\frac1{\omega^2}\left|
+\int_{\mathbb R}f''(t)e^{-i\omega t}\,dt
+\right|
+\le\frac{\|f''\|_1}{\omega^2}.
+$$
+
+在 $|\omega|\le1$ 使用第一个界，在 $|\omega|>1$ 使用第二个界，便得 $\widehat f\in L^1$。
+
+对 $\varepsilon>0$，在逆变换中加入 Gaussian 截止：
+
+$$
+I_\varepsilon(x)=\frac1{2\pi}\int_{\mathbb R}
+\widehat f(\omega)e^{i\omega x}
+e^{-\varepsilon\omega^2/2}\,d\omega.
+$$
+
+先计算 Gaussian 的逆变换。令
+
+$$
+J_\varepsilon(y)=\frac1{2\pi}\int_{\mathbb R}
+e^{-\varepsilon\omega^2/2}e^{i\omega y}\,d\omega.
+$$
+
+由于被积函数乘上任意一次 $\omega$ 后仍绝对可积，可以对 $y$ 求导；再对 $\omega$ 分部积分，得到
+$J_\varepsilon'(y)=-(y/\varepsilon)J_\varepsilon(y)$；又由 Gaussian 积分
+$J_\varepsilon(0)=1/\sqrt{2\pi\varepsilon}$。解这个一阶方程可得
+
+$$
+J_\varepsilon(y)
+=\frac1{\sqrt{2\pi\varepsilon}}
+e^{-y^2/(2\varepsilon)}
+=:\varphi_\varepsilon(y).
+$$
+
+把 $\widehat f$ 的定义代入 $I_\varepsilon$。因为
+
+$$
+\int_{\mathbb R}\int_{\mathbb R}
+|f(t)|e^{-\varepsilon\omega^2/2}\,dt\,d\omega
+=\|f\|_1\sqrt{\frac{2\pi}{\varepsilon}}<\infty,
+$$
+
+Fubini 定理允许交换积分次序，于是
 
 $$
 \begin{aligned}
-\frac{1}{2\pi}\int_{-\infty}^{\infty}
-\widehat f(\omega)e^{i\omega t}\,d\omega
-&=\int_{-\infty}^{\infty}f(s)
-\left[\frac{1}{2\pi}\int_{-\infty}^{\infty}
-e^{i\omega(t-s)}\,d\omega\right]ds\\
-&=\int_{-\infty}^{\infty}f(s)\delta(t-s)\,ds\\
-&=f(t).
+I_\varepsilon(x)
+&=\int_{\mathbb R}f(t)
+\left[\frac1{2\pi}\int_{\mathbb R}
+e^{-\varepsilon\omega^2/2}e^{i\omega(x-t)}\,d\omega\right]dt\\
+&=\int_{\mathbb R}f(t)\varphi_\varepsilon(x-t)\,dt\\
+&=(f*\varphi_\varepsilon)(x).
 \end{aligned}
 $$
 
-中括号里的表达式是 Dirac $\delta$ 的 Fourier 表示。把频率先限制在 $[-\Omega,\Omega]$，它是普通函数
+$\varphi_\varepsilon\ge0$、$\int\varphi_\varepsilon=1$，而且其质量随 $\varepsilon\downarrow0$ 集中到原点。由于 Schwartz 函数有界且一致连续，
 
 $$
-\frac{1}{2\pi}\int_{-\Omega}^{\Omega}e^{i\omega x}\,d\omega
-=\frac{\sin(\Omega x)}{\pi x}.
+|I_\varepsilon(x)-f(x)|
+\le\int_{\mathbb R}\varphi_\varepsilon(y)
+|f(x-y)-f(x)|\,dy\longrightarrow0.
 $$
 
-当 $\Omega$ 增大时，这个函数越来越集中在 $x=0$ 附近，并在分布意义下趋向 $\delta(x)$。所以逆变换是在叠加所有频率：不同位置的振荡互相抵消，只有 $s=t$ 处的贡献被保留下来。
+具体地，先选 $\delta$ 使 $|y|<\delta$ 时函数差小于任意给定的 $\eta$，再用
+$\int_{|y|\ge\delta}\varphi_\varepsilon(y)\,dy\to0$
+控制尾部。
+
+另一方面，$\widehat f\in L^1$，且
+$|e^{-\varepsilon\omega^2/2}|\le1$。支配收敛定理给出
+
+$$
+I_\varepsilon(x)\longrightarrow
+\frac1{2\pi}\int_{\mathbb R}
+\widehat f(\omega)e^{i\omega x}\,d\omega.
+$$
+
+同一个 $I_\varepsilon(x)$ 的两个极限必须相等，反演公式得证。
+
+**Dirac $\delta$ 的逻辑地位。** 现在可以把常见的形式计算理解为上述证明的压缩写法：
+
+$$
+\frac1{2\pi}\int_{\mathbb R}e^{i\omega(t-s)}\,d\omega
+=\delta(t-s).
+$$
+
+这个等式不在普通函数意义下成立，而是在温和分布意义下成立。Gaussian 因子
+$e^{-\varepsilon\omega^2/2}$
+把形式积分正则化为普通函数 $\varphi_\varepsilon(t-s)$，再令
+$\varepsilon\downarrow0$ 才得到 $\delta$。因此 $\delta$ 可以提供直觉，却不能代替上面对 Fubini、支配收敛和近似恒等核的检查。
 
 $1/(2\pi)$ 的位置只是归一化约定，不是新的物理常数。也可以在正、逆变换两边各放一个 $1/\sqrt{2\pi}$；若用普通频率 $\nu=\omega/(2\pi)$ 而不是角频率 $\omega$，指数写成 $e^{-i2\pi\nu t}$，逆变换前也不再需要 $1/(2\pi)$。无论采用哪种约定，正逆变换的归一化因子乘积必须匹配。
 
@@ -546,25 +803,25 @@ $1/(2\pi)$ 的位置只是归一化约定，不是新的物理常数。也可以
 
 有。3Blue1Brown 的视频 [《But what is the Fourier Transform? A visual introduction》](https://www.youtube.com/watch?v=spUNpyF58BY) 给出了一个绝佳的几何视角。
 
-想象你把信号 `f(t)` 缠绕到一个旋转的圆周上：信号的值决定缠绕点离圆心多远，而缠绕的角速度由你选择的 "测试频率" ω 控制。在每一个时刻 t，缠绕点的位置是：
+先在有限观察区间 $[0,T]$ 上理解这个图像。把每个时刻的信号值 $f(t)$ 乘上旋转因子 $e^{-i\omega t}$，得到复平面上的点
 
 $$
-f(t) \cdot e^{-i\omega t}
+f(t)e^{-i\omega t}.
 $$
 
-现在取所有这些缠绕点的**质心**（即时间平均）：
+这些点的时间平均是
 
 $$
-\text{质心} = \int f(t) \, e^{-i\omega t} \, dt
+C_T(\omega)=\frac1T\int_0^T f(t)e^{-i\omega t}\,dt.
 $$
 
-这恰好就是傅里叶变换的公式。
+因此，截断信号的 Fourier 变换等于 $T C_T(\omega)$。严格说，只有 $C_T$ 才是“质心”；Fourier 积分本身是未除以区间长度的加权总和。
 
-**当测试频率 ω 恰好等于信号中的某个频率分量时**，所有的缠绕点会偏向同一个方向，质心显著偏离原点——表现为频谱上的一个峰值。当测试频率不匹配时，缠绕点均匀散开，质心靠近原点。
+若 $f(t)$ 含有 $Ae^{i\omega_0t}$，测试频率取 $\omega=\omega_0$ 时，这一分量变成常数 $A$，不会在平均中互相抵消；若频率相差较大而观察窗口足够长，相位会绕许多圈，平均往往较小。有限窗口会带来谱泄漏，所以“不匹配就严格为零”只在特定正交频率格点上成立。
 
-![缠绕机——匹配的频率让质心走偏](images/fig3_helix.png)
+这个几何图像表达了 Fourier 变换的核心动作：用不同旋转速度测试信号，并测量旋转后的净偏置。它适合建立直觉，但峰宽、泄漏与分辨率仍应由积分公式和窗口长度定量分析。
 
-这个几何图像解释了傅里叶变换到底在做什么：**它在用不同速度将信号缠绕到圆周上，并测量每次缠绕后图样的"偏置"程度**。这是一个纯粹的几何操作——没有魔法，只有旋转和平均。
+![缠绕机：匹配频率使旋转后的平均偏离原点](images/fig3_helix.png)
 
 ## 五、卷积定理：为什么换到频域会更简单
 
@@ -578,7 +835,7 @@ $$
 
 可以把 $f$ 看成输入信号，把 $g$ 看成系统对一个瞬时输入的响应。输入在时刻 $\tau$ 的大小是 $f(\tau)$，它会在之后产生一份平移到 $\tau$ 的响应 $f(\tau)g(t-\tau)$；把所有时刻产生的响应相加，就得到上面的积分。
 
-这个直觉可以用 Dirac $\delta$ 形式化：任意输入都可以分解成许多平移的瞬时输入，
+这个直觉常用 Dirac $\delta$ 记号表达。下面的计算要求 $H$ 能连续地作用在一个包含 $\delta$ 的函数或分布空间上，并且与平移相容；如果没有指定这样的空间，它只能视为工程直觉，而不是“所有线性时不变算子”的无条件定理。对足够规则的输入，可以在分布意义下写成
 
 $$
 f(t)=\int_{-\infty}^{\infty}f(\tau)\delta(t-\tau)\,d\tau.
@@ -628,7 +885,28 @@ $$
 
 所以，在适当的连续性条件下，卷积不是偶然出现的计算技巧，而是线性时不变系统必然具有的形式。声音经过房间产生混响、图像经过镜头产生模糊、信号经过滤波器，都是这个结构。
 
-现在问题变成：傅里叶变换为什么能简化卷积？直接把定义代入即可。为使交换积分次序合法，可以先假设 $f,g\in L^1(\mathbb R)$。沿用前面的变换约定，
+现在问题变成：傅里叶变换为什么能简化卷积？
+
+**定理 4（$L^1$ 卷积定理）**  
+若 $f,g\in L^1(\mathbb R)$，则 $f*g$ 几乎处处有定义且属于 $L^1(\mathbb R)$，并且对每个 $\omega\in\mathbb R$，
+$$
+\widehat{f*g}(\omega)=\widehat f(\omega)\widehat g(\omega).
+$$
+
+**证明。** 先用 Tonelli 定理检查绝对可积性：
+
+$$
+\begin{aligned}
+\int_{\mathbb R}\int_{\mathbb R}
+|f(\tau)g(t-\tau)|\,d\tau\,dt
+&=\int_{\mathbb R}|f(\tau)|
+\left(\int_{\mathbb R}|g(t-\tau)|\,dt\right)d\tau\\
+&=\|f\|_1\|g\|_1<\infty.
+\end{aligned}
+$$
+
+因此 $f*g$ 几乎处处有定义，且
+$\|f*g\|_1\le\|f\|_1\|g\|_1$。同一个估计也保证下面乘上模长为 $1$ 的 $e^{-i\omega t}$ 后仍可用 Fubini 定理交换积分。沿用前面的变换约定，
 
 $$
 \begin{aligned}
@@ -665,11 +943,13 @@ $$
 \end{aligned}
 $$
 
-也就是卷积定理：
+也就是
 
 $$
 \boxed{\mathcal F[f*g]=\widehat f\,\widehat g}.
 $$
+
+证毕。
 
 现在“时域中的卷积 = 频域中的乘积”就不再是一个孤立结论。卷积原本需要把无穷多个平移响应叠加起来；Fourier 变换后，每个频率只需乘上一个数 $\widehat g(\omega)$。用线性代数的语言说，复指数是卷积算子的特征函数：
 
@@ -698,7 +978,7 @@ $$
 
 这正是前面看到的结论：每个空间频率独立演化，高频比低频衰减得更快。所谓“高斯模糊”，在频域中只是给第 $\omega$ 个坐标乘上 $e^{-\alpha\omega^2t}$。
 
-乘积也有相应的对偶公式。按照本文采用的正变换无系数、逆变换带 $1/(2\pi)$ 的约定，正确形式是
+乘积也有相应的对偶公式。若 $f,g\in\mathcal S(\mathbb R)$，定理 3 和定理 4 可合法地应用于 $\widehat f,\widehat g$，从而得到
 
 $$
 \mathcal F[fg](\omega)
@@ -789,32 +1069,35 @@ $$
 \sum_{n=0}^{N-1}q^n=\frac{1-q^N}{1-q}=0.
 $$
 
-现在像第三节提取正弦级数系数一样，把 $x$ 投影到这些基向量上。若
+有限维情形不存在收敛方式的歧义，反演公式可以直接由单位根正交性证明。
+
+**定理 5（DFT 反演）**  
+设 $x[0],\ldots,x[N-1]\in\mathbb C$，定义
+$$
+X[k]=\sum_{n=0}^{N-1}x[n]e^{-i2\pi kn/N},
+\qquad k=0,\ldots,N-1.
+$$
+则对每个 $n=0,\ldots,N-1$，
+$$
+x[n]=\frac1N\sum_{k=0}^{N-1}X[k]e^{i2\pi kn/N}.
+$$
+
+**证明。** 把 $X[k]$ 的定义代入右端，因为所有和均为有限和，可以任意交换次序：
 
 $$
-x[n]=\sum_{k=0}^{N-1}c_k e^{i2\pi kn/N},
-$$
-
-由于每个基向量的范数平方为 $N$，投影系数是
-
-$$
-c_k=\frac{1}{N}\sum_{n=0}^{N-1}
-x[n]e^{-i2\pi kn/N}.
-$$
-
-通常把 $N c_k$ 记作 $X[k]$，于是得到 DFT 与逆 DFT：
-
-$$
-\boxed{
 \begin{aligned}
-X[k]
-&=\sum_{n=0}^{N-1}x[n]e^{-i2\pi kn/N},\\[4pt]
-x[n]
-&=\frac{1}{N}\sum_{k=0}^{N-1}X[k]e^{i2\pi kn/N}.
-\end{aligned}}
+\frac1N\sum_{k=0}^{N-1}X[k]e^{i2\pi kn/N}
+&=\frac1N\sum_{k=0}^{N-1}\sum_{m=0}^{N-1}
+x[m]e^{-i2\pi km/N}e^{i2\pi kn/N}\\
+&=\sum_{m=0}^{N-1}x[m]
+\left(\frac1N\sum_{k=0}^{N-1}
+e^{i2\pi k(n-m)/N}\right).
+\end{aligned}
 $$
 
-所以 DFT 不是一个凭空规定的求和公式。它就是长度为 $N$ 的向量在离散复指数正交基下的坐标变换。到这里并不需要群论。
+括号中的单位根和在 $n=m$ 时等于 $1$，在 $n\ne m$ 时等于 $0$。因此整个表达式只留下 $m=n$ 一项，等于 $x[n]$。证毕。
+
+所以 DFT 是 $\mathbb C^N$ 在离散复指数正交基下的可逆坐标变换；正变换不带系数时，逆变换必须带 $1/N$。这一定理同时说明 $N$ 个离散频率向量线性无关并张成整个 $\mathbb C^N$。
 
 如果用群论语言重述同一件事，也会经常看到“DFT 是循环群 $\mathbb Z/N\mathbb Z$ 上的 Fourier 变换”这句话。它没有引入新的计算，只是给前面的对象换了名字：
 
@@ -838,7 +1121,7 @@ $$
 
 即把函数 $x$ 投影到第 $k$ 个特征标上。因此“循环群上的 Fourier 变换”与“离散复指数基下的坐标变换”是同一件事的两种说法；前者只是揭示了这组基函数来自模 $N$ 平移的代数结构。
 
-它与连续 Fourier 变换的关系也可以直接从黎曼和看出。先把 $f$ 截断在观察区间 $[0,T]$ 内，并记这段数据的 Fourier 变换为
+它与连续 Fourier 变换的关系可以由黎曼和说明，但必须固定极限方式。设 $f$ 在 $[0,T]$ 上 Riemann 可积；固定整数 $k$，令 $N\to\infty$ 而 $\Delta t=T/N\to0$。先把 $f$ 截断在观察区间 $[0,T]$ 内，并记这段数据在频率 $\omega_k=2\pi k/T$ 处的 Fourier 变换为
 
 $$
 \begin{aligned}
@@ -850,13 +1133,13 @@ x[n]e^{-i2\pi kn/N}\\
 \end{aligned}
 $$
 
-如果 $f$ 在区间外为零，这就是它在整条实线上的 Fourier 变换；否则它是加窗截断后的变换。DFT 因而既是一个精确的有限维基底变换，也可以在适当的采样和截断条件下近似连续 Fourier 变换。
+如果 $f$ 在区间外为零，这就是它在整条实线上的 Fourier 变换；否则它是加窗截断后的变换。DFT 因而既是一个精确的有限维基底变换，也能在上述极限下近似加窗信号的连续 Fourier 变换。若同时改变 (T)、(N) 或频率下标 (k)，则还需分别分析截断误差、离散化误差和混叠，不能仅凭这一条黎曼和公式下结论。
 
 ### 6.2 FFT 只是更快的 DFT 算法
 
 按照定义直接计算 DFT，需要为 $N$ 个输出 $X[k]$ 分别累加 $N$ 项，所以总共需要 $O(N^2)$ 次运算。快速 Fourier 变换（FFT）并不是另一种变换，而是一类利用指数结构、以更少运算计算同一个 DFT 的算法。
 
-以最基本的 radix-2 Cooley-Tukey 算法为例。假设 $N$ 是偶数，并记
+以最基本的 radix-2 Cooley–Tukey 算法为例。为使下面的二分递归一直进行到长度 (1)，假设 $N=2^m$，并记
 
 $$
 W_N=e^{-i2\pi/N}.
@@ -903,10 +1186,10 @@ $$
 
 ### 6.3 用 FFT 计算卷积
 
-现在可以回到上一节的卷积定理，看看它怎样变成一个算法。设序列 $x$ 和 $h$ 的长度分别为 $N$ 和 $M$，它们的**线性卷积**是
+现在可以回到上一节的卷积定理，看看它怎样变成一个算法。设序列 $x$ 和 $h$ 的长度分别为 $N$ 和 $M$，并约定有效下标以外的值为 $0$。它们的**线性卷积**是
 
 $$
-y[n]=\sum_m x[m]h[n-m].
+y[n]=\sum_{m\in\mathbb Z}x[m]h[n-m].
 $$
 
 只有当两个序列的下标都有效时，对应项才参与求和，因此输出下标从 $0$ 到 $N+M-2$，总长度为 $N+M-1$。逐个计算这些输出，通常需要 $O(NM)$ 次乘加；若 $N$ 与 $M$ 同量级，就是 $O(N^2)$。
@@ -918,6 +1201,22 @@ $$
 =\sum_{m=0}^{P-1}x[m]
 h[(n-m)\bmod P].
 $$
+
+离散卷积定理可以直接验证。若 $X,H$ 分别是 $x,h$ 的长度 $P$ DFT，则
+
+$$
+\begin{aligned}
+\operatorname{DFT}(x*_Ph)[k]
+&=\sum_{n=0}^{P-1}\sum_{m=0}^{P-1}
+x[m]h[(n-m)\bmod P]e^{-i2\pi kn/P}\\
+&=\sum_{m=0}^{P-1}x[m]e^{-i2\pi km/P}
+\sum_{r=0}^{P-1}h[r]e^{-i2\pi kr/P}\\
+&=X[k]H[k].
+\end{aligned}
+$$
+
+第二行令 $r=(n-m)\bmod P$；当 $n$ 遍历全部剩余类时，$r$ 也恰好遍历一次。所有求和均有限，因此不存在换序问题。再应用定理 5 的 DFT 反演，就得到
+$x*_Ph=\operatorname{IDFT}(XH)$。
 
 下标中的模 $P$ 意味着：超过右端的部分会绕回左端。如果直接对长度不足的序列做 DFT，线性卷积末尾的结果就会叠加到开头，产生时域混叠。
 
@@ -938,7 +1237,7 @@ $$
 
 ## 七、应用场景
 
-傅里叶变换是现代技术中渗透得最深的一个数学概念，没有之一。以下是它的主战场：
+傅里叶变换是现代科学与工程中最常用的数学工具之一。下面列出若干典型场景，同时标明常被忽略的建模条件：
 
 ### 信号与图像处理
 
@@ -946,7 +1245,7 @@ $$
 |------|-------------------|
 | JPEG 压缩 | 将图像切成 8×8 块，对每块做 DCT（离散余弦变换，傅里叶的近亲），丢弃高频分量实现压缩 |
 | MP3 / AAC 音频压缩 | 将音频帧变换到频域，利用人耳的心理声学掩蔽效应丢弃听不见的频率分量 |
-| 降噪 | 在频域中将低幅度的频率分量归零（噪声通常分布在所有频率上，信号集中在少数频率） |
+| 降噪 | 当信号与噪声的频谱可区分时设计频域滤波器；若二者频带重叠，简单阈值并不能可靠分离 |
 | 图像锐化/模糊 | 在频域中对高频做增强或抑制 |
 | 通信（OFDM） | 4G LTE 和 Wi-Fi 使用 OFDM，将高速数据流分配到多个正交的子载波上——正是利用了不同频率正弦波的正交性 |
 
@@ -954,11 +1253,11 @@ $$
 
 | 领域 | 傅里叶变换的角色 |
 |------|----------------|
-| 量子力学 | 位置表象和动量表象之间通过傅里叶变换联系；海森堡不确定性原理本质上就是傅里叶变换的时频不确定性 |
-| 光学 | 透镜天然执行二维傅里叶变换——焦平面上的光强分布恰好是入射光的空间频谱 |
-| 振动分析 | 机械系统的振动信号做 FFT 后，频谱中的峰值直接对应特定物理故障（轴承磨损、齿轮缺陷） |
-| 核磁共振（MRI） | k-空间（原始扫描数据）到实际图像的转换就是一次二维傅里叶逆变换 |
-| X 射线晶体学 | 晶体的衍射图样就是其电子密度的傅里叶变换——从衍射图反推分子结构 = 反傅里叶变换 |
+| 量子力学 | 位置表象与动量表象由带有物理常数归一化的 Fourier 变换联系；位置—动量不确定性可由 Fourier 不确定性推出 |
+| 光学 | 在标量、傍轴和薄透镜近似下，透镜后焦平面的复振幅与入射场的二维 Fourier 变换成比例；探测器通常记录其强度 |
+| 振动分析 | FFT 揭示频率峰与边带；把峰归因于具体故障还需要转速、传递路径和噪声模型 |
+| 核磁共振（MRI） | 在理想 Cartesian 编码模型下，图像可由 k 空间数据作逆 Fourier 变换重建；非均匀采样、线圈灵敏度与欠采样需要额外处理 |
+| X 射线晶体学 | 衍射强度给出电子密度 Fourier 系数的模平方而不直接给出相位；结构重建还必须处理“相位问题” |
 
 ### 纯粹数学
 
@@ -968,7 +1267,7 @@ $$
 
 ### 8.1 图傅里叶变换：当信号不再生活在直线上
 
-经典傅里叶变换依赖一个很强的背景假设：信号定义在直线、平面或周期空间上，因此"平移"是清楚的。
+经典傅里叶变换依赖一个很强的背景假设：信号定义在直线、平面或周期空间上，因此“平移”是清楚的。
 
 但很多现代数据不在规则网格上，而在图上：
 
@@ -983,9 +1282,9 @@ $$
 L u_k=\lambda_k u_k
 $$
 
-小的 $\lambda_k$ 对应在图上变化缓慢的模式，大的 $\lambda_k$ 对应振荡剧烈的模式。于是频率不再来自"每秒振动几次"，而来自"沿图边变化得有多快"。
+小的 $\lambda_k$ 对应在图上变化缓慢的模式，大的 $\lambda_k$ 对应振荡剧烈的模式。于是频率不再来自“每秒振动几次”，而来自“沿图边变化得有多快”。
 
-这条线索直接通向图信号处理和图神经网络。图卷积的一个来源，就是把经典卷积定理搬到图谱域中：先按 Laplacian 特征向量分解，再在频域设计滤波器。
+这条线索直接通向图信号处理和图神经网络。谱图卷积的一条路线，是把经典卷积定理类比到图谱域：先按 Laplacian 特征向量分解，再在谱域设计滤波器（见参考资料 [8]）。
 
 ### 8.2 Fourier Neural Operator：学习函数到函数的映射
 
@@ -1003,33 +1302,32 @@ $$
 
 也就是从一个函数映到另一个函数。
 
-Fourier Neural Operator（Li 等，2020）的关键做法是在频域中参数化积分核。每一层大致做三件事：
+Fourier Neural Operator（Li 等，2020；见参考资料 [6]）的关键做法是在频域中参数化积分核。每一层大致做三件事：
 
 1. 把函数变到傅里叶域。
 2. 只在低频或有限频率上学习变换。
 3. 逆变换回物理空间，再加非线性。
 
-这不是简单地"把 FFT 塞进网络"，而是继承了傅里叶方法最核心的思想：许多 PDE 解算子在频域中有更清晰的结构。
+这不是简单地“把 FFT 塞进网络”，而是继承了傅里叶方法最核心的思想：许多 PDE 解算子在频域中有更清晰的结构。
 
 它也说明第一章的主题没有停留在经典信号处理。傅里叶变换正在成为科学机器学习中学习算子、加速 PDE surrogate、做跨分辨率预测的基础部件。
 
-### 8.3 压缩感知：采样不一定要按 Nyquist 规则硬来
+### 8.3 压缩感知：加入稀疏先验后能否减少观测？
 
-Nyquist 采样定理说，如果信号最高频率有限，就要用足够高的采样率避免混叠。
+Nyquist–Shannon 采样定理讨论的是：怎样从均匀样本恢复任意带限连续信号。压缩感知改变了问题的假设，不与采样定理矛盾：
 
-压缩感知换了一个问题：
+> **若有限维信号在已知基底或字典下稀疏，并且测量算子与该稀疏结构足够“不相干”，能否用少于环境维数的观测恢复它？**
 
-> **如果信号在某个基底下是稀疏的，能不能用远少于传统采样数的数据恢复它？**
-
-许多真实信号在傅里叶、小波或其他字典下确实是稀疏的。于是恢复问题可以写成：
+无噪声模型常写成
 
 $$
-\min_x \|x\|_1 \quad \text{s.t.}\quad Ax=y
+y=Ax,\qquad
+\min_z\|z\|_1\quad\text{s.t.}\quad Az=y.
 $$
 
-$\ell^1$ 正则化倾向于选择稀疏解。MRI、雷达成像、天文观测和单像素相机都受益于这种思想。
+稀疏性本身不够：例如 $A$ 若直接丢弃了某个可能非零的坐标，就不可能恢复该坐标。典型理论还要求 $A$ 满足零空间性质、受限等距性质（RIP）或相干性界；有噪声时则把等式约束放宽，并得到近似恢复误差界（见参考资料 [7]）。
 
-这也把傅里叶分析、凸优化和统计学习接在一起：频域给出稀疏表示，随机采样提供可恢复性，凸优化负责从不完整观测中重建。
+因此这里真正的交换是“较少观测 + 较强先验与测量设计”，而不是无条件突破 Nyquist–Shannon 极限。这条路线把 Fourier 或小波稀疏表示、随机矩阵与凸优化连接起来，并应用于 MRI、雷达、天文观测等反问题。
 
 ### 8.4 快速调和分析：不规则数据上的傅里叶计算
 
@@ -1042,28 +1340,43 @@ FFT 之所以快，是因为采样点在规则网格上，频率也有严格结�
 - 高频波传播会出现复杂相位函数。
 - PDE 与反问题中会遇到 Fourier integral operator。
 
-这推动了非均匀 FFT（NUFFT）、butterfly factorization、快速多极子方法等快速调和分析算法的发展。
+这推动了非均匀 FFT（NUFFT）、butterfly factorization、快速多极子方法等快速算法的发展；它们解决的算子并不完全相同，不能把三者视为同一个算法的别名（NUFFT 的经典工作见参考资料 [10]）。
 
 它们共同回答一个问题：
 
 > **当傅里叶结构还在，但规则网格不在时，怎样保留 FFT 的计算优势？**
 
-这条路线让傅里叶分析从"规则信号的频谱工具"扩展成了处理不规则几何、快速积分、成像反演和高频 PDE 的通用计算语言。
+这条路线让傅里叶分析从“规则信号的频谱工具”扩展成了处理不规则几何、快速积分、成像反演和高频 PDE 的通用计算语言。
 
 ## 九、总结：傅里叶变换究竟是什么
 
-用一句话说：
+本章建立了下面这条推理链：
 
-> **傅里叶变换是从函数空间到频率空间的基底变换，在这个新基底下，平移不变的算子（卷积）被对角化了。**
+1. 能量守恒与 Fourier 本构定律给出热方程；
+2. 固定端点边界条件选出正弦特征函数，每个模式独立指数衰减；
+3. 正弦系统的完备性保证任意 $L^2$ 初值都能由这些模式逼近；
+4. 在整条实线上，离散频率变成连续频谱；反演定理说明变换没有丢失信息；
+5. 卷积在频域中化为逐点乘法；
+6. 采样与周期化把问题变成 DFT，FFT 则利用单位根结构更快地计算同一个 DFT。
 
-拆解这句话的每一层：
+需要保留一个重要区别：在有限周期区间或 $\mathbb C^N$ 中，Fourier 分解确实是普通正交基变换；在 $\mathbb R$ 上，$e^{i\omega x}$ 本身不属于 $L^2(\mathbb R)$，连续 Fourier 变换更准确地说是相对于连续谱的广义坐标变换。把二者统称为“换基”很有启发性，但严格对象并不完全相同。
 
-1. **基底变换** —— 从"逐点看函数"变为"按频率成分看函数"。时域和频域是同一种信息在不同坐标系下的表达。
-2. **对角化** —— 傅里叶基底是卷积算子的特征向量。在这个基底下，卷积变成乘法。这是线代原理在无穷维函数空间上的延伸。
-3. **频率成分** —— 在这组基底下，坐标的含义是"该频率的幅度和相位"。这组坐标值就是频谱。
+Fourier 方法特别适合线性、平移不变的算子，因为复指数是平移的广义特征函数，卷积算子因此被对角化。实际系统若只近似线性、只在局部平稳，或边界破坏了平移不变性，就必须结合窗口、小波、其他算子特征函数或数值方法；这正是后续章节要继续处理的问题。
 
-傅里叶变换之所以如此普遍和重要，恰恰是因为：**自然界里大量的系统都是线性时不变的**——或者说，在足够小的尺度上可以近似为线性时不变。而对这些系统来说，傅里叶基底就是天然的"语言"。用这种语言说话，复杂的问题就变得简单。
+## 十、参考资料
+
+1. Joseph Fourier, *The Analytical Theory of Heat*, Alexander Freeman 英译，Cambridge University Press, 1878，尤其是第二章。[Internet Archive 扫描版](https://archive.org/details/analyticaltheory00fourrich)
+2. I. Grattan-Guinness 与 J. R. Ravetz, *Joseph Fourier, 1768–1830: A Survey of His Life and Work*, MIT Press, 1972。用于 1807 年论文、1811 年评奖与早期接受史。
+3. Elias M. Stein 与 Rami Shakarchi, *Fourier Analysis: An Introduction*, Princeton University Press, 2003，第 1–3 章。用于 Fourier 级数、Schwartz 空间、反演与卷积。
+4. NIST Digital Library of Mathematical Functions, [§1.14 Integral Transforms](https://dlmf.nist.gov/1.14)。用于核对 Fourier 变换约定、反演与卷积公式；不同来源的归一化约定可能不同。
+5. James W. Cooley 与 John W. Tukey, “An Algorithm for the Machine Calculation of Complex Fourier Series,” *Mathematics of Computation* 19 (1965), 297–301。[DOI](https://doi.org/10.1090/S0025-5718-1965-0178586-1)
+6. Zongyi Li 等, “Fourier Neural Operator for Parametric Partial Differential Equations,” 2020/2021。[arXiv:2010.08895](https://arxiv.org/abs/2010.08895)
+7. Emmanuel Candès, Justin Romberg 与 Terence Tao, “Robust Uncertainty Principles: Exact Signal Reconstruction from Highly Incomplete Frequency Information,” *IEEE Transactions on Information Theory* 52 (2006), 489–509。[IEEE](https://ieeexplore.ieee.org/document/1580791/)
+8. David K. Hammond, Pierre Vandergheynst 与 Rémi Gribonval, “Wavelets on Graphs via Spectral Graph Theory,” *Applied and Computational Harmonic Analysis* 30 (2011), 129–150。[DOI](https://doi.org/10.1016/j.acha.2010.04.005)
+9. William L. Briggs 与 Van Emden Henson, *The DFT: An Owner’s Manual for the Discrete Fourier Transform*, SIAM, 1995。[SIAM](https://epubs.siam.org/doi/book/10.1137/1.9781611971514)
+10. Alok Dutt 与 Vladimir Rokhlin, “Fast Fourier Transforms for Nonequispaced Data,” *SIAM Journal on Scientific Computing* 14 (1993), 1368–1393。[DOI](https://doi.org/10.1137/0914081)
+11. 3Blue1Brown, [*But what is the Fourier Transform? A Visual Introduction*](https://www.youtube.com/watch?v=spUNpyF58BY)。仅用于第四节的几何直觉，不作为严格证明来源。
 
 ---
 
-*下一章预告：我们将看到傅里叶变换如何自然地推广到局部频率分析——即小波变换。傅里叶变换能告诉你信号中有哪些频率，但它说不清这些频率**何时**出现。小波变换同时回答"什么频率"和"在什么时候"。*
+*下一章预告：我们将看到傅里叶变换如何自然地推广到局部频率分析——即小波变换。傅里叶变换能告诉你信号中有哪些频率，但它说不清这些频率**何时**出现。小波变换同时回答“什么频率”和“在什么时候”。*
