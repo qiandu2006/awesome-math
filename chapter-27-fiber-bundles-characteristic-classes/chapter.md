@@ -72,10 +72,10 @@ $$
 
 $$
 \Phi_U:\pi^{-1}(U)\xrightarrow{\ \cong\ }U\times F,
-\qquad \operatorname{pr}_1\circ\Phi_U=\pi.
+\qquad \mathrm{pr}_1\circ\Phi_U=\pi.
 $$
 
-等式 $\operatorname{pr}_1\circ\Phi_U=\pi$ 表明 $\Phi_U$ 保留底点。若 $e\in E$ 满足 $\pi(e)=p$，那么 $\Phi_U(e)$ 必须形如 $(p,f)$，其中 $f\in F$。
+等式 $\mathrm{pr}_1\circ\Phi_U=\pi$ 表明 $\Phi_U$ 保留底点。若 $e\in E$ 满足 $\pi(e)=p$，那么 $\Phi_U(e)$ 必须形如 $(p,f)$，其中 $f\in F$。
 
 因此，纤维丛不是简单的笛卡尔积，而是“局部像 $U\times F$、全局由粘合决定”的空间。
 
@@ -171,7 +171,7 @@ $$
 丛的一个截面是映射 $s:M\to E$，满足
 
 $$
-\pi\circ s=\operatorname{id}_M.
+\pi\circ s=\mathrm{id}_M.
 $$
 
 这个条件表示，$s(p)$ 总在 $E_p$ 中。也就是对每个底点 $p$，截面连续地选出一个纤维元素。向量丛的截面构成 $C^\infty(M)$-模 $\Gamma(E)$；切向量场就是 $\Gamma(TM)$ 的元素。
@@ -277,7 +277,7 @@ $$
 对闭路 $\gamma$，平行移动给出纤维上的线性变换
 
 $$
-\operatorname{Hol}_\gamma(\nabla):E_{\gamma(0)}\to E_{\gamma(0)}.
+\mathrm{Hol}_\gamma(\nabla):E_{\gamma(0)}\to E_{\gamma(0)}.
 $$
 
 若 $F=0$，联络称为平坦。在单连通的小邻域中，平坦联络的平行移动只由起点和终点决定；在非单连通空间上，绕不可缩回路仍可能留下由基本群表示
@@ -400,7 +400,7 @@ $$
 对有限 CW 复形，把向量丛按直和组成 Grothendieck 群，就得到 K 理论 $K^0(M)$。Chern 字符
 
 $$
-\operatorname{ch}:K^0(M)\otimes\mathbb Q\longrightarrow H^{\mathrm{even}}(M;\mathbb Q)
+\mathrm{ch}:K^0(M)\otimes\mathbb Q\longrightarrow H^{\mathrm{even}}(M;\mathbb Q)
 $$
 
 把直和变成加法、张量积变成乘法。示性类因此成为分类理论和广义上同调的一部分。
@@ -459,7 +459,7 @@ $$
 产生瞬子；其模空间的拓扑进入 Donaldson 不变量。对紧致无边界自旋流形，Dirac 算子的 Atiyah–Singer 指标定理呈现为
 
 $$
-\operatorname{ind}(D_E)=\int_M\hat A(TM)\wedge\operatorname{ch}(E).
+\mathrm{ind}(D_E)=\int_M\hat A(TM)\wedge\mathrm{ch}(E).
 $$
 
 这个公式需要紧致性、自旋结构以及具体 Dirac 算子等条件。满足条件时，它把分析得到的指标写成示性类的积分。

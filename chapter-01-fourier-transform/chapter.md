@@ -295,10 +295,13 @@ $$
 
 **定理 1（有限 Fourier 模式的热方程解）**  
 设 $L>0$、$\alpha>0$，并令
+
 $$
 f_N(x)=\sum_{n=1}^{N}b_n\sin\left(\frac{n\pi x}{L}\right).
 $$
+
 则初边值问题
+
 $$
 \begin{cases}
 u_t=\alpha u_{xx},&0<x<L,\ t>0,\\
@@ -306,7 +309,9 @@ u(0,t)=u(L,t)=0,&t\ge 0,\\
 u(x,0)=f_N(x),&0\le x\le L
 \end{cases}
 $$
+
 在 $C([0,L]\times[0,\infty))\cap C^{2,1}([0,L]\times(0,\infty))$ 中有唯一经典解
+
 $$
 u_N(x,t)=\sum_{n=1}^{N}
 b_n e^{-\alpha(n\pi/L)^2t}
@@ -339,9 +344,9 @@ $$
 $$
 \begin{aligned}
 E'(t)
-&=\operatorname{Re}\int_0^L w_t\overline w\,dx\\
-&=\alpha\operatorname{Re}\int_0^L w_{xx}\overline w\,dx\\
-&=\alpha\operatorname{Re}\left([w_x\overline w]_0^L-\int_0^L|w_x|^2\,dx\right)\\
+&=\mathrm{Re}\int_0^L w_t\overline w\,dx\\
+&=\alpha\mathrm{Re}\int_0^L w_{xx}\overline w\,dx\\
+&=\alpha\mathrm{Re}\left([w_x\overline w]_0^L-\int_0^L|w_x|^2\,dx\right)\\
 &=-\alpha\int_0^L|w_x|^2\,dx\le 0.
 \end{aligned}
 $$
@@ -458,14 +463,18 @@ $$
 正交性只能说明系数彼此不混淆，还不能说明这些函数足以逼近所有 $L^2$ 函数；后者需要完备性。
 
 **定理 2（正弦系统的完备性）**  
+
 $$
 \left\{\sqrt{\frac{2}{\pi}}\sin(nx):n=1,2,\ldots\right\}
 $$
+
 是 $L^2(0,\pi)$ 的一组完备正交系统。等价地，对每个 $f\in L^2(0,\pi)$，其部分和
+
 $$
 S_Nf=\sum_{n=1}^{N}\left\langle f,\sqrt{\frac2\pi}\sin(n\,\cdot)\right\rangle
 \sqrt{\frac2\pi}\sin(nx)
 $$
+
 满足 $\|S_Nf-f\|_2\to0$。
 
 **证明。** 正交归一性已经由前面的积分计算得到。只需证明：若 $h\in L^2(0,\pi)$ 与所有 $\sin(nx)$ 正交，则 $h=0$。
@@ -688,6 +697,7 @@ $$
 
 **定理 3（Schwartz 函数的 Fourier 反演）**  
 若 $f\in\mathcal S(\mathbb R)$，则 $\widehat f\in L^1(\mathbb R)$，并且对每个 $x\in\mathbb R$，
+
 $$
 f(x)=\frac1{2\pi}\int_{\mathbb R}\widehat f(\omega)e^{i\omega x}\,d\omega.
 $$
@@ -889,6 +899,7 @@ $$
 
 **定理 4（$L^1$ 卷积定理）**  
 若 $f,g\in L^1(\mathbb R)$，则 $f*g$ 几乎处处有定义且属于 $L^1(\mathbb R)$，并且对每个 $\omega\in\mathbb R$，
+
 $$
 \widehat{f*g}(\omega)=\widehat f(\omega)\widehat g(\omega).
 $$
@@ -1073,11 +1084,14 @@ $$
 
 **定理 5（DFT 反演）**  
 设 $x[0],\ldots,x[N-1]\in\mathbb C$，定义
+
 $$
 X[k]=\sum_{n=0}^{N-1}x[n]e^{-i2\pi kn/N},
 \qquad k=0,\ldots,N-1.
 $$
+
 则对每个 $n=0,\ldots,N-1$，
+
 $$
 x[n]=\frac1N\sum_{k=0}^{N-1}X[k]e^{i2\pi kn/N}.
 $$
@@ -1104,13 +1118,17 @@ $$
 - DFT 把下标按模 $N$ 计算，所以 $0,1,\ldots,N-1$ 在模 $N$ 加法下组成群 $\mathbb Z/N\mathbb Z$；它由元素 $1$ 反复相加生成，因此叫循环群。
 - 长度为 $N$ 的序列可以看成这个群上的函数 $x:\mathbb Z/N\mathbb Z\to\mathbb C$。
 - 第 $k$ 个离散复指数
+
   $$
   \chi_k(n)=e^{i2\pi kn/N}
   $$
+
   满足
+
   $$
   \chi_k((n+m)\bmod N)=\chi_k(n)\chi_k(m),
   $$
+
   所以它是从 $\mathbb Z/N\mathbb Z$ 到单位圆的群同态，称为这个群的一个**特征标**。
 
 循环群的特征标恰好就是前面得到的 $N$ 个离散 Fourier 基函数。DFT 公式也可以写成
@@ -1206,7 +1224,7 @@ $$
 
 $$
 \begin{aligned}
-\operatorname{DFT}(x*_Ph)[k]
+\mathrm{DFT}(x*_Ph)[k]
 &=\sum_{n=0}^{P-1}\sum_{m=0}^{P-1}
 x[m]h[(n-m)\bmod P]e^{-i2\pi kn/P}\\
 &=\sum_{m=0}^{P-1}x[m]e^{-i2\pi km/P}
@@ -1216,7 +1234,7 @@ x[m]h[(n-m)\bmod P]e^{-i2\pi kn/P}\\
 $$
 
 第二行令 $r=(n-m)\bmod P$；当 $n$ 遍历全部剩余类时，$r$ 也恰好遍历一次。所有求和均有限，因此不存在换序问题。再应用定理 5 的 DFT 反演，就得到
-$x*_Ph=\operatorname{IDFT}(XH)$。
+$x*_Ph=\mathrm{IDFT}(XH)$。
 
 下标中的模 $P$ 意味着：超过右端的部分会绕回左端。如果直接对长度不足的序列做 DFT，线性卷积末尾的结果就会叠加到开头，产生时域混叠。
 
