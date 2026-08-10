@@ -147,11 +147,15 @@ $$
 例如 $f(x)=|x|$：
 
 $$
-\begin{aligned}
-\partial |x|&=\{1\} &&(x>0),\\
-\partial |x|&=[-1,1] &&(x=0),\\
-\partial |x|&=\{-1\} &&(x<0).
-\end{aligned}
+\partial |x|=\{1\}\qquad (x>0).
+$$
+
+$$
+\partial |x|=[-1,1]\qquad (x=0).
+$$
+
+$$
+\partial |x|=\{-1\}\qquad (x<0).
 $$
 
 尖点处没有唯一切线，但有一整族支撑线。这让我们可以在不可微点继续谈一阶最优性。
@@ -207,10 +211,11 @@ $$
 如果 $r$ 是集合 $C$ 的指示函数：
 
 $$
-\begin{aligned}
-r(x)&=0 &&(x\in C),\\
-r(x)&=\infty &&(x\notin C).
-\end{aligned}
+r(x)=0\qquad (x\in C).
+$$
+
+$$
+r(x)=\infty\qquad (x\notin C).
 $$
 
 那么 prox 就退化为投影 $P_C$。

@@ -303,11 +303,15 @@ $$
 则初边值问题
 
 $$
-\begin{aligned}
-u_t&=\alpha u_{xx} &&(0<x<L,\ t>0),\\
-u(0,t)&=u(L,t)=0 &&(t\ge 0),\\
-u(x,0)&=f_N(x) &&(0\le x\le L).
-\end{aligned}
+u_t=\alpha u_{xx}\qquad (0<x<L,\ t>0).
+$$
+
+$$
+u(0,t)=u(L,t)=0\qquad (t\ge 0).
+$$
+
+$$
+u(x,0)=f_N(x)\qquad (0\le x\le L).
 $$
 
 在 $C([0,L]\times[0,\infty))\cap C^{2,1}([0,L]\times(0,\infty))$ 中有唯一经典解
@@ -323,12 +327,13 @@ $$
 **存在性。** 上式是有限和，所以可以逐项求导。记 $k_n=n\pi/L$，则
 
 $$
-\begin{aligned}
 \partial_t u_N
-&=\sum_{n=1}^{N}(-\alpha k_n^2)b_ne^{-\alpha k_n^2t}\sin(k_nx),\\
+=\sum_{n=1}^{N}(-\alpha k_n^2)b_ne^{-\alpha k_n^2t}\sin(k_nx).
+$$
+
+$$
 \partial_{xx}u_N
-&=\sum_{n=1}^{N}(-k_n^2)b_ne^{-\alpha k_n^2t}\sin(k_nx).
-\end{aligned}
+=\sum_{n=1}^{N}(-k_n^2)b_ne^{-\alpha k_n^2t}\sin(k_nx).
 $$
 
 因此 $\partial_tu_N=\alpha\partial_{xx}u_N$。又因 $\sin(0)=0$ 且 $\sin(n\pi)=0$，有 $u_N(0,t)=u_N(L,t)=0$；令 $t=0$ 则 $u_N(x,0)=f_N(x)$。存在性得证。
@@ -342,13 +347,19 @@ $$
 对复值解应取实部；利用分部积分和 $w(0,t)=w(L,t)=0$，
 
 $$
-\begin{aligned}
-E'(t)
-&=\mathrm{Re}\int_0^L w_t\overline w\,dx\\
-&=\alpha\mathrm{Re}\int_0^L w_{xx}\overline w\,dx\\
-&=\alpha\mathrm{Re}\left([w_x\overline w]_0^L-\int_0^L|w_x|^2\,dx\right)\\
-&=-\alpha\int_0^L|w_x|^2\,dx\le 0.
-\end{aligned}
+E'(t)=\mathrm{Re}\int_0^L w_t\overline w\,dx.
+$$
+
+$$
+E'(t)=\alpha\mathrm{Re}\int_0^L w_{xx}\overline w\,dx.
+$$
+
+$$
+E'(t)=\alpha\mathrm{Re}\left([w_x\overline w]_0^L-\int_0^L|w_x|^2\,dx\right).
+$$
+
+$$
+E'(t)=-\alpha\int_0^L|w_x|^2\,dx\le 0.
 $$
 
 对任意 $0<\varepsilon<t$，上述不等式给出 $E(t)\le E(\varepsilon)$。又因 $w$ 在 $t=0$ 连续且初值为零，$E(\varepsilon)\to E(0)=0$。因此 $E(t)=0$；于是 $w(\cdot,t)=0$，即 $u=v$。证毕。
@@ -412,10 +423,11 @@ $$
 正弦函数满足
 
 $$
-\begin{aligned}
-\int_0^\pi\sin(kx)\sin(mx)\,dx&=0 &&(k\ne m),\\
-\int_0^\pi\sin^2(mx)\,dx&=\frac{\pi}{2}.
-\end{aligned}
+\int_0^\pi\sin(kx)\sin(mx)\,dx=0\qquad (k\ne m).
+$$
+
+$$
+\int_0^\pi\sin^2(mx)\,dx=\frac{\pi}{2}.
 $$
 
 第一行可以由积化和差公式看出：当 $k\ne m$ 时，
@@ -434,12 +446,12 @@ $$
 现在固定一个频率 $m$，将级数两边同时乘以 $\sin(mx)$ 并在 $[0,\pi]$ 上积分：
 
 $$
-\begin{aligned}
 \int_0^\pi f(x)\sin(mx)\,dx
-&=\sum_{k=1}^\infty b_k
-  \int_0^\pi\sin(kx)\sin(mx)\,dx\\
-&=b_m\frac{\pi}{2}.
-\end{aligned}
+=\sum_{k=1}^\infty b_k\int_0^\pi\sin(kx)\sin(mx)\,dx.
+$$
+
+$$
+\int_0^\pi f(x)\sin(mx)\,dx=b_m\frac{\pi}{2}.
 $$
 
 其他频率全部因正交性变成零，只剩下第 $m$ 项。因此
@@ -480,10 +492,11 @@ $$
 把 $h$ 奇延拓到 $(-\pi,\pi)$，得到 $2\pi$-周期函数（在 $x=0$ 处的取值任意，不影响 $L^2$ 等价类）
 
 $$
-\begin{aligned}
-H(x)&=h(x) &&(0<x<\pi),\\
-H(x)&=-h(-x) &&(-\pi<x<0).
-\end{aligned}
+H(x)=h(x)\qquad (0<x<\pi).
+$$
+
+$$
+H(x)=-h(-x)\qquad (-\pi<x<0).
 $$
 
 因为 $H$ 是奇函数，它与常数及所有 $\cos(nx)$ 正交；由假设，
@@ -671,16 +684,19 @@ $$
 
 因此得到 Fourier 变换对
 
-$$
+$
 \boxed{
-\begin{aligned}
 \widehat f(\omega)
-&=\int_{-\infty}^{\infty}f(t)e^{-i\omega t}\,dt,\\[4pt]
+=\int_{-\infty}^{\infty}f(t)e^{-i\omega t}\,dt
+}.
+$
+
+$
+\boxed{
 f(t)
-&=\frac{1}{2\pi}\int_{-\infty}^{\infty}
-\widehat f(\omega)e^{i\omega t}\,d\omega.
-\end{aligned}}
-$$
+=\frac{1}{2\pi}\int_{-\infty}^{\infty}\widehat f(\omega)e^{i\omega t}\,d\omega
+}.
+$
 
 这里所谓“系数序列变成连续频率的函数”，更准确地说是：离散系数 $c_n$ 变成了频谱密度。由
 
@@ -751,14 +767,18 @@ $$
 Fubini 定理允许交换积分次序，于是
 
 $$
-\begin{aligned}
 I_\varepsilon(x)
-&=\int_{\mathbb R}f(t)
+=\int_{\mathbb R}f(t)
 \left[\frac1{2\pi}\int_{\mathbb R}
-e^{-\varepsilon\omega^2/2}e^{i\omega(x-t)}\,d\omega\right]dt\\
-&=\int_{\mathbb R}f(t)\varphi_\varepsilon(x-t)\,dt\\
-&=(f*\varphi_\varepsilon)(x).
-\end{aligned}
+e^{-\varepsilon\omega^2/2}e^{i\omega(x-t)}\,d\omega\right]dt.
+$$
+
+$$
+I_\varepsilon(x)=\int_{\mathbb R}f(t)\varphi_\varepsilon(x-t)\,dt.
+$$
+
+$$
+I_\varepsilon(x)=(f*\varphi_\varepsilon)(x).
 $$
 
 $\varphi_\varepsilon\ge0$、$\int\varphi_\varepsilon=1$，而且其质量随 $\varepsilon\downarrow0$ 集中到原点。由于 Schwartz 函数有界且一致连续，
@@ -860,18 +880,24 @@ $$
 设线性时不变系统为 $H$，并记它对单位瞬时输入的响应为 $g=H\delta$。将上面的分解代入 $Hf$，再在时刻 $t$ 读取输出，得到
 
 $$
-\begin{aligned}
 (Hf)(t)
-&=H\left(
-  \int_{-\infty}^{\infty}
-  f(\tau)\delta(\cdot-\tau)\,d\tau
-  \right)(t)\\
-&=\int_{-\infty}^{\infty}f(\tau)
-  H\bigl(\delta(\cdot-\tau)\bigr)(t)\,d\tau
-  &&\text{（线性性与连续性）}\\
-&=\int_{-\infty}^{\infty}f(\tau)g(t-\tau)\,d\tau\\
-&=(f*g)(t).
-\end{aligned}
+=H\left(\int_{-\infty}^{\infty}
+f(\tau)\delta(\cdot-\tau)\,d\tau\right)(t).
+$$
+
+$$
+(Hf)(t)
+=\int_{-\infty}^{\infty}f(\tau)
+H\bigl(\delta(\cdot-\tau)\bigr)(t)\,d\tau
+\qquad\text{（线性性与连续性）}.
+$$
+
+$$
+(Hf)(t)=\int_{-\infty}^{\infty}f(\tau)g(t-\tau)\,d\tau.
+$$
+
+$$
+(Hf)(t)=(f*g)(t).
 $$
 
 第三行用的是时不变性。因为 $\delta(\,\cdot-\tau)$ 是把 $\delta$ 延迟了 $\tau$，输出也只是把 $g=H\delta$ 延迟同样的时间：
@@ -904,51 +930,59 @@ $$
 **证明。** 先用 Tonelli 定理检查绝对可积性：
 
 $$
-\begin{aligned}
 \int_{\mathbb R}\int_{\mathbb R}
 |f(\tau)g(t-\tau)|\,d\tau\,dt
-&=\int_{\mathbb R}|f(\tau)|
-\left(\int_{\mathbb R}|g(t-\tau)|\,dt\right)d\tau\\
-&=\|f\|_1\|g\|_1<\infty.
-\end{aligned}
+=\int_{\mathbb R}|f(\tau)|
+\left(\int_{\mathbb R}|g(t-\tau)|\,dt\right)d\tau.
+$$
+
+$$
+\int_{\mathbb R}\int_{\mathbb R}
+|f(\tau)g(t-\tau)|\,d\tau\,dt
+=\|f\|_1\|g\|_1<\infty.
 $$
 
 因此 $f*g$ 几乎处处有定义，且
 $\|f*g\|_1\le\|f\|_1\|g\|_1$。同一个估计也保证下面乘上模长为 $1$ 的 $e^{-i\omega t}$ 后仍可用 Fubini 定理交换积分。沿用前面的变换约定，
 
 $$
-\begin{aligned}
 \widehat{f*g}(\omega)
-&=\int_{-\infty}^{\infty}
-   \left[\int_{-\infty}^{\infty}
-   f(\tau)g(t-\tau)\,d\tau\right]
-   e^{-i\omega t}\,dt\\
-&=\int_{-\infty}^{\infty}f(\tau)
-   \left[\int_{-\infty}^{\infty}
-   g(t-\tau)e^{-i\omega t}\,dt\right]d\tau.
-\end{aligned}
+=\int_{-\infty}^{\infty}
+\left[\int_{-\infty}^{\infty}
+f(\tau)g(t-\tau)\,d\tau\right]
+e^{-i\omega t}\,dt.
+$$
+
+$$
+\widehat{f*g}(\omega)
+=\int_{-\infty}^{\infty}f(\tau)
+\left[\int_{-\infty}^{\infty}
+g(t-\tau)e^{-i\omega t}\,dt\right]d\tau.
 $$
 
 在内层积分中令 $s=t-\tau$，则
 
 $$
-\begin{aligned}
 \int_{-\infty}^{\infty}g(t-\tau)e^{-i\omega t}\,dt
-&=e^{-i\omega\tau}
-  \int_{-\infty}^{\infty}g(s)e^{-i\omega s}\,ds\\
-&=e^{-i\omega\tau}\widehat g(\omega).
-\end{aligned}
+=e^{-i\omega\tau}
+\int_{-\infty}^{\infty}g(s)e^{-i\omega s}\,ds.
+$$
+
+$$
+\int_{-\infty}^{\infty}g(t-\tau)e^{-i\omega t}\,dt
+=e^{-i\omega\tau}\widehat g(\omega).
 $$
 
 代回去便得到
 
 $$
-\begin{aligned}
 \widehat{f*g}(\omega)
-&=\widehat g(\omega)
-  \int_{-\infty}^{\infty}f(\tau)e^{-i\omega\tau}\,d\tau\\
-&=\widehat f(\omega)\widehat g(\omega).
-\end{aligned}
+=\widehat g(\omega)
+\int_{-\infty}^{\infty}f(\tau)e^{-i\omega\tau}\,d\tau.
+$$
+
+$$
+\widehat{f*g}(\omega)=\widehat f(\omega)\widehat g(\omega).
 $$
 
 也就是
@@ -1057,10 +1091,11 @@ $$
 这组基向量仍然正交。采用离散内积，有
 
 $$
-\begin{aligned}
-k=\ell &: \quad \langle\phi_k,\phi_\ell\rangle=N,\\
-k\ne\ell &: \quad \langle\phi_k,\phi_\ell\rangle=0.
-\end{aligned}
+\langle\phi_k,\phi_\ell\rangle=N\qquad (k=\ell).
+$$
+
+$$
+\langle\phi_k,\phi_\ell\rangle=0\qquad (k\ne\ell).
 $$
 
 当 $k\ne\ell$ 时，令 $q=e^{i2\pi(k-\ell)/N}$。此时 $q\ne1$ 而 $q^N=1$，所以等比数列求和给出
@@ -1088,14 +1123,16 @@ $$
 **证明。** 把 $X[k]$ 的定义代入右端，因为所有和均为有限和，可以任意交换次序：
 
 $$
-\begin{aligned}
 \frac1N\sum_{k=0}^{N-1}X[k]e^{i2\pi kn/N}
-&=\frac1N\sum_{k=0}^{N-1}\sum_{m=0}^{N-1}
-x[m]e^{-i2\pi km/N}e^{i2\pi kn/N}\\
-&=\sum_{m=0}^{N-1}x[m]
+=\frac1N\sum_{k=0}^{N-1}\sum_{m=0}^{N-1}
+x[m]e^{-i2\pi km/N}e^{i2\pi kn/N}.
+$$
+
+$$
+\frac1N\sum_{k=0}^{N-1}X[k]e^{i2\pi kn/N}
+=\sum_{m=0}^{N-1}x[m]
 \left(\frac1N\sum_{k=0}^{N-1}
 e^{i2\pi k(n-m)/N}\right).
-\end{aligned}
 $$
 
 括号中的单位根和在 $n=m$ 时等于 $1$，在 $n\ne m$ 时等于 $0$。因此整个表达式只留下 $m=n$ 一项，等于 $x[n]$。证毕。
@@ -1106,19 +1143,19 @@ $$
 
 - DFT 把下标按模 $N$ 计算，所以 $0,1,\ldots,N-1$ 在模 $N$ 加法下组成群 $\mathbb Z/N\mathbb Z$；它由元素 $1$ 反复相加生成，因此叫循环群。
 - 长度为 $N$ 的序列可以看成这个群上的函数 $x:\mathbb Z/N\mathbb Z\to\mathbb C$。
-- 第 $k$ 个离散复指数
+第 $k$ 个离散复指数由下式给出：
 
-  $$
-  \chi_k(n)=e^{i2\pi kn/N}
-  $$
+$
+\chi_k(n)=e^{i2\pi kn/N}.
+$
 
-  满足
+它满足
 
-  $$
-  \chi_k((n+m)\bmod N)=\chi_k(n)\chi_k(m),
-  $$
+$
+\chi_k((n+m)\bmod N)=\chi_k(n)\chi_k(m).
+$
 
-  所以它是从 $\mathbb Z/N\mathbb Z$ 到单位圆的群同态，称为这个群的一个**特征标**。
+所以它是从 $\mathbb Z/N\mathbb Z$ 到单位圆的群同态，称为这个群的一个**特征标**。
 
 循环群的特征标恰好就是前面得到的 $N$ 个离散 Fourier 基函数。DFT 公式也可以写成
 
@@ -1131,13 +1168,18 @@ $$
 它与连续 Fourier 变换的关系可以由黎曼和说明，但必须固定极限方式。设 $f$ 在 $[0,T]$ 上 Riemann 可积；固定整数 $k$，令 $N\to\infty$ 而 $\Delta t=T/N\to0$。先把 $f$ 截断在观察区间 $[0,T]$ 内，并记这段数据在频率 $\omega_k=2\pi k/T$ 处的 Fourier 变换为
 
 $$
-\begin{aligned}
 \widehat f_{[0,T]}(\omega_k)
-&=\int_0^T f(t)e^{-i\omega_kt}\,dt\\
-&\approx\Delta t\sum_{n=0}^{N-1}
-x[n]e^{-i2\pi kn/N}\\
-&=\Delta t\,X[k].
-\end{aligned}
+=\int_0^T f(t)e^{-i\omega_kt}\,dt.
+$$
+
+$$
+\widehat f_{[0,T]}(\omega_k)
+\approx\Delta t\sum_{n=0}^{N-1}
+x[n]e^{-i2\pi kn/N}.
+$$
+
+$$
+\widehat f_{[0,T]}(\omega_k)=\Delta t\,X[k].
 $$
 
 如果 $f$ 在区间外为零，这就是它在整条实线上的 Fourier 变换；否则它是加窗截断后的变换。DFT 因而既是一个精确的有限维基底变换，也能在上述极限下近似加窗信号的连续 Fourier 变换。若同时改变 (T)、(N) 或频率下标 (k)，则还需分别分析截断误差、离散化误差和混叠，不能仅凭这一条黎曼和公式下结论。
@@ -1155,26 +1197,32 @@ $$
 从 DFT 定义出发，把输入下标分成偶数 $n=2r$ 和奇数 $n=2r+1$：
 
 $$
-\begin{aligned}
+X[k]=\sum_{n=0}^{N-1}x[n]W_N^{kn}.
+$$
+
+$$
 X[k]
-&=\sum_{n=0}^{N-1}x[n]W_N^{kn}\\
-&=\sum_{r=0}^{N/2-1}x[2r]W_N^{2kr}
- +\sum_{r=0}^{N/2-1}x[2r+1]W_N^{k(2r+1)}\\
-&=\underbrace{\sum_{r=0}^{N/2-1}
-   x[2r]W_{N/2}^{kr}}_{E[k]}
- +W_N^k
-  \underbrace{\sum_{r=0}^{N/2-1}
-   x[2r+1]W_{N/2}^{kr}}_{O[k]}.
-\end{aligned}
+=\sum_{r=0}^{N/2-1}x[2r]W_N^{2kr}
++\sum_{r=0}^{N/2-1}x[2r+1]W_N^{k(2r+1)}.
+$$
+
+$$
+X[k]
+=\underbrace{\sum_{r=0}^{N/2-1}
+x[2r]W_{N/2}^{kr}}_{E[k]}
++W_N^k
+\underbrace{\sum_{r=0}^{N/2-1}
+x[2r+1]W_{N/2}^{kr}}_{O[k]}.
 $$
 
 $E[k]$ 和 $O[k]$ 分别是偶数位置、奇数位置组成的两个长度为 $N/2$ 的 DFT。因此一个长度为 $N$ 的问题，被拆成了两个同类的半尺寸问题。长度为 $N/2$ 的 DFT 对频率下标以 $N/2$ 为周期，所以 $E[k+N/2]=E[k]$、$O[k+N/2]=O[k]$；同时 $W_N^{k+N/2}=-W_N^k$。因此，对 $k=0,1,\ldots,N/2-1$，同一对 $E[k],O[k]$ 可以给出两个输出：
 
 $$
-\begin{aligned}
-X[k]&=E[k]+W_N^kO[k],\\
-X[k+N/2]&=E[k]-W_N^kO[k].
-\end{aligned}
+X[k]=E[k]+W_N^kO[k].
+$$
+
+$$
+X[k+N/2]=E[k]-W_N^kO[k].
 $$
 
 继续递归拆分，直到长度为 1，就得到递推关系
@@ -1212,14 +1260,19 @@ $$
 离散卷积定理可以直接验证。若 $X,H$ 分别是 $x,h$ 的长度 $P$ DFT，则
 
 $$
-\begin{aligned}
 \mathrm{DFT}(x*_Ph)[k]
-&=\sum_{n=0}^{P-1}\sum_{m=0}^{P-1}
-x[m]h[(n-m)\bmod P]e^{-i2\pi kn/P}\\
-&=\sum_{m=0}^{P-1}x[m]e^{-i2\pi km/P}
-\sum_{r=0}^{P-1}h[r]e^{-i2\pi kr/P}\\
-&=X[k]H[k].
-\end{aligned}
+=\sum_{n=0}^{P-1}\sum_{m=0}^{P-1}
+x[m]h[(n-m)\bmod P]e^{-i2\pi kn/P}.
+$$
+
+$$
+\mathrm{DFT}(x*_Ph)[k]
+=\sum_{m=0}^{P-1}x[m]e^{-i2\pi km/P}
+\sum_{r=0}^{P-1}h[r]e^{-i2\pi kr/P}.
+$$
+
+$$
+\mathrm{DFT}(x*_Ph)[k]=X[k]H[k].
 $$
 
 第二行令 $r=(n-m)\bmod P$；当 $n$ 遍历全部剩余类时，$r$ 也恰好遍历一次。所有求和均有限，因此不存在换序问题。再应用定理 5 的 DFT 反演，就得到
