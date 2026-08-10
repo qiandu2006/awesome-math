@@ -303,11 +303,11 @@ $$
 则初边值问题
 
 $$
-\begin{cases}
-u_t=\alpha u_{xx},&0<x<L,\ t>0,\\
-u(0,t)=u(L,t)=0,&t\ge 0,\\
-u(x,0)=f_N(x),&0\le x\le L
-\end{cases}
+\begin{aligned}
+u_t&=\alpha u_{xx} &&(0<x<L,\ t>0),\\
+u(0,t)&=u(L,t)=0 &&(t\ge 0),\\
+u(x,0)&=f_N(x) &&(0\le x\le L).
+\end{aligned}
 $$
 
 在 $C([0,L]\times[0,\infty))\cap C^{2,1}([0,L]\times(0,\infty))$ 中有唯一经典解
@@ -412,12 +412,10 @@ $$
 正弦函数满足
 
 $$
-\int_0^\pi\sin(kx)\sin(mx)\,dx
-=
-\begin{cases}
-0,&k\ne m,\\[4pt]
-\dfrac{\pi}{2},&k=m.
-\end{cases}
+\begin{aligned}
+\int_0^\pi\sin(kx)\sin(mx)\,dx&=0 &&(k\ne m),\\
+\int_0^\pi\sin^2(mx)\,dx&=\frac{\pi}{2}.
+\end{aligned}
 $$
 
 第一行可以由积化和差公式看出：当 $k\ne m$ 时，
@@ -465,7 +463,7 @@ $$
 **定理 2（正弦系统的完备性）**  
 
 $$
-\left\{\sqrt{\frac{2}{\pi}}\sin(nx):n=1,2,\ldots\right\}
+\{\,\sqrt{\frac{2}{\pi}}\sin(nx):n=1,2,\ldots\,\}
 $$
 
 是 $L^2(0,\pi)$ 的一组完备正交系统。等价地，对每个 $f\in L^2(0,\pi)$，其部分和
@@ -479,14 +477,13 @@ $$
 
 **证明。** 正交归一性已经由前面的积分计算得到。只需证明：若 $h\in L^2(0,\pi)$ 与所有 $\sin(nx)$ 正交，则 $h=0$。
 
-把 $h$ 奇延拓到 $(-\pi,\pi)$，得到 $2\pi$-周期函数
+把 $h$ 奇延拓到 $(-\pi,\pi)$，得到 $2\pi$-周期函数（在 $x=0$ 处的取值任意，不影响 $L^2$ 等价类）
 
 $$
-H(x)=
-\begin{cases}
-h(x),&0<x<\pi,\\
--h(-x),&-\pi<x<0.
-\end{cases}
+\begin{aligned}
+H(x)&=h(x) &&(0<x<\pi),\\
+H(x)&=-h(-x) &&(-\pi<x<0).
+\end{aligned}
 $$
 
 因为 $H$ 是奇函数，它与常数及所有 $\cos(nx)$ 正交；由假设，
@@ -865,12 +862,12 @@ $$
 $$
 \begin{aligned}
 (Hf)(t)
-&=H\left[
+&=H\left(
   \int_{-\infty}^{\infty}
-  f(\tau)\delta(\,\cdot-\tau)\,d\tau
-  \right](t)\\
+  f(\tau)\delta(\cdot-\tau)\,d\tau
+  \right)(t)\\
 &=\int_{-\infty}^{\infty}f(\tau)
-  H[\delta(\,\cdot-\tau)](t)\,d\tau
+  H\bigl(\delta(\cdot-\tau)\bigr)(t)\,d\tau
   &&\text{（线性性与连续性）}\\
 &=\int_{-\infty}^{\infty}f(\tau)g(t-\tau)\,d\tau\\
 &=(f*g)(t).
@@ -880,7 +877,7 @@ $$
 第三行用的是时不变性。因为 $\delta(\,\cdot-\tau)$ 是把 $\delta$ 延迟了 $\tau$，输出也只是把 $g=H\delta$ 延迟同样的时间：
 
 $$
-H[\delta(\,\cdot-\tau)](t)
+H\bigl(\delta(\cdot-\tau)\bigr)(t)
 =(H\delta)(t-\tau)=g(t-\tau).
 $$
 
@@ -992,7 +989,7 @@ $$
 乘积也有相应的对偶公式。若 $f,g\in\mathcal S(\mathbb R)$，定理 3 和定理 4 可合法地应用于 $\widehat f,\widehat g$，从而得到
 
 $$
-\mathcal F[fg](\omega)
+\widehat{fg}(\omega)
 =\frac{1}{2\pi}(\widehat f*\widehat g)(\omega).
 $$
 
@@ -1061,16 +1058,8 @@ $$
 
 $$
 \begin{aligned}
-\langle\phi_k,\phi_\ell\rangle
-&=\sum_{n=0}^{N-1}
-e^{i2\pi kn/N}e^{-i2\pi\ell n/N}\\
-&=\sum_{n=0}^{N-1}
-e^{i2\pi(k-\ell)n/N}\\
-&=
-\begin{cases}
-N,&k=\ell,\\
-0,&k\ne\ell.
-\end{cases}
+k=\ell &: \quad \langle\phi_k,\phi_\ell\rangle=N,\\
+k\ne\ell &: \quad \langle\phi_k,\phi_\ell\rangle=0.
 \end{aligned}
 $$
 
