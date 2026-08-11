@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "chapter-01-fourier-transform/chapter.md",
+                "file": "chapter-02-wavelet-transform/chapter.md",
                 "mode": "preview",
                 "source": false
               },
@@ -188,6 +188,7 @@
   },
   "active": "e9a0cae7c463eff8",
   "lastOpenFiles": [
+    "chapter-01-fourier-transform/chapter.md",
     "chapter-01-fourier-transform/images/heat_diffusion_scale.png",
     "chapter-01-fourier-transform/images/microscopic_heat_transport.png",
     "chapter-01-fourier-transform/images/heat_flux_gradient.png",
@@ -199,7 +200,6 @@
     "chapter-01-fourier-transform/scripts/plot_microscopic_heat_transport.py",
     "chapter-01-fourier-transform/scripts/plot_heat_flux_gradient.py",
     "chapter-02-wavelet-transform/chapter.md",
-    "chapter-01-fourier-transform/chapter.md",
     "chapter-27-fiber-bundles-characteristic-classes/chapter.md",
     "chapter-03-functional-analysis/chapter.md",
     "package-lock.json",
@@ -232,7 +232,6 @@
     "images/Pasted image 20260628225246.png",
     "images/Pasted image 20260628225233.png",
     "images/Pasted image 20260628225220.png",
-    "images/Pasted image 20260628225159.png",
-    "images/Pasted image 20260628225141.png"
+    "images/Pasted image 20260628225159.png"
   ]
 }
