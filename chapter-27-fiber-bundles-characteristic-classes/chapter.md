@@ -184,7 +184,7 @@ $$
 f^*E=\lbrace (x,e)\in N\times E\mid f(x)=\pi(e)\rbrace\longrightarrow N.
 $$
 
-拉回满足函子性 $ (f\circ g)^*E\cong g^*(f^*E)$。示性类也会随拉回一起变化：
+拉回满足函子性 $(f\circ g)^\ast E\cong g^\ast(f^\ast E)$。示性类也会随拉回一起变化：
 
 $$
 c(f^*E)=f^*c(E).
