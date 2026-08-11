@@ -43,7 +43,7 @@ $L^2(\mathbb R)$ 表示平方可积函数按“几乎处处相等”得到的等
 
 完整 Fourier 变换保留幅度和相位，原则上能够重建信号；问题不是“时间信息消失了”，而是时间位置没有成为显式坐标。只看幅度谱时，这一局限尤其清楚。
 
-设局部振荡 $g$ 的两个平移为
+设 $g\in L^1(\mathbb R)\cap L^2(\mathbb R)$ 是一段局部振荡，$t_1,t_2\in\mathbb R$ 是两个出现时刻。把同一个波形分别移动到这两个时刻：
 
 $$
 f_1(t)=g(t-t_1),
@@ -53,19 +53,33 @@ $$
 f_2(t)=g(t-t_2).
 $$
 
-由 Fourier 变换的平移性质，
+这里不直接引用“平移性质”，而从定义计算一次。对 $j=1,2$，令 $u=t-t_j$，即 $t=u+t_j$、$dt=du$，则
 
 $$
-\widehat f_2(\omega)=e^{-i\omega(t_2-t_1)}\widehat f_1(\omega),
+\widehat f_j(\omega)
+=\int_{\mathbb R}g(t-t_j)e^{-i\omega t}\,dt
+=\int_{\mathbb R}g(u)e^{-i\omega(u+t_j)}\,du.
 $$
 
-所以
+因子 $e^{-i\omega t_j}$ 与积分变量 $u$ 无关，可以移到积分号外：
+
+$$
+\widehat f_j(\omega)=e^{-i\omega t_j}\widehat g(\omega).
+$$
+
+分别取 $j=1$ 和 $j=2$。把第一条等式乘以 $e^{-i\omega(t_2-t_1)}$ 后，其右端正好变成 $e^{-i\omega t_2}\widehat g(\omega)$，因此
+
+$$
+\widehat f_2(\omega)=e^{-i\omega(t_2-t_1)}\widehat f_1(\omega).
+$$
+
+这个等式的含义是：时间平移 $t_2-t_1$ 在每个频率 $\omega$ 上增加线性相位 $-\omega(t_2-t_1)$。由于实数 $\theta$ 总满足 $|e^{-i\theta}|=1$，取绝对值后相位因子消失：
 
 $$
 |\widehat f_2(\omega)|=|\widehat f_1(\omega)|.
 $$
 
-幅度谱能回答“有哪些频率”，却不能区分同一事件出现在 $t_1$ 还是 $t_2$。相位保存了平移信息，但多个局部事件的位置被分散编码在全部频率的相位关系中，并不便于直接读取。
+因此，$f_1$ 与 $f_2$ 的完整 Fourier 变换并不相同，但它们的幅度谱完全相同。幅度谱能回答“有哪些频率”，却不能区分同一事件出现在 $t_1$ 还是 $t_2$。平移信息保存在相位中；当信号含有多个局部事件时，各事件的位置共同编码在全部频率的相位关系里，并不形成可以直接读取的时间坐标。上述计算先在 $L^1\cap L^2$ 中逐点成立，再由 Fourier 变换在 $L^2$ 上的连续性推广到一般 $L^2$ 信号。
 
 我们因此提出一个比“介绍小波”更具体的问题：
 
@@ -83,7 +97,13 @@ $$
 V_wf(\tau,\omega)=\int_{\mathbb R}f(t)\overline{w(t-\tau)}e^{-i\omega t}\,dt.
 $$
 
-$\tau$ 是窗口中心，$\omega$ 是角频率。STFT 在每个位置使用同一个窗口，因此所有频率共享同一种时间分辨率。
+$\tau$ 是窗口中心，$\omega$ 是角频率。把被积式改写为内积可见，$V_wf(\tau,\omega)$ 测量 $f$ 与局部原子
+
+$$
+w_{\tau,\omega}(t)=w(t-\tau)e^{i\omega t}
+$$
+
+的匹配程度。改变 $\tau$ 只平移窗口，改变 $\omega$ 只在窗口内加入振荡；两种操作都没有缩放 $w$。因此所有 $(\tau,\omega)$ 使用相同的时间宽度，而频率宽度也由同一个 $\widehat w$ 决定。这就是“固定窗口”或“固定分辨率”的准确含义。
 
 Dennis Gabor 1946 年的工作用时间—频率单元分析通信信号，是这一思想的重要起点 [1]。历史来源不改变一个数学事实：窗口不可能同时在时间和频率上任意集中。
 
@@ -118,33 +138,96 @@ $$
 
 等号可由适当平移、调制和缩放的高斯函数取得。
 
-**证明。** 平移 $f$ 只改变 $t_0$，调制 $f(t)e^{-i\omega_0t}$ 只改变频率中心，并且都不改变两个方差。因此只需证明 $t_0=\omega_0=0$ 的情形。
+**证明。** 先把两个中心移到原点。定义
 
-由 Fourier 变换的微分性质和 Plancherel 恒等式，
+$$
+h(t)=e^{-i\omega_0t}f(t+t_0).
+$$
+
+因为 $|h(t)|=|f(t+t_0)|$，令 $u=t+t_0$ 可知 $h$ 的时间中心是 0，且时间方差仍为 $(\Delta t)^2$。频域也从定义计算：
+
+$$
+\widehat h(\omega)
+=\int_{\mathbb R}f(t+t_0)e^{-i(\omega+\omega_0)t}\,dt
+=e^{i(\omega+\omega_0)t_0}\widehat f(\omega+\omega_0).
+$$
+
+前面的指数因子模长为 1，所以
+
+$$
+|\widehat h(\omega)|=|\widehat f(\omega+\omega_0)|.
+$$
+
+令 $\xi=\omega+\omega_0$ 可知 $h$ 的频率中心也是 0，频率方差仍为 $(\Delta\omega)^2$。因此只需对中心均为 0 的 $h$ 证明不等式。为简化记号，下面仍把它记作 $f$。
+
+对 Schwartz 函数分部积分，边界项为零，所以
+
+$$
+\widehat{f'}(\omega)
+=\int_{\mathbb R}f'(t)e^{-i\omega t}\,dt
+=i\omega\widehat f(\omega).
+$$
+
+再应用 Plancherel 恒等式，并使用频率中心为 0，得到
 
 $$
 \|f'\|_2^2=\frac{1}{2\pi}\int_{\mathbb R}\omega^2|\widehat f(\omega)|^2\,d\omega=(\Delta\omega)^2.
 $$
 
-因为 $f$ 是 Schwartz 函数，边界项趋于零。对 $t|f(t)|^2$ 积分并分部积分，得到
+下一步把两个方差联系起来。因为 $f$ 是 Schwartz 函数，$t|f(t)|^2$ 在正负无穷处都趋于零，所以
 
 $$
 0=\int_{\mathbb R}\frac{d}{dt}\bigl(t|f(t)|^2\bigr)\,dt.
 $$
 
-展开导数并使用 $\|f\|_2=1$，可得
+逐项求导：
+
+$$
+\frac{d}{dt}\bigl(t|f(t)|^2\bigr)
+=|f(t)|^2+t f'(t)\overline{f(t)}+t f(t)\overline{f'(t)}.
+$$
+
+后两项互为共轭，其和等于 $2\,\mathrm{Re}(t f'(t)\overline{f(t)})$。积分并使用 $\|f\|_2=1$，得到
 
 $$
 2\,\mathrm{Re}\int_{\mathbb R}t f'(t)\overline{f(t)}\,dt=-1.
 $$
 
-于是 Cauchy–Schwarz 不等式给出
+先取绝对值，再使用 $|\mathrm{Re}\,z|\leq|z|$ 和 Cauchy–Schwarz 不等式：
 
 $$
 \frac12\leq\|tf\|_2\,\|f'\|_2=\Delta t\,\Delta\omega.
 $$
 
-取高斯函数直接代入，可验证 Cauchy–Schwarz 在此取等，故常数 $1/2$ 最优。证毕。
+最后说明等号确实可以达到。对任意 $c>0$，取归一化高斯函数
+
+$$
+f_c(t)=\left(\frac{2c}{\pi}\right)^{1/4}e^{-ct^2}.
+$$
+
+它的两个中心均为 0，且 $f_c'(t)=-2ctf_c(t)$，所以 Cauchy–Schwarz 中的两个函数 $tf_c$ 与 $f_c'$ 成比例。由高斯积分及其对参数 $c$ 的导数，
+
+$$
+\int_{\mathbb R}e^{-2ct^2}dt=\sqrt{\frac{\pi}{2c}},
+$$
+
+$$
+\int_{\mathbb R}t^2e^{-2ct^2}dt=\frac{1}{4c}\sqrt{\frac{\pi}{2c}}.
+$$
+
+乘上归一化因子的平方可得
+
+$$
+(\Delta t)^2=\frac{1}{4c},
+$$
+
+而 $f_c'=-2ctf_c$ 与前面证明的 $(\Delta\omega)^2=\|f_c'\|_2^2$ 给出
+
+$$
+(\Delta\omega)^2=c,
+$$
+
+从而 $\Delta t\,\Delta\omega=1/2$。故常数 $1/2$ 最优。平移、调制或缩放这个高斯函数仍能给出等号情形。证毕。
 
 定理说明 STFT 的固定窗口存在不可消除的权衡：窄窗改善时间定位，却扩大频率分布；宽窗反之。它并没有证明“小波必然更好”，只说明单一固定分辨率不能同时适应所有尺度。
 
@@ -181,7 +264,35 @@ $$
 \|\psi_{a,b}\|_2^2=\int_{\mathbb R}a^{-1}\left|\psi\left(\frac{t-b}{a}\right)\right|^2dt=\int_{\mathbb R}|\psi(u)|^2du.
 $$
 
-同一换元分别证明 $T_c$ 与 $D_s$ 保持范数。它们显然线性，并且逆算子分别是 $T_{-c}$ 与 $D_{1/s}$，故为酉算子。最后把定义代入即可得到 $\psi_{a,b}=T_bD_a\psi$。证毕。
+对一般 $f\in L^2(\mathbb R)$，平移中的换元 $u=t-c$ 给出
+
+$$
+\|T_cf\|_2^2=\int_{\mathbb R}|f(t-c)|^2dt=\int_{\mathbb R}|f(u)|^2du=\|f\|_2^2.
+$$
+
+缩放中的换元 $u=t/s$、$dt=s\,du$ 给出
+
+$$
+\|D_sf\|_2^2=\int_{\mathbb R}s^{-1}|f(t/s)|^2dt=\int_{\mathbb R}|f(u)|^2du=\|f\|_2^2.
+$$
+
+两种算子都由函数的逐点加法和数乘定义，因而是线性的。逐点代入还可检查
+
+$$
+T_{-c}T_cf=f,
+$$
+
+$$
+D_{1/s}D_sf=f.
+$$
+
+所以它们是满射的线性等距算子，即酉算子。最后
+
+$$
+(T_bD_a\psi)(t)=(D_a\psi)(t-b)=a^{-1/2}\psi\left(\frac{t-b}{a}\right)=\psi_{a,b}(t).
+$$
+
+证毕。
 
 $a^{-1/2}$ 不是装饰性常数；没有它，不同尺度的原子能量会不同，系数大小便混入尺度引起的归一化偏差。
 
@@ -215,12 +326,25 @@ $$
 **例 1（Haar 小波）。** 定义
 
 $$
-\psi_{mathrm H}(t)=\mathbf 1_{[0,1/2)}(t)-\mathbf 1_{[1/2,1)}(t).
+\psi_{\mathrm H}(t)=\mathbf 1_{[0,1/2)}(t)-\mathbf 1_{[1/2,1)}(t).
 $$
 
-它属于 $L^1\cap L^2$，范数为 1，积分为 0。其 Fourier 变换在零点附近是一阶小量，在无穷远处按 $1/|\omega|$ 衰减，因此 $0<C_{\psi_{\mathrm H}}<\infty$。
+它属于 $L^1\cap L^2$，范数为 1，积分为 0。下面把“它可容许”算出来。对 $\omega\neq0$，分别在两个半区间积分：
 
-**非例 1（高斯本身）。** $e^{-t^2/2}$ 虽然同时属于 $L^1$ 和 $L^2$，却有正的积分，所以其可容许常数在零频附近发散。高斯的一阶导数具有零均值，可以构成可容许小波；这说明“局部化”不等于“小波”。
+$$
+\widehat\psi_{\mathrm H}(\omega)
+=\frac{1-e^{-i\omega/2}}{i\omega}
+-\frac{e^{-i\omega/2}-e^{-i\omega}}{i\omega}
+=\frac{(1-e^{-i\omega/2})^2}{i\omega}.
+$$
+
+当 $\omega\to0$ 时，$1-e^{-i\omega/2}$ 是 $O(\omega)$，所以 $\widehat\psi_{\mathrm H}(\omega)=O(\omega)$；于是可容许积分在零点附近的被积函数是 $O(\omega)$。当 $\omega\to\infty$ 时，分子绝对值至多为 4，所以 $\widehat\psi_{\mathrm H}(\omega)=O(1/|\omega|)$；此时被积函数是 $O(1/\omega^3)$。两端都可积，因此
+
+$$
+0<C_{\psi_{\mathrm H}}<\infty.
+$$
+
+**非例 1（高斯本身）。** $e^{-t^2/2}$ 虽然同时属于 $L^1$ 和 $L^2$，却有正的积分，所以其可容许常数在零频附近发散。其一阶导数的 Fourier 变换等于 $i\omega$ 乘以一个高斯函数：零点附近的额外因子 $\omega$ 消除了 $1/\omega$ 奇性，无穷远处仍快速衰减，因而一阶导数是可容许小波。这说明“局部化”不等于“小波”。
 
 ![Morlet 型、Mexican hat 与 Daubechies db4 小波](images/fig3_mother_wavelets.png)
 
@@ -265,23 +389,45 @@ $$
 
 这里“弱意义”是指重建式两边与任意 $g\in L^2$ 作内积后相等；它不自动保证二重积分逐点绝对收敛。
 
-**证明。** 先取 $f\in\mathcal S(\mathbb R)$。把 $W_\psi f(a,b)$ 看成变量 $b$ 的函数。由卷积定理以及缩放、反射的 Fourier 公式，
+**证明。** 先推导证明中最关键、也最容易跳步的频域公式。对缩放函数令 $u=t/a$、$dt=a\,du$：
 
 $$
-\widehat{W_\psi f(a,\mathord\cdot)}(\omega)=\sqrt a\,\widehat f(\omega)\overline{\widehat\psi(a\omega)}.
+\widehat{D_a\psi}(\omega)
+=\int_{\mathbb R}a^{-1/2}\psi(t/a)e^{-i\omega t}\,dt
+=\sqrt a\int_{\mathbb R}\psi(u)e^{-i(a\omega)u}\,du
+=\sqrt a\,\widehat\psi(a\omega).
 $$
 
-对 $b$ 使用 Plancherel 恒等式，得到
+再对平移函数令 $u=t-b$、$dt=du$：
 
 $$
-\int_{\mathbb R}|W_\psi f(a,b)|^2db=\frac{1}{2\pi}\int_{\mathbb R}|\widehat f(\omega)|^2a|\widehat\psi(a\omega)|^2d\omega.
+\widehat{T_bD_a\psi}(\omega)
+=\int_{\mathbb R}(D_a\psi)(t-b)e^{-i\omega t}\,dt
+=e^{-i\omega b}\widehat{D_a\psi}(\omega)
+=e^{-i\omega b}\sqrt a\,\widehat\psi(a\omega).
 $$
 
-被积函数非负，因此 Tonelli 定理允许交换 $a$ 与 $\omega$ 的积分：
+这两个等式可先对 $L^1\cap L^2$ 函数按积分定义验证，再由 Plancherel 定理延拓到 $L^2$。由于 $\psi_{a,b}=T_bD_a\psi$，Plancherel 内积公式给出
 
 $$
-\int_0^\infty\int_{\mathbb R}|W_\psi f(a,b)|^2db\,\frac{da}{a^2}
-=\frac{1}{2\pi}\int_{\mathbb R}|\widehat f(\omega)|^2I(\omega)d\omega,
+W_\psi f(a,b)
+=\frac{\sqrt a}{2\pi}\int_{\mathbb R}
+\widehat f(\omega)\overline{\widehat\psi(a\omega)}e^{i\omega b}\,d\omega.
+$$
+
+这里的积分确实有意义：$\widehat f(\omega)$ 与 $\widehat\psi(a\omega)$ 都属于 $L^2$，所以它们的乘积由 Cauchy–Schwarz 不等式可知属于 $L^1$。因此，把 $W_\psi f(a,b)$ 视为变量 $b$ 的函数时，它是
+
+$$
+K_a(\omega)=\sqrt a\,\widehat f(\omega)\overline{\widehat\psi(a\omega)}
+$$
+
+的 Fourier 逆变换。
+
+下面先计算 $K_a$ 在全部尺度上的平方积分。被积函数非负，所以 Tonelli 定理允许交换 $a$ 与 $\omega$ 的积分：
+
+$$
+\int_0^\infty\int_{\mathbb R}|K_a(\omega)|^2d\omega\,\frac{da}{a^2}
+=\int_{\mathbb R}|\widehat f(\omega)|^2I(\omega)d\omega,
 $$
 
 其中
@@ -290,17 +436,67 @@ $$
 I(\omega)=\int_0^\infty|\widehat\psi(a\omega)|^2\frac{da}{a}.
 $$
 
-当 $\omega>0$ 时令 $s=a\omega$，得到 $I(\omega)=C_\psi$。当 $\omega<0$ 时，实值性给出 $|\widehat\psi(-s)|=|\widehat\psi(s)|$，故仍有 $I(\omega)=C_\psi$。零频点不影响 Lebesgue 积分。因此再次使用 Plancherel 恒等式，
+当 $\omega>0$ 时，令 $s=a\omega$，则 $da/a=ds/s$，所以
+
+$$
+I(\omega)=\int_0^\infty\frac{|\widehat\psi(s)|^2}{s}\,ds=C_\psi.
+$$
+
+当 $\omega<0$ 时，令 $s=-a\omega$。实值性给出 $\widehat\psi(-s)=\overline{\widehat\psi(s)}$，因此 $|\widehat\psi(-s)|=|\widehat\psi(s)|$，仍有 $I(\omega)=C_\psi$。单点 $\omega=0$ 不影响 Lebesgue 积分。于是
+
+$$
+\int_0^\infty\int_{\mathbb R}|K_a(\omega)|^2d\omega\,\frac{da}{a^2}
+=2\pi C_\psi\|f\|_2^2<\infty.
+$$
+
+所以对几乎处处的 $a$，都有 $K_a\in L^2(\mathbb R)$。对这些尺度，在变量 $b$ 上应用 Plancherel 恒等式：
+
+$$
+\int_{\mathbb R}|W_\psi f(a,b)|^2db
+=\frac{1}{2\pi}\int_{\mathbb R}|K_a(\omega)|^2d\omega.
+$$
+
+再对 $a$ 积分，便得到
 
 $$
 \int_0^\infty\int_{\mathbb R}|W_\psi f(a,b)|^2db\,\frac{da}{a^2}=C_\psi\|f\|_2^2.
 $$
 
-$\mathcal S(\mathbb R)$ 在 $L^2(\mathbb R)$ 中稠密，而刚得到的等距关系表明 $f\mapsto C_\psi^{-1/2}W_\psi f$ 连续，所以恒等式延拓到全部 $L^2$。
+以上计算只使用了 $f,\psi\in L^2$ 和 $C_\psi<\infty$，因此能量恒等式已经对任意 $f\in L^2$ 成立，无须再假设 $f$ 光滑。
 
-对这个二次恒等式使用复内积空间的极化恒等式，得到任意 $f,g\in L^2$ 的交叉内积公式。右端绝对值由系数空间中的 Cauchy–Schwarz 不等式控制，因此积分有意义。
+现在取任意 $f,g\in L^2$。与上面完全相同的计算给出
 
-最后，将形式重建式的右端与任意 $g$ 作内积。由内积对第一个变量线性，结果正是交叉内积公式的右端，也就是 $\langle f,g\rangle$。因此重建式在弱意义下成立。证毕。
+$$
+\int_0^\infty\int_{\mathbb R}
+W_\psi f(a,b)\overline{W_\psi g(a,b)}\,db\,\frac{da}{a^2}
+=\frac{C_\psi}{2\pi}\int_{\mathbb R}
+\widehat f(\omega)\overline{\widehat g(\omega)}\,d\omega.
+$$
+
+交换积分的依据不是形式操作：绝对值积分由
+
+$$
+C_\psi\int_{\mathbb R}|\widehat f(\omega)||\widehat g(\omega)|\,d\omega
+\leq 2\pi C_\psi\|f\|_2\|g\|_2
+$$
+
+控制。再次应用 Plancherel 内积公式，右端就是 $C_\psi\langle f,g\rangle$，这便证明了交叉内积公式。
+
+最后解释弱重建。把形式积分的右端与任意 $g\in L^2$ 作内积；由于内积对第一个变量线性，且
+
+$$
+\langle\psi_{a,b},g\rangle=\overline{W_\psi g(a,b)},
+$$
+
+配对结果为
+
+$$
+\frac{1}{C_\psi}\int_0^\infty\int_{\mathbb R}
+W_\psi f(a,b)\overline{W_\psi g(a,b)}\,db\,\frac{da}{a^2}
+=\langle f,g\rangle.
+$$
+
+系数空间中的 Cauchy–Schwarz 不等式保证这个配对积分绝对收敛。它对所有 $g$ 都等于 $\langle f,g\rangle$，这正是所声明的 $L^2$ 弱重建。证毕。
 
 这一定理给出三个重要边界：可容许性负责排除不可重建的直流分量；测度是 $db\,da/a^2$，不能随意换成 $db\,da$；一般 $L^2$ 信号只保证弱重建，要得到逐点重建必须增加正则性和可积性假设。Grossmann 与 Morlet 的经典工作系统阐述了这类连续小波分解 [2]。
 
@@ -325,7 +521,21 @@ $$
 \phi_{j,k}(t)=2^{j/2}\phi(2^jt-k).
 $$
 
-则 $\bigl\{\phi_{j,k}:k\in\mathbb Z\bigr\}$ 是 $V_j$ 的正交规范基。这里 $j$ 越大表示越细的分辨率；有些工程库使用相反的层号约定，比较公式时必须先核对索引方向。
+这个公式与第 3 节的算子记号相容：
+
+$$
+\phi_{j,k}=T_{k2^{-j}}D_{2^{-j}}\phi.
+$$
+
+反复应用 MRA 的第 2 条公理可知，$D_{2^{-j}}$ 把 $V_0$ 映到 $V_j$；第 5 条公理中的整数平移相应变成间距为 $2^{-j}$ 的格点。由于平移和缩放都是酉算子，
+
+$$
+\langle\phi_{j,k},\phi_{j,\ell}\rangle
+=\langle\phi(\mathord\cdot-k),\phi(\mathord\cdot-\ell)\rangle
+=\delta_{k\ell},
+$$
+
+其中 $\delta_{k\ell}$ 是 Kronecker 符号：$k=\ell$ 时为 1，否则为 0。同时，$V_0$ 中基的完备性经酉映射传到 $V_j$。所以 $\bigl\{\phi_{j,k}:k\in\mathbb Z\bigr\}$ 是 $V_j$ 的正交规范基，而不只是“一组缩放后的函数”。这里 $j$ 越大表示越细的分辨率；有些工程库使用相反的层号约定，比较公式时必须先核对索引方向。
 
 令 $W_j$ 是 $V_j$ 在 $V_{j+1}$ 中的正交补，即
 
@@ -424,15 +634,27 @@ $$
 \psi(t)=\phi(2t)-\phi(2t-1).
 $$
 
-这两条关系在离散系数上变成一对低通、高通运算。对偶数长度向量 $x$，定义
+为什么这两条函数等式会变成离散滤波？把它们缩放、平移到第 $j$ 层，可得
 
 $$
-a_k=\frac{x_{2k}+x_{2k+1}}{\sqrt2},
+\phi_{j,k}=\frac{\phi_{j+1,2k}+\phi_{j+1,2k+1}}{\sqrt2},
 $$
 
 $$
-d_k=\frac{x_{2k}-x_{2k+1}}{\sqrt2}.
+\psi_{j,k}=\frac{\phi_{j+1,2k}-\phi_{j+1,2k+1}}{\sqrt2}.
 $$
+
+设 $x_n=\langle f,\phi_{j+1,n}\rangle$ 是信号在细一层尺度函数上的系数。利用内积对第一个变量线性、对第二个变量共轭线性；这里系数 $1/\sqrt2$ 为实数，因此
+
+$$
+a_k=\langle f,\phi_{j,k}\rangle=\frac{x_{2k}+x_{2k+1}}{\sqrt2},
+$$
+
+$$
+d_k=\langle f,\psi_{j,k}\rangle=\frac{x_{2k}-x_{2k+1}}{\sqrt2}.
+$$
+
+$a_k$ 是较粗层 $V_j$ 的近似系数，$d_k$ 是正交补 $W_j$ 的细节系数。“低通、高通”在 Haar 情形中具体就是相邻样本的平均与差分，而不是额外假设。对偶数长度向量，逐对使用这两个公式便得到一层 Haar DWT。
 
 逆变换为
 
@@ -444,13 +666,21 @@ $$
 x_{2k+1}=\frac{a_k-d_k}{\sqrt2}.
 $$
 
-直接展开可得每一对样本的能量守恒：
+逆公式来自把 $a_k$ 与 $d_k$ 相加、相减。能量守恒则是复数也成立的平行四边形恒等式：
 
 $$
-|x_{2k}|^2+|x_{2k+1}|^2=|a_k|^2+|d_k|^2.
+|a_k|^2+|d_k|^2
+=\frac{|x_{2k}+x_{2k+1}|^2+|x_{2k}-x_{2k+1}|^2}{2}
+=|x_{2k}|^2+|x_{2k+1}|^2.
 $$
 
-因此一层 Haar 变换是正交变换且可精确重建。若 $N=2^J$，继续只分解近似系数，每层处理的元素数依次为 $N,N/2,N/4,\ldots$，总操作数由几何级数控制在 $O(N)$。一般紧支撑滤波器长度固定时，Mallat 金字塔算法同样是 $O(N)$；若滤波器长度随 $N$ 增长，则不能直接沿用这个复杂度结论。Mallat 1989 年的论文给出了 MRA、正交小波和金字塔滤波算法之间的系统联系 [3]。
+因此一层 Haar 变换是正交变换且可精确重建。若 $N=2^J$，继续只分解近似系数，每层处理的元素数依次为 $N,N/2,N/4,\ldots$，而
+
+$$
+N+\frac N2+\frac N4+\cdots<2N.
+$$
+
+所以总操作数是 $O(N)$。一般紧支撑滤波器长度固定时，Mallat 金字塔算法同样是 $O(N)$；若滤波器长度随 $N$ 增长，则不能直接沿用这个复杂度结论。Mallat 1989 年的论文给出了 MRA、正交小波和金字塔滤波算法之间的系统联系 [3]。
 
 有限信号还必须选择周期延拓、零延拓、对称延拓或专门的边界小波。不同规则会改变端点附近的系数；无限轴上的正交性不能自动消除有限区间的边界效应。
 
@@ -480,7 +710,20 @@ $$
 \langle q,\psi_{a,b}\rangle=\sqrt a\int_{\mathbb R}q(b+as)\psi(s)\,ds.
 $$
 
-$q(b+as)$ 仍是关于 $s$ 的次数小于 $p$ 的多项式，可写成 $\sum_{m=0}^{p-1}c_ms^m$。逐项积分后，每一项都由消失矩条件变成零。证毕。
+若 $q(t)=\sum_{r=0}^{p-1}\alpha_rt^r$，二项式公式给出
+
+$$
+q(b+as)=\sum_{r=0}^{p-1}\alpha_r\sum_{m=0}^{r}{r\choose m}b^{r-m}a^ms^m.
+$$
+
+所以它确实可整理为 $\sum_{m=0}^{p-1}c_ms^m$，而不会产生 $s^p$ 或更高次项。代回积分：
+
+$$
+\langle q,\psi_{a,b}\rangle
+=\sqrt a\sum_{m=0}^{p-1}c_m\int_{\mathbb R}s^m\psi(s)\,ds=0.
+$$
+
+最后一个等号逐项使用了 $p$ 个消失矩。证毕。
 
 这一定理说的是“精确多项式被精确消去”。对一般光滑函数，只能通过 Taylor 余项得到“小系数”的定量估计；若小波支撑跨过跳跃点，单个多项式展开失效，系数便可能显著。这才是小波检测边缘与突变的数学来源。
 
@@ -527,13 +770,24 @@ $$
 \mathrm{Cov}(U\varepsilon)=U(\sigma^2I_N)U^T=\sigma^2I_N.
 $$
 
-因此各坐标独立且服从 $N(0,\sigma^2)$。若 $Z\sim N(0,1)$，标准尾界给出
+多元高斯向量由均值和协方差唯一确定；协方差为对角阵还意味着各坐标独立。因此各坐标独立且服从 $N(0,\sigma^2)$。
+
+下面也把所用的高斯尾界写清楚。若 $Z\sim N(0,1)$、$u>0$，则对任意 $s>0$，Markov 不等式和高斯矩母函数给出
+
+$$
+\mathbb P(Z>u)
+=\mathbb P(e^{sZ}>e^{su})
+\leq e^{-su}\mathbb E(e^{sZ})
+=e^{-su+s^2/2}.
+$$
+
+取使指数最小的 $s=u$，得到 $\mathbb P(Z>u)\leq e^{-u^2/2}$。再利用标准正态分布关于 0 对称，便有
 
 $$
 \mathbb P(|Z|>u)\leq2e^{-u^2/2}.
 $$
 
-对 $N$ 个坐标使用并集界，
+令 $Z_k=(U\varepsilon)_k/\sigma$。事件“至少一个坐标超过阈值”是各坐标事件的并集，所以并集界给出
 
 $$
 \mathbb P\left(\max_k|(U\varepsilon)_k|>\lambda_\delta\right)
