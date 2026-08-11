@@ -20,7 +20,7 @@ $$
 这里必须保留 $p$。只写 $v$，就不知道它属于哪个切空间。把所有这样的 $(p,v)$ 收集起来，得到切丛
 
 $$
-TM=\{(p,v)\mid p\in M,\ v\in T_pM\}.
+TM=\lbrace (p,v)\mid p\in M,\ v\in T_pM\rbrace.
 $$
 
 切丛有一个自然的映射
@@ -41,7 +41,7 @@ $$
 底空间可以看作纤维的索引空间。固定 $p$ 后，逆像
 
 $$
-\pi^{-1}(p)=\{e\in E\mid \pi(e)=p\}
+\pi^{-1}(p)=\lbrace e\in E\mid \pi(e)=p\rbrace
 $$
 
 就是 $p$ 上方的纤维。纤维未必是一条线；名称虽然来自几何图像，它可以是任意给定类型的空间。
@@ -66,7 +66,7 @@ $$
 E=M\times\mathbb R^r,\qquad \pi(p,v)=p.
 $$
 
-此时每根纤维 $E_p=\{p\}\times\mathbb R^r$ 都能用同一套方式标识为 $\mathbb R^r$，所以 $F=\mathbb R^r$。一般的纤维丛只要求这种标识在小区域里存在，整个 $M$ 上未必能共用一套标识。
+此时每根纤维 $E_p=\lbrace p\rbrace\times\mathbb R^r$ 都能用同一套方式标识为 $\mathbb R^r$，所以 $F=\mathbb R^r$。一般的纤维丛只要求这种标识在小区域里存在，整个 $M$ 上未必能共用一套标识。
 
 形式上，一个以 $F$ 为典型纤维的纤维丛要求：对 $M$ 的每个点 $p$，存在一个小邻域 $U$ 和同胚（光滑范畴中取微分同胚）
 
@@ -145,7 +145,7 @@ $$
 
 ## 三、转移函数：扭曲藏在哪里
 
-取一个开覆盖 $\{U_i\}$，在每个 $U_i$ 上选平凡化 $\Phi_i$。在重叠区域上，两个纤维坐标的关系必须保持底点不变，因而形如
+取一个开覆盖 $\lbrace U_i\rbrace$，在每个 $U_i$ 上选平凡化 $\Phi_i$。在重叠区域上，两个纤维坐标的关系必须保持底点不变，因而形如
 
 $$
 \Phi_i\Phi_j^{-1}(p,v)=(p,g_{ij}(p)\cdot v),
@@ -181,7 +181,7 @@ $$
 给定连续映射 $f:N\to M$，可以把 $E$ 拉回到 $N$。拉回的纤维取自 $f(x)$ 上的原纤维：
 
 $$
-f^*E=\{(x,e)\in N\times E\mid f(x)=\pi(e)\}\longrightarrow N.
+f^*E=\lbrace (x,e)\in N\times E\mid f(x)=\pi(e)\rbrace\longrightarrow N.
 $$
 
 拉回满足函子性 $ (f\circ g)^*E\cong g^*(f^*E)$。示性类也会随拉回一起变化：
@@ -321,7 +321,7 @@ $$
 
 ### 9.1 Möbius 线丛与 $w_1$
 
-实线丛的结构群是 $GL(1,\mathbb R)$，它可以连续收缩到 $\{\pm1\}$。因此，实线丛的转移函数只需要记录纤维有没有翻转。这些翻转数据组成一个 $\mathbb Z/2$-值 cocycle，并给出
+实线丛的结构群是 $GL(1,\mathbb R)$，它可以连续收缩到 $\lbrace \pm1\rbrace$。因此，实线丛的转移函数只需要记录纤维有没有翻转。这些翻转数据组成一个 $\mathbb Z/2$-值 cocycle，并给出
 
 $$
 w_1(L)\in H^1(M;\mathbb Z/2).
@@ -390,9 +390,9 @@ $$
 对足够好的空间 $M$，秩为 $r$ 的实向量丛由到 Grassmann 流形的映射分类；稳定化后可写成
 
 $$
-\{\text{稳定实丛}\}\leftrightarrow [M,BO],
+\lbrace \text{稳定实丛}\rbrace\leftrightarrow [M,BO],
 \qquad
-\{\text{稳定复丛}\}\leftrightarrow [M,BU].
+\lbrace \text{稳定复丛}\rbrace\leftrightarrow [M,BU].
 $$
 
 这里 $BO,BU$ 是分类空间，$[M,BG]$ 表示从 $M$ 到 $BG$ 的同伦类。主 $G$-丛同样由 $[M,BG]$ 分类（在适当的 CW 复形条件下）。于是，比较不同粘合方式可以转化为比较映射的同伦类。

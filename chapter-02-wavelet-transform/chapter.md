@@ -507,13 +507,13 @@ $$
 ### 4.1 多分辨率分析
 
 **定义（多分辨率分析）**
-$L^2(\mathbb R)$ 的一族闭子空间 $\bigl\{V_j:j\in\mathbb Z\bigr\}$ 称为一个二进多分辨率分析（multiresolution analysis，MRA），若满足：
+$L^2(\mathbb R)$ 的一族闭子空间 $\lbrace V_j:j\in\mathbb Z\rbrace$ 称为一个二进多分辨率分析（multiresolution analysis，MRA），若满足：
 
 1. $V_j\subset V_{j+1}$；
 2. $f\in V_j$ 当且仅当 $f(2\mathord\cdot)\in V_{j+1}$；
-3. $\bigcap_jV_j=\{0\}$；
+3. $\bigcap_jV_j=\lbrace 0\rbrace$；
 4. $\overline{\bigcup_jV_j}=L^2(\mathbb R)$；
-5. 存在尺度函数 $\phi\in V_0$，使 $\bigl\{\phi(t-k):k\in\mathbb Z\bigr\}$ 成为 $V_0$ 的正交规范基。
+5. 存在尺度函数 $\phi\in V_0$，使 $\lbrace \phi(t-k):k\in\mathbb Z\rbrace$ 成为 $V_0$ 的正交规范基。
 
 记
 
@@ -535,7 +535,7 @@ $$
 =\delta_{k\ell},
 $$
 
-其中 $\delta_{k\ell}$ 是 Kronecker 符号：$k=\ell$ 时为 1，否则为 0。同时，$V_0$ 中基的完备性经酉映射传到 $V_j$。所以 $\bigl\{\phi_{j,k}:k\in\mathbb Z\bigr\}$ 是 $V_j$ 的正交规范基，而不只是“一组缩放后的函数”。这里 $j$ 越大表示越细的分辨率；有些工程库使用相反的层号约定，比较公式时必须先核对索引方向。
+其中 $\delta_{k\ell}$ 是 Kronecker 符号：$k=\ell$ 时为 1，否则为 0。同时，$V_0$ 中基的完备性经酉映射传到 $V_j$。所以 $\lbrace \phi_{j,k}:k\in\mathbb Z\rbrace$ 是 $V_j$ 的正交规范基，而不只是“一组缩放后的函数”。这里 $j$ 越大表示越细的分辨率；有些工程库使用相反的层号约定，比较公式时必须先核对索引方向。
 
 令 $W_j$ 是 $V_j$ 在 $V_{j+1}$ 中的正交补，即
 
@@ -568,7 +568,7 @@ $$
 f=\sum_{j\in\mathbb Z}Q_jf
 $$
 
-在 $L^2$ 中成立。若每个 $W_j$ 由上述 $\psi_{j,k}$ 张成，则 $\bigl\{\psi_{j,k}:j,k\in\mathbb Z\bigr\}$ 是 $L^2(\mathbb R)$ 的正交规范基，并有
+在 $L^2$ 中成立。若每个 $W_j$ 由上述 $\psi_{j,k}$ 张成，则 $\lbrace \psi_{j,k}:j,k\in\mathbb Z\rbrace$ 是 $L^2(\mathbb R)$ 的正交规范基，并有
 
 $$
 \|f\|_2^2=\sum_{j\in\mathbb Z}\sum_{k\in\mathbb Z}|\langle f,\psi_{j,k}\rangle|^2.
@@ -599,7 +599,7 @@ $$
 右端随 $m,n\to\infty$ 趋于零，所以 $P_{j_n}f$ 是 Cauchy 列，设其极限为 $h$。对任意固定整数 $r$，充分大的 $n$ 满足 $j_n\leq r$，故 $P_{j_n}f\in V_r$。$V_r$ 闭，因此 $h\in V_r$。这对所有 $r$ 都成立，所以
 
 $$
-h\in\bigcap_rV_r=\{0\}.
+h\in\bigcap_rV_r=\lbrace 0\rbrace.
 $$
 
 任意趋于负无穷的整数列都只能收敛到零，故 $P_jf\to0$。
@@ -801,7 +801,7 @@ $$
 硬阈值与软阈值分别定义为
 
 $$
-T_{\mathrm{hard},\lambda}(z)=z\,\mathbf 1_{\{|z|>\lambda\}},
+T_{\mathrm{hard},\lambda}(z)=z\,\mathbf 1_{\lbrace |z|>\lambda\rbrace},
 $$
 
 $$

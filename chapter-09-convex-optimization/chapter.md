@@ -147,7 +147,7 @@ $$
 例如 $f(x)=|x|$：
 
 $$
-\partial |x|=\{1\}\qquad (x>0).
+\partial |x|=\lbrace 1\rbrace\qquad (x>0).
 $$
 
 $$
@@ -155,7 +155,7 @@ $$
 $$
 
 $$
-\partial |x|=\{-1\}\qquad (x<0).
+\partial |x|=\lbrace -1\rbrace\qquad (x<0).
 $$
 
 尖点处没有唯一切线，但有一整族支撑线。这让我们可以在不可微点继续谈一阶最优性。
