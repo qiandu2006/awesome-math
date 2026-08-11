@@ -433,7 +433,7 @@ $$
 Tishby、Pereira 与 Bialek（1999）提出**信息瓶颈**（Information Bottleneck，IB）框架：在保留关于标签 $Y$ 的信息的前提下，对输入 $X$ 的表示 $T$ 进行最大程度的压缩：
 
 $$
-\min_{p(t|x)} \; I(X;T) - \beta I(T;Y)
+\min_{p(t|x)} \mkern5mu  I(X;T) - \beta I(T;Y)
 $$
 
 其中 $\beta$ 控制压缩与保真的权衡。最优解满足自洽方程，诱导 $T$ 的分布是一个指数族，逆温度 $\beta$ 驱动相变。
@@ -444,7 +444,7 @@ Tishby 与 Schwartz-Ziv（2017）主张深度网络的隐层在训练过程中�
 
 Wasserstein 距离（最优传输代价）与 KL 散度都可以比较概率分布，但只有前者满足距离的对称性和三角不等式。KL 散度不是距离；它在统计流形上只在局部二阶展开中呈现 Fisher 度量对应的平方项，而 Wasserstein-2 距离是在分布空间上用地面度量定义的测地线距离。
 
-**最优传输信息不等式**（Marton 1986，Talagrand 1996）：若分布 $\mu$ 满足 $W_2(\nu,\mu)^2 \le 2\,D_{\mathrm{KL}}(\nu\|\mu)$（Talagrand 不等式），则 $\mu$ 满足次高斯浓度——这把输运代价与信息量直接绑在一起。
+**最优传输信息不等式**（Marton 1986，Talagrand 1996）：若分布 $\mu$ 满足 $W_2(\nu,\mu)^2 \le 2\mkern3mu D_{\mathrm{KL}}(\nu\|\mu)$（Talagrand 不等式），则 $\mu$ 满足次高斯浓度——这把输运代价与信息量直接绑在一起。
 
 **Sinkhorn 算法**（Cuturi 2013）通过加入熵正则化 $D_{\mathrm{KL}}$ 将最优传输问题变成可用矩阵缩放迭代求解的凸问题。每次迭代通常需要处理一个 $n\times n$ 的代价核，实际代价取决于迭代次数、精度、稀疏性和是否使用近似核；它因此在点云配准、GAN 训练和神经网络层激活匹配中变得实用。
 

@@ -50,7 +50,7 @@ $$
 $p(D)$ 容易被忽略，但它并不是装饰项。它把所有可能参数下的数据概率加权平均：
 
 $$
-p(D)=\int p(D\mid\theta)p(\theta)\,d\theta
+p(D)=\int p(D\mid\theta)p(\theta)\mkern3mu d\theta
 $$
 
 它保证后验积分为 1。换句话说，似然乘先验先给出一个“未归一化的可信度”，证据项负责把这些可信度重新缩放成真正的概率分布。在模型比较里，$p(D)$ 还会变成边际似然，用来衡量一个模型整体上多能解释数据。
@@ -195,7 +195,7 @@ $$
 $$
 p(\tilde y\mid D)
 =
-\int p(\tilde y\mid\theta)p(\theta\mid D)\,d\theta
+\int p(\tilde y\mid\theta)p(\theta\mid D)\mkern3mu d\theta
 $$
 
 这条公式很重要，因为它没有先把 $\theta$ 固定成一个点估计，而是把参数不确定性积分掉。
@@ -349,13 +349,13 @@ $$
 $$
 p(z\mid x)
 =
-\frac{p(x,z)}{\int p(x,z)\,dz}
+\frac{p(x,z)}{\int p(x,z)\mkern3mu dz}
 $$
 
 这看起来和贝叶斯公式一样，但困难在分母：
 
 $$
-p(x)=\int p(x,z)\,dz
+p(x)=\int p(x,z)\mkern3mu dz
 $$
 
 高维积分或高维求和通常非常难。

@@ -154,7 +154,7 @@ $$
 它告诉你在该点附近如何计算小位移的长度：
 
 $$
-ds^2=\sum_{i,j}g_{ij}(x)\,dx^i dx^j
+ds^2=\sum_{i,j}g_{ij}(x)\mkern3mu dx^i dx^j
 $$
 
 欧氏空间只是最简单的特例：$g_{ij}=\delta_{ij}$ 处处不变。Riemann 几何的自由度就在于：这个"局部内积矩阵"可以随位置变化。
@@ -162,7 +162,7 @@ $$
 如果 $\gamma(t)$ 是流形上的曲线，它的长度定义为：
 
 $$
-L(\gamma)=\int_a^b \sqrt{g_{\gamma(t)}(\dot\gamma(t),\dot\gamma(t))}\,dt
+L(\gamma)=\int_a^b \sqrt{g_{\gamma(t)}(\dot\gamma(t),\dot\gamma(t))}\mkern3mu dt
 $$
 
 这和欧氏空间中的弧长公式完全同构。区别只是欧氏空间里的内积处处一样，而流形上的内积可以随位置变化。
@@ -311,7 +311,7 @@ $$
 Amari（2016）将统计推断纳入微分几何框架：概率分布族 $\lbrace p(x;\theta)\rbrace$ 构成一个**统计流形**，Fisher 信息矩阵
 
 $$
-g_{ij}(\theta) = \mathbb{E}\!\left[\frac{\partial \log p}{\partial \theta^i}\frac{\partial \log p}{\partial \theta^j}\right]
+g_{ij}(\theta) = \mathbb{E}\mkern-3mu \left[\frac{\partial \log p}{\partial \theta^i}\frac{\partial \log p}{\partial \theta^j}\right]
 $$
 
 自然地定义其上的 Riemann 度量（Fisher-Rao 度量）。KL 散度在局部二阶展开中含有 Fisher 信息二次项，因此在足够近的分布之间表现出相应的局部几何。由此得到的**自然梯度** $\tilde\nabla f = g^{-1}\nabla f$ 是按 Fisher 度量定义的最陡方向；它有时能改善参数化敏感性，但不保证在所有神经网络训练中都更快。EM 算法也可在特定指数族和信息几何表述下解释为两类投影的交替过程，不能把这句话当作所有 EM 变体的字面定义。
@@ -336,7 +336,7 @@ Bronstein、Cohen、Welling 等于 2021 年提出"几何深度学习"统一蓝�
 Chen 等（2018）将残差网络连续极限化为流形上的动力系统 $\dot{h}(t) = f(h(t),t,\theta)$。由**瞬时流密度变化公式**
 
 $$
-\frac{d\log p(z(t))}{dt} = -\mathrm{tr}\!\left(\frac{\partial f}{\partial z}\right)
+\frac{d\log p(z(t))}{dt} = -\mathrm{tr}\mkern-3mu \left(\frac{\partial f}{\partial z}\right)
 $$
 
 可精确计算生成模型的对数似然（连续归一化流，CNF）。

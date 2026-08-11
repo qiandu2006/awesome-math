@@ -207,7 +207,7 @@ Chebyshev 节点的作用是把节点更多放在区间两端，减轻边界振�
 积分：
 
 $$
-I=\int_a^b f(x)\,dx
+I=\int_a^b f(x)\mkern3mu dx
 $$
 
 通常无法解析求出。数值积分用有限个函数值近似它。
@@ -215,7 +215,7 @@ $$
 最简单的是梯形公式：
 
 $$
-\int_a^b f(x)\,dx
+\int_a^b f(x)\mkern3mu dx
 \approx
 \frac{h}{2}
 \left[

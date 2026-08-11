@@ -18,15 +18,15 @@ layout: default
 除非另有说明，本章函数取复值；实值函数是其特例。连续 Fourier 变换统一采用角频率约定
 
 $$
-\widehat f(\omega)=\int_{\mathbb R}f(t)e^{-i\omega t}\,dt,
+\widehat f(\omega)=\int_{\mathbb R}f(t)e^{-i\omega t}\mkern3mu dt,
 \qquad
-f(t)=\frac{1}{2\pi}\int_{\mathbb R}\widehat f(\omega)e^{i\omega t}\,d\omega.
+f(t)=\frac{1}{2\pi}\int_{\mathbb R}\widehat f(\omega)e^{i\omega t}\mkern3mu d\omega.
 $$
 
 在复 Hilbert 空间中使用对第一个变量线性的内积
 
 $$
-\langle f,g\rangle=\int f(x)\overline{g(x)}\,dx.
+\langle f,g\rangle=\int f(x)\overline{g(x)}\mkern3mu dx.
 $$
 
 $\mathcal S(\mathbb R)$ 表示 Schwartz 空间：其中的函数无限可微，并且函数及其每阶导数都比任意多项式倒数衰减得更快。需要交换积分、求和、极限或微分时，正文会明确说明条件。
@@ -70,7 +70,7 @@ $$
 在棒上截取一个很短的小段 $[x,x+\Delta x]$。它的体积是 $S\Delta x$，质量是 $\rho S\Delta x$。温度每升高 $\Delta u$，这段金属增加的内能近似为
 
 $$
-\Delta E=\rho cS\Delta x\,\Delta u.
+\Delta E=\rho cS\Delta x\mkern3mu \Delta u.
 $$
 
 因此，它在单位时间内储存内能的速率是
@@ -284,7 +284,7 @@ $$
 其中初始温度在第 $n$ 个模式上的系数是
 
 $$
-b_n=\frac{2}{L}\int_0^L f(x)\sin\left(\frac{n\pi x}{L}\right)\,dx.
+b_n=\frac{2}{L}\int_0^L f(x)\sin\left(\frac{n\pi x}{L}\right)\mkern3mu dx.
 $$
 
 这正是**线性叠加原理**的威力：把复杂初始状态分解为算子的基本模式，分别演化后再合并。用线性代数的语言说，$\sin(n\pi x/L)$ 是二阶微分算子在固定端点边界条件下的特征函数，特征值是 $-(n\pi/L)^2$；热方程只是让每个特征方向乘上相应的指数衰减因子。这个方法后来演变为整个数学物理的核心范式。
@@ -341,25 +341,25 @@ $$
 **唯一性。** 若 $u$ 与 $v$ 是两个经典解，令 $w=u-v$。则 $w$ 满足齐次热方程、齐次边界条件和零初值。定义能量
 
 $$
-E(t)=\frac12\int_0^L|w(x,t)|^2\,dx.
+E(t)=\frac12\int_0^L|w(x,t)|^2\mkern3mu dx.
 $$
 
 对复值解应取实部；利用分部积分和 $w(0,t)=w(L,t)=0$，
 
 $$
-E'(t)=\mathrm{Re}\int_0^L w_t\overline w\,dx.
+E'(t)=\mathrm{Re}\int_0^L w_t\overline w\mkern3mu dx.
 $$
 
 $$
-E'(t)=\alpha\mathrm{Re}\int_0^L w_{xx}\overline w\,dx.
+E'(t)=\alpha\mathrm{Re}\int_0^L w_{xx}\overline w\mkern3mu dx.
 $$
 
 $$
-E'(t)=\alpha\mathrm{Re}\left([w_x\overline w]_0^L-\int_0^L|w_x|^2\,dx\right).
+E'(t)=\alpha\mathrm{Re}\left([w_x\overline w]_0^L-\int_0^L|w_x|^2\mkern3mu dx\right).
 $$
 
 $$
-E'(t)=-\alpha\int_0^L|w_x|^2\,dx\le 0.
+E'(t)=-\alpha\int_0^L|w_x|^2\mkern3mu dx\le 0.
 $$
 
 对任意 $0<\varepsilon<t$，上述不等式给出 $E(t)\le E(\varepsilon)$。又因 $w$ 在 $t=0$ 连续且初值为零，$E(\varepsilon)\to E(0)=0$。因此 $E(t)=0$；于是 $w(\cdot,t)=0$，即 $u=v$。证毕。
@@ -415,7 +415,7 @@ $$
 函数空间 $L^2(0,\pi;\mathbb C)$ 上的内积定义为
 
 $$
-\langle f,g\rangle=\int_0^\pi f(x)\overline{g(x)}\,dx.
+\langle f,g\rangle=\int_0^\pi f(x)\overline{g(x)}\mkern3mu dx.
 $$
 
 若只讨论实值函数，共轭号可以省略。这里的 $L^2$ 元素严格说是“几乎处处相等”的函数等价类；积分与范数不区分代表元。
@@ -423,11 +423,11 @@ $$
 正弦函数满足
 
 $$
-\int_0^\pi\sin(kx)\sin(mx)\,dx=0\qquad (k\ne m).
+\int_0^\pi\sin(kx)\sin(mx)\mkern3mu dx=0\qquad (k\ne m).
 $$
 
 $$
-\int_0^\pi\sin^2(mx)\,dx=\frac{\pi}{2}.
+\int_0^\pi\sin^2(mx)\mkern3mu dx=\frac{\pi}{2}.
 $$
 
 第一行可以由积化和差公式看出：当 $k\ne m$ 时，
@@ -446,19 +446,19 @@ $$
 现在固定一个频率 $m$，将级数两边同时乘以 $\sin(mx)$ 并在 $[0,\pi]$ 上积分：
 
 $$
-\int_0^\pi f(x)\sin(mx)\,dx
-=\sum_{k=1}^\infty b_k\int_0^\pi\sin(kx)\sin(mx)\,dx.
+\int_0^\pi f(x)\sin(mx)\mkern3mu dx
+=\sum_{k=1}^\infty b_k\int_0^\pi\sin(kx)\sin(mx)\mkern3mu dx.
 $$
 
 $$
-\int_0^\pi f(x)\sin(mx)\,dx=b_m\frac{\pi}{2}.
+\int_0^\pi f(x)\sin(mx)\mkern3mu dx=b_m\frac{\pi}{2}.
 $$
 
 其他频率全部因正交性变成零，只剩下第 $m$ 项。因此
 
 $$
 \boxed{
-b_m=\frac{2}{\pi}\int_0^\pi f(x)\sin(mx)\,dx
+b_m=\frac{2}{\pi}\int_0^\pi f(x)\sin(mx)\mkern3mu dx
 }.
 $$
 
@@ -475,13 +475,13 @@ $$
 **定理 2（正弦系统的完备性）**  
 
 $$
-\lbrace\,\sqrt{\frac{2}{\pi}}\sin(nx):n=1,2,\ldots\,\rbrace
+\lbrace\mkern3mu \sqrt{\frac{2}{\pi}}\sin(nx):n=1,2,\ldots\mkern3mu \rbrace
 $$
 
 是 $L^2(0,\pi)$ 的一组完备正交系统。等价地，对每个 $f\in L^2(0,\pi)$，其部分和
 
 $$
-S_Nf=\sum_{n=1}^{N}\left\langle f,\sqrt{\frac2\pi}\sin(n\,\cdot)\right\rangle
+S_Nf=\sum_{n=1}^{N}\left\langle f,\sqrt{\frac2\pi}\sin(n\mkern3mu \cdot)\right\rangle
 \sqrt{\frac2\pi}\sin(nx)
 $$
 
@@ -502,8 +502,8 @@ $$
 因为 $H$ 是奇函数，它与常数及所有 $\cos(nx)$ 正交；由假设，
 
 $$
-\int_{-\pi}^{\pi}H(x)\sin(nx)\,dx
-=2\int_0^\pi h(x)\sin(nx)\,dx=0.
+\int_{-\pi}^{\pi}H(x)\sin(nx)\mkern3mu dx
+=2\int_0^\pi h(x)\sin(nx)\mkern3mu dx=0.
 $$
 
 所以 $H$ 的全部复 Fourier 系数都为零。
@@ -523,21 +523,21 @@ K_N(t)=\frac1{N+1}\left|\sum_{j=0}^{N}e^{ijt}\right|^2
 $$
 
 因此 $K_N\ge0$，且积分只保留常数项，从而
-$\frac1{2\pi}\int_{-\pi}^{\pi}K_N(t)\,dt=1$。Fejér 平均
+$\frac1{2\pi}\int_{-\pi}^{\pi}K_N(t)\mkern3mu dt=1$。Fejér 平均
 
 $$
-\sigma_NH(x)=\frac1{2\pi}\int_{-\pi}^{\pi}H(x-t)K_N(t)\,dt
+\sigma_NH(x)=\frac1{2\pi}\int_{-\pi}^{\pi}H(x-t)K_N(t)\mkern3mu dt
 $$
 
 的 Fourier 系数是 $H$ 的 Fourier 系数乘以三角权重 $1-|k|/(N+1)$，故此处 $\sigma_NH=0$。
 
 另一方面，平移在 $L^2$ 中连续，即
-$\|H(\,\cdot-t)-H\|_2\to0$ 当 $t\to0$。这个事实可先对连续周期函数由一致连续性证明，再利用连续函数在 $L^2$ 中稠密推广。由 Minkowski 积分不等式，
+$\|H(\mkern3mu \cdot-t)-H\|_2\to0$ 当 $t\to0$。这个事实可先对连续周期函数由一致连续性证明，再利用连续函数在 $L^2$ 中稠密推广。由 Minkowski 积分不等式，
 
 $$
 \|\sigma_NH-H\|_2
 \le\frac1{2\pi}\int_{-\pi}^{\pi}
-K_N(t)\|H(\,\cdot-t)-H\|_2\,dt.
+K_N(t)\|H(\mkern3mu \cdot-t)-H\|_2\mkern3mu dt.
 $$
 
 给定 $\varepsilon>0$，先选 $\delta>0$，使 $|t|<\delta$ 时平移差的 $L^2$ 范数小于 $\varepsilon$。这部分积分不超过 $\varepsilon$。当 $\delta\le|t|\le\pi$ 时，
@@ -564,7 +564,7 @@ $$
 对于前面长度为 $L$ 的金属棒，只需把基函数换成 $\sin(n\pi x/L)$。由于它在 $[0,L]$ 上的范数平方是 $L/2$，相同推导就给出
 
 $$
-b_n=\frac{2}{L}\int_0^L f(x)\sin\left(\frac{n\pi x}{L}\right)\,dx.
+b_n=\frac{2}{L}\int_0^L f(x)\sin\left(\frac{n\pi x}{L}\right)\mkern3mu dx.
 $$
 
 正弦函数的正交性意味着每个频率分量都可以被单独投影出来，不会受到其他频率的干扰。这就是傅里叶方法的数学根基。
@@ -632,7 +632,7 @@ $$
 
 $$
 c_n=\frac{1}{T}\int_{-T/2}^{T/2}
-f_T(s)e^{-i\omega_ns}\,ds.
+f_T(s)e^{-i\omega_ns}\mkern3mu ds.
 $$
 
 这里合成时使用 $e^{i\omega_nt}$，提取系数时使用它的复共轭 $e^{-i\omega_nt}$，正如复内积会对第二个向量取共轭。
@@ -641,7 +641,7 @@ $$
 
 $$
 \widehat f_T(\omega_n)
-=\int_{-T/2}^{T/2}f(s)e^{-i\omega_ns}\,ds.
+=\int_{-T/2}^{T/2}f(s)e^{-i\omega_ns}\mkern3mu ds.
 $$
 
 由于 $f_T$ 在中央区间内就是 $f$，级数系数满足
@@ -657,7 +657,7 @@ $$
 f_T(t)
 =\frac{1}{2\pi}
 \sum_{n\in\mathbb Z}
-\widehat f_T(\omega_n)e^{i\omega_nt}\,\Delta\omega.
+\widehat f_T(\omega_n)e^{i\omega_nt}\mkern3mu \Delta\omega.
 $$
 
 这个式子已经是一个黎曼和。当 $T\to\infty$ 时，会同时发生三件事：
@@ -672,14 +672,14 @@ $$
 \widehat f_T(\omega_n)
 \longrightarrow
 \widehat f(\omega)
-=\int_{-\infty}^{\infty}f(s)e^{-i\omega s}\,ds,
+=\int_{-\infty}^{\infty}f(s)e^{-i\omega s}\mkern3mu ds,
 $$
 
 而上面的求和式变成积分：
 
 $$
 f(t)=\frac{1}{2\pi}\int_{-\infty}^{\infty}
-\widehat f(\omega)e^{i\omega t}\,d\omega.
+\widehat f(\omega)e^{i\omega t}\mkern3mu d\omega.
 $$
 
 因此得到 Fourier 变换对
@@ -687,14 +687,14 @@ $$
 $
 \boxed{
 \widehat f(\omega)
-=\int_{-\infty}^{\infty}f(t)e^{-i\omega t}\,dt
+=\int_{-\infty}^{\infty}f(t)e^{-i\omega t}\mkern3mu dt
 }.
 $
 
 $
 \boxed{
 f(t)
-=\frac{1}{2\pi}\int_{-\infty}^{\infty}\widehat f(\omega)e^{i\omega t}\,d\omega
+=\frac{1}{2\pi}\int_{-\infty}^{\infty}\widehat f(\omega)e^{i\omega t}\mkern3mu d\omega
 }.
 $
 
@@ -704,7 +704,7 @@ $$
 c_n=\frac{\Delta\omega}{2\pi}\widehat f_T(\omega_n)
 $$
 
-可见，当频率格子宽度 $\Delta\omega$ 趋于零时，单个格子的系数 $c_n$ 也趋于零；不趋于零的是除去格子宽度后留下的密度 $\widehat f(\omega)$。积分 $\widehat f(\omega)\,d\omega/(2\pi)$ 才是一个无穷小频带对原函数的贡献。
+可见，当频率格子宽度 $\Delta\omega$ 趋于零时，单个格子的系数 $c_n$ 也趋于零；不趋于零的是除去格子宽度后留下的密度 $\widehat f(\omega)$。积分 $\widehat f(\omega)\mkern3mu d\omega/(2\pi)$ 才是一个无穷小频带对原函数的贡献。
 
 上面的“周期趋于无穷”解释了公式的来源和归一化，却还不是反演定理的证明：黎曼和是否收敛、极限能否交换，都需要统一控制。下面在 Schwartz 空间中给出一个不依赖形式 $\delta$ 计算的严格版本。
 
@@ -712,7 +712,7 @@ $$
 若 $f\in\mathcal S(\mathbb R)$，则 $\widehat f\in L^1(\mathbb R)$，并且对每个 $x\in\mathbb R$，
 
 $$
-f(x)=\frac1{2\pi}\int_{\mathbb R}\widehat f(\omega)e^{i\omega x}\,d\omega.
+f(x)=\frac1{2\pi}\int_{\mathbb R}\widehat f(\omega)e^{i\omega x}\mkern3mu d\omega.
 $$
 
 **证明。**
@@ -723,7 +723,7 @@ $|\widehat f(\omega)|\le\|f\|_1$。当 $\omega\ne0$ 时，对定义积分分部�
 $$
 |\widehat f(\omega)|
 =\frac1{\omega^2}\left|
-\int_{\mathbb R}f''(t)e^{-i\omega t}\,dt
+\int_{\mathbb R}f''(t)e^{-i\omega t}\mkern3mu dt
 \right|
 \le\frac{\|f''\|_1}{\omega^2}.
 $$
@@ -735,14 +735,14 @@ $$
 $$
 I_\varepsilon(x)=\frac1{2\pi}\int_{\mathbb R}
 \widehat f(\omega)e^{i\omega x}
-e^{-\varepsilon\omega^2/2}\,d\omega.
+e^{-\varepsilon\omega^2/2}\mkern3mu d\omega.
 $$
 
 先计算 Gaussian 的逆变换。令
 
 $$
 J_\varepsilon(y)=\frac1{2\pi}\int_{\mathbb R}
-e^{-\varepsilon\omega^2/2}e^{i\omega y}\,d\omega.
+e^{-\varepsilon\omega^2/2}e^{i\omega y}\mkern3mu d\omega.
 $$
 
 由于被积函数乘上任意一次 $\omega$ 后仍绝对可积，可以对 $y$ 求导；再对 $\omega$ 分部积分，得到
@@ -760,7 +760,7 @@ $$
 
 $$
 \int_{\mathbb R}\int_{\mathbb R}
-|f(t)|e^{-\varepsilon\omega^2/2}\,dt\,d\omega
+|f(t)|e^{-\varepsilon\omega^2/2}\mkern3mu dt\mkern3mu d\omega
 =\|f\|_1\sqrt{\frac{2\pi}{\varepsilon}}<\infty,
 $$
 
@@ -770,11 +770,11 @@ $$
 I_\varepsilon(x)
 =\int_{\mathbb R}f(t)
 \left[\frac1{2\pi}\int_{\mathbb R}
-e^{-\varepsilon\omega^2/2}e^{i\omega(x-t)}\,d\omega\right]dt.
+e^{-\varepsilon\omega^2/2}e^{i\omega(x-t)}\mkern3mu d\omega\right]dt.
 $$
 
 $$
-I_\varepsilon(x)=\int_{\mathbb R}f(t)\varphi_\varepsilon(x-t)\,dt.
+I_\varepsilon(x)=\int_{\mathbb R}f(t)\varphi_\varepsilon(x-t)\mkern3mu dt.
 $$
 
 $$
@@ -786,11 +786,11 @@ $\varphi_\varepsilon\ge0$、$\int\varphi_\varepsilon=1$，而且其质量随 $\v
 $$
 |I_\varepsilon(x)-f(x)|
 \le\int_{\mathbb R}\varphi_\varepsilon(y)
-|f(x-y)-f(x)|\,dy\longrightarrow0.
+|f(x-y)-f(x)|\mkern3mu dy\longrightarrow0.
 $$
 
 具体地，先选 $\delta$ 使 $|y|<\delta$ 时函数差小于任意给定的 $\eta$，再用
-$\int_{|y|\ge\delta}\varphi_\varepsilon(y)\,dy\to0$
+$\int_{|y|\ge\delta}\varphi_\varepsilon(y)\mkern3mu dy\to0$
 控制尾部。
 
 另一方面，$\widehat f\in L^1$，且
@@ -799,7 +799,7 @@ $|e^{-\varepsilon\omega^2/2}|\le1$。支配收敛定理给出
 $$
 I_\varepsilon(x)\longrightarrow
 \frac1{2\pi}\int_{\mathbb R}
-\widehat f(\omega)e^{i\omega x}\,d\omega.
+\widehat f(\omega)e^{i\omega x}\mkern3mu d\omega.
 $$
 
 同一个 $I_\varepsilon(x)$ 的两个极限必须相等，反演公式得证。
@@ -807,7 +807,7 @@ $$
 **Dirac $\delta$ 的逻辑地位。** 现在可以把常见的形式计算理解为上述证明的压缩写法：
 
 $$
-\frac1{2\pi}\int_{\mathbb R}e^{i\omega(t-s)}\,d\omega
+\frac1{2\pi}\int_{\mathbb R}e^{i\omega(t-s)}\mkern3mu d\omega
 =\delta(t-s).
 $$
 
@@ -839,7 +839,7 @@ $$
 这些点的时间平均是
 
 $$
-C_T(\omega)=\frac1T\int_0^T f(t)e^{-i\omega t}\,dt.
+C_T(\omega)=\frac1T\int_0^T f(t)e^{-i\omega t}\mkern3mu dt.
 $$
 
 因此，截断信号的 Fourier 变换等于 $T C_T(\omega)$。严格说，只有 $C_T$ 才是“质心”；Fourier 积分本身是未除以区间长度的加权总和。
@@ -857,7 +857,7 @@ $$
 先看卷积描述的是什么。两个函数 $f$ 和 $g$ 的卷积定义为
 
 $$
-(f*g)(t)=\int_{-\infty}^{\infty}f(\tau)g(t-\tau)\,d\tau.
+(f*g)(t)=\int_{-\infty}^{\infty}f(\tau)g(t-\tau)\mkern3mu d\tau.
 $$
 
 可以把 $f$ 看成输入信号，把 $g$ 看成系统对一个瞬时输入的响应。输入在时刻 $\tau$ 的大小是 $f(\tau)$，它会在之后产生一份平移到 $\tau$ 的响应 $f(\tau)g(t-\tau)$；把所有时刻产生的响应相加，就得到上面的积分。
@@ -865,42 +865,42 @@ $$
 这个直觉常用 Dirac $\delta$ 记号表达。下面的计算要求 $H$ 能连续地作用在一个包含 $\delta$ 的函数或分布空间上，并且与平移相容；如果没有指定这样的空间，它只能视为工程直觉，而不是“所有线性时不变算子”的无条件定理。对足够规则的输入，可以在分布意义下写成
 
 $$
-f(t)=\int_{-\infty}^{\infty}f(\tau)\delta(t-\tau)\,d\tau.
+f(t)=\int_{-\infty}^{\infty}f(\tau)\delta(t-\tau)\mkern3mu d\tau.
 $$
 
 把它写成函数恒等式，就是
 
 $$
 f=\int_{-\infty}^{\infty}
-f(\tau)\delta(\,\cdot-\tau)\,d\tau.
+f(\tau)\delta(\mkern3mu \cdot-\tau)\mkern3mu d\tau.
 $$
 
-这里的 $\cdot$ 是函数自变量的占位符：对每个固定的 $\tau$，$\delta(\,\cdot-\tau)$ 表示在 $\tau$ 处的单位瞬时输入。
+这里的 $\cdot$ 是函数自变量的占位符：对每个固定的 $\tau$，$\delta(\mkern3mu \cdot-\tau)$ 表示在 $\tau$ 处的单位瞬时输入。
 
 设线性时不变系统为 $H$，并记它对单位瞬时输入的响应为 $g=H\delta$。将上面的分解代入 $Hf$，再在时刻 $t$ 读取输出，得到
 
 $$
 (Hf)(t)
 =H\left(\int_{-\infty}^{\infty}
-f(\tau)\delta(\cdot-\tau)\,d\tau\right)(t).
+f(\tau)\delta(\cdot-\tau)\mkern3mu d\tau\right)(t).
 $$
 
 $$
 (Hf)(t)
 =\int_{-\infty}^{\infty}f(\tau)
-H\bigl(\delta(\cdot-\tau)\bigr)(t)\,d\tau
+H\bigl(\delta(\cdot-\tau)\bigr)(t)\mkern3mu d\tau
 \qquad\text{（线性性与连续性）}.
 $$
 
 $$
-(Hf)(t)=\int_{-\infty}^{\infty}f(\tau)g(t-\tau)\,d\tau.
+(Hf)(t)=\int_{-\infty}^{\infty}f(\tau)g(t-\tau)\mkern3mu d\tau.
 $$
 
 $$
 (Hf)(t)=(f*g)(t).
 $$
 
-第三行用的是时不变性。因为 $\delta(\,\cdot-\tau)$ 是把 $\delta$ 延迟了 $\tau$，输出也只是把 $g=H\delta$ 延迟同样的时间：
+第三行用的是时不变性。因为 $\delta(\mkern3mu \cdot-\tau)$ 是把 $\delta$ 延迟了 $\tau$，输出也只是把 $g=H\delta$ 延迟同样的时间：
 
 $$
 H\bigl(\delta(\cdot-\tau)\bigr)(t)
@@ -911,7 +911,7 @@ $$
 
 $$
 f\approx\sum_j f(\tau_j)
-\delta(\,\cdot-\tau_j)\,\Delta\tau.
+\delta(\mkern3mu \cdot-\tau_j)\mkern3mu \Delta\tau.
 $$
 
 线性性保证 $H$ 可以逐项作用于这个有限和；当分割越来越细时，如果 $H$ 在所采用的函数或分布空间上连续，就可以让 $H$ 与这个极限交换，从而得到积分形式。仅有代数意义上的线性还不够，这里确实隐含了连续性条件。
@@ -931,14 +931,14 @@ $$
 
 $$
 \int_{\mathbb R}\int_{\mathbb R}
-|f(\tau)g(t-\tau)|\,d\tau\,dt
+|f(\tau)g(t-\tau)|\mkern3mu d\tau\mkern3mu dt
 =\int_{\mathbb R}|f(\tau)|
-\left(\int_{\mathbb R}|g(t-\tau)|\,dt\right)d\tau.
+\left(\int_{\mathbb R}|g(t-\tau)|\mkern3mu dt\right)d\tau.
 $$
 
 $$
 \int_{\mathbb R}\int_{\mathbb R}
-|f(\tau)g(t-\tau)|\,d\tau\,dt
+|f(\tau)g(t-\tau)|\mkern3mu d\tau\mkern3mu dt
 =\|f\|_1\|g\|_1<\infty.
 $$
 
@@ -949,27 +949,27 @@ $$
 \widehat{f*g}(\omega)
 =\int_{-\infty}^{\infty}
 \left[\int_{-\infty}^{\infty}
-f(\tau)g(t-\tau)\,d\tau\right]
-e^{-i\omega t}\,dt.
+f(\tau)g(t-\tau)\mkern3mu d\tau\right]
+e^{-i\omega t}\mkern3mu dt.
 $$
 
 $$
 \widehat{f*g}(\omega)
 =\int_{-\infty}^{\infty}f(\tau)
 \left[\int_{-\infty}^{\infty}
-g(t-\tau)e^{-i\omega t}\,dt\right]d\tau.
+g(t-\tau)e^{-i\omega t}\mkern3mu dt\right]d\tau.
 $$
 
 在内层积分中令 $s=t-\tau$，则
 
 $$
-\int_{-\infty}^{\infty}g(t-\tau)e^{-i\omega t}\,dt
+\int_{-\infty}^{\infty}g(t-\tau)e^{-i\omega t}\mkern3mu dt
 =e^{-i\omega\tau}
-\int_{-\infty}^{\infty}g(s)e^{-i\omega s}\,ds.
+\int_{-\infty}^{\infty}g(s)e^{-i\omega s}\mkern3mu ds.
 $$
 
 $$
-\int_{-\infty}^{\infty}g(t-\tau)e^{-i\omega t}\,dt
+\int_{-\infty}^{\infty}g(t-\tau)e^{-i\omega t}\mkern3mu dt
 =e^{-i\omega\tau}\widehat g(\omega).
 $$
 
@@ -978,7 +978,7 @@ $$
 $$
 \widehat{f*g}(\omega)
 =\widehat g(\omega)
-\int_{-\infty}^{\infty}f(\tau)e^{-i\omega\tau}\,d\tau.
+\int_{-\infty}^{\infty}f(\tau)e^{-i\omega\tau}\mkern3mu d\tau.
 $$
 
 $$
@@ -988,7 +988,7 @@ $$
 也就是
 
 $$
-\boxed{\mathcal F[f*g]=\widehat f\,\widehat g}.
+\boxed{\mathcal F[f*g]=\widehat f\mkern3mu \widehat g}.
 $$
 
 证毕。
@@ -996,7 +996,7 @@ $$
 现在“时域中的卷积 = 频域中的乘积”就不再是一个孤立结论。卷积原本需要把无穷多个平移响应叠加起来；Fourier 变换后，每个频率只需乘上一个数 $\widehat g(\omega)$。用线性代数的语言说，复指数是卷积算子的特征函数：
 
 $$
-\bigl(e^{i\omega\,\cdot}*g\bigr)(t)
+\bigl(e^{i\omega\mkern3mu \cdot}*g\bigr)(t)
 =\widehat g(\omega)e^{i\omega t}.
 $$
 
@@ -1005,7 +1005,7 @@ $$
 第一节的热扩散其实已经包含这个结构。在无限长直线上，时刻 $t$ 的温度可以写成初始温度与高斯热核的卷积：
 
 $$
-u(\,\cdot,t)=G_t*u_0,
+u(\mkern3mu \cdot,t)=G_t*u_0,
 \qquad
 G_t(x)=\frac{1}{\sqrt{4\pi\alpha t}}
 e^{-x^2/(4\alpha t)}.
@@ -1169,7 +1169,7 @@ $$
 
 $$
 \widehat f_{[0,T]}(\omega_k)
-=\int_0^T f(t)e^{-i\omega_kt}\,dt.
+=\int_0^T f(t)e^{-i\omega_kt}\mkern3mu dt.
 $$
 
 $$
@@ -1179,7 +1179,7 @@ x[n]e^{-i2\pi kn/N}.
 $$
 
 $$
-\widehat f_{[0,T]}(\omega_k)=\Delta t\,X[k].
+\widehat f_{[0,T]}(\omega_k)=\Delta t\mkern3mu X[k].
 $$
 
 如果 $f$ 在区间外为零，这就是它在整条实线上的 Fourier 变换；否则它是加窗截断后的变换。DFT 因而既是一个精确的有限维基底变换，也能在上述极限下近似加窗信号的连续 Fourier 变换。若同时改变 (T)、(N) 或频率下标 (k)，则还需分别分析截断误差、离散化误差和混叠，不能仅凭这一条黎曼和公式下结论。

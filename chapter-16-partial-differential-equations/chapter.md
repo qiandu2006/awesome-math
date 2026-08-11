@@ -235,7 +235,7 @@ $$
 乘上光滑紧支撑测试函数 $\varphi$，积分并分部积分，可以把导数从 $u$ 转移到 $\varphi$：
 
 $$
-\int\int \left(u\partial_t\varphi+f(u)\partial_x\varphi\right)\,dxdt=0
+\int\int \left(u\partial_t\varphi+f(u)\partial_x\varphi\right)\mkern3mu dxdt=0
 $$
 
 这样即使 $u$ 有跳跃，公式仍然有意义。
@@ -276,9 +276,9 @@ $$
 $$
 \|u\|_{H^1}^2
 =
-\int_\Omega |u|^2\,dx
+\int_\Omega |u|^2\mkern3mu dx
 +
-\int_\Omega |\nabla u|^2\,dx
+\int_\Omega |\nabla u|^2\mkern3mu dx
 $$
 
 Sobolev 空间的本质是：
@@ -296,7 +296,7 @@ Sobolev 空间的本质是：
 例如 Dirichlet 能量：
 
 $$
-E(u)=\frac12\int_\Omega |\nabla u|^2\,dx
+E(u)=\frac12\int_\Omega |\nabla u|^2\mkern3mu dx
 $$
 
 在固定边界值下使 $E(u)$ 最小的函数满足：
@@ -380,7 +380,7 @@ $$
 乘上测试函数 $v$ 并积分分部，得到：
 
 $$
-\int_\Omega \nabla u\cdot\nabla v\,dx=\int_\Omega fv\,dx
+\int_\Omega \nabla u\cdot\nabla v\mkern3mu dx=\int_\Omega fv\mkern3mu dx
 $$
 
 然后选取有限维函数空间，用基函数展开 $u$，PDE 就变成线性方程组。

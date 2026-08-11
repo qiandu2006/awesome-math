@@ -440,7 +440,7 @@ $$
 最经典的例子是去掉原点的平面 $\mathbb{R}^2\setminus\lbrace 0\rbrace$ 上的 1-形式：
 
 $$
-\omega = \frac{-y\,dx+x\,dy}{x^2+y^2}
+\omega = \frac{-y\mkern3mu dx+x\mkern3mu dy}{x^2+y^2}
 $$
 
 它是闭的：

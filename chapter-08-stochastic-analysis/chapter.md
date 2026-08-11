@@ -17,7 +17,7 @@ layout: default
 如果路径不可微，那么很多熟悉的表达式都失去意义：
 
 $$
-\frac{dB_t}{dt},\quad \int_0^T f(t)\,dB_t,\quad dX_t=\mu(X_t)dt+\sigma(X_t)dB_t
+\frac{dB_t}{dt},\quad \int_0^T f(t)\mkern3mu dB_t,\quad dX_t=\mu(X_t)dt+\sigma(X_t)dB_t
 $$
 
 随机分析就是为了解决这个问题而出现的：
@@ -236,7 +236,7 @@ $$
 我们想定义：
 
 $$
-\int_0^T H_t\,dB_t
+\int_0^T H_t\mkern3mu dB_t
 $$
 
 其中 $H_t$ 是一个随机过程，表示在时间 $t$ 对布朗增量的权重。
@@ -256,9 +256,9 @@ Itô 积分的核心在于：
 如果 $H_t$ 足够好，Itô 积分满足等距公式：
 
 $$
-\mathbb{E}\left[\left(\int_0^T H_t\,dB_t\right)^2\right]
+\mathbb{E}\left[\left(\int_0^T H_t\mkern3mu dB_t\right)^2\right]
 =
-\mathbb{E}\left[\int_0^T H_t^2\,dt\right]
+\mathbb{E}\left[\int_0^T H_t^2\mkern3mu dt\right]
 $$
 
 这个公式是 Itô 积分理论的支柱。它告诉我们：随机积分的二阶矩由被积过程的能量控制。
@@ -335,13 +335,13 @@ $$
 例如令 $X_t=B_t$，$f(x)=x^2$：
 
 $$
-d(B_t^2)=2B_t\,dB_t+dt
+d(B_t^2)=2B_t\mkern3mu dB_t+dt
 $$
 
 积分得到：
 
 $$
-B_t^2 = 2\int_0^t B_s\,dB_s + t
+B_t^2 = 2\int_0^t B_s\mkern3mu dB_s + t
 $$
 
 如果你用普通链式法则，会漏掉这个 $t$。它正是二次变差贡献出来的。
@@ -351,13 +351,13 @@ $$
 普通微分方程写作：
 
 $$
-dX_t = b(X_t,t)\,dt
+dX_t = b(X_t,t)\mkern3mu dt
 $$
 
 随机微分方程（SDE）加入布朗噪声：
 
 $$
-dX_t = b(X_t,t)\,dt + \sigma(X_t,t)\,dB_t
+dX_t = b(X_t,t)\mkern3mu dt + \sigma(X_t,t)\mkern3mu dB_t
 $$
 
 其中：
@@ -371,7 +371,7 @@ $$
 一个经典例子是 Ornstein-Uhlenbeck 过程：
 
 $$
-dX_t=-\theta X_t\,dt+\sigma dB_t
+dX_t=-\theta X_t\mkern3mu dt+\sigma dB_t
 $$
 
 漂移项 $-\theta X_t$ 把过程往 0 拉回，噪声项 $\sigma dB_t$ 不断扰动它。这是均值回复系统的基本模型，出现在物理中的 Langevin 方程、金融利率模型、神经科学和时间序列建模中。
@@ -381,7 +381,7 @@ $$
 SDE 不是说路径有一个普通导数等于右边。更准确地说，它是积分方程：
 
 $$
-X_t=X_0+\int_0^t b(X_s,s)\,ds+\int_0^t \sigma(X_s,s)\,dB_s
+X_t=X_0+\int_0^t b(X_s,s)\mkern3mu ds+\int_0^t \sigma(X_s,s)\mkern3mu dB_s
 $$
 
 第一项是普通积分，第二项是 Itô 积分。这个形式才是严格定义。
@@ -481,7 +481,7 @@ Terry Lyons（1998）提出**粗糙路径理论**，为“对不规则信号积�
 Song 与 Ermon（2019，2020），Song 等（2021）发现：扩散生成模型的训练目标是学习数据分布在不同噪声水平下的**得分函数**（score function） $\nabla_x \log p_t(x)$，采样对应运行反向 SDE
 
 $$
-dx = \bigl[f(x,t) - g(t)^2 \nabla_x \log p_t(x)\bigr]dt + g(t)\,d\bar B_t
+dx = \bigl[f(x,t) - g(t)^2 \nabla_x \log p_t(x)\bigr]dt + g(t)\mkern3mu d\bar B_t
 $$
 
 其中 $\bar B_t$ 是时间反转的布朗运动。Anderson（1982）提供了反向 SDE 的理论基础。
@@ -500,7 +500,7 @@ Malliavin（1976）在 Wiener 空间（布朗运动路径空间）上建立了�
 
 核心应用：
 - **Hörmander 条件**：通过 Malliavin 矩阵可判断 SDE 的解是否有光滑密度，推广了经典的 Hörmander 定理。
-- **Clark-Ocone 公式**：把随机变量表示为关于布朗滤过的鞅积分 $F = \mathbb{E}[F] + \int_0^T \mathbb{E}[D_t F|\mathcal{F}_t]\,dB_t$，是随机控制和 Black-Scholes 对冲公式的基础。
+- **Clark-Ocone 公式**：把随机变量表示为关于布朗滤过的鞅积分 $F = \mathbb{E}[F] + \int_0^T \mathbb{E}[D_t F|\mathcal{F}_t]\mkern3mu dB_t$，是随机控制和 Black-Scholes 对冲公式的基础。
 - **Stein 方法与量化极限定理**（Nourdin & Peccati 2012）：用 Malliavin 算子估计 CLT 收敛速率，统一了多个方向的正态近似界。
 
 ## 十二、总结

@@ -39,13 +39,13 @@ $$
 把 $\mu$ 推到 $\nu$：
 
 $$
-T_\#\mu=\nu
+T_{\char35}\mu=\nu
 $$
 
 这里的新测度叫作 $\mu$ 在 $T$ 下的推前测度。意思是：先从 $\mu$ 中抽一个点 $x$，再把它送到 $T(x)$，得到的新分布就是 $\nu$。用集合写，就是
 
 $$
-(T_\#\mu)(B)=\mu(T^{-1}(B))
+(T_{\char35}\mu)(B)=\mu(T^{-1}(B))
 $$
 
 所以 Monge 问题不是只找一个函数，而是找一个能把源分布整体变成目标分布的函数。
@@ -53,7 +53,7 @@ $$
 并最小化搬运成本：
 
 $$
-\inf_T \int c(x,T(x))\,d\mu(x)
+\inf_T \int c(x,T(x))\mkern3mu d\mu(x)
 $$
 
 这里 $c(x,y)$ 是把质量从 $x$ 搬到 $y$ 的成本。
@@ -80,7 +80,7 @@ $$
 
 $$
 \inf_{\pi\in\Pi(\mu,\nu)}
-\int c(x,y)\,d\pi(x,y)
+\int c(x,y)\mkern3mu d\pi(x,y)
 $$
 
 这正是 Kantorovich 最优传输。
@@ -104,7 +104,7 @@ W_p(\mu,\nu)
 =
 \left(
 \inf_{\pi\in\Pi(\mu,\nu)}
-\int d(x,y)^p\,d\pi(x,y)
+\int d(x,y)^p\mkern3mu d\pi(x,y)
 \right)^{1/p}
 $$
 
@@ -127,11 +127,11 @@ Kantorovich 对偶说，原始运输问题可以写成势函数优化。
 在成本 $c(x,y)$ 下：
 
 $$
-\inf_{\pi\in\Pi(\mu,\nu)}\int c\,d\pi
+\inf_{\pi\in\Pi(\mu,\nu)}\int c\mkern3mu d\pi
 =
 \sup_{\varphi,\psi}
 \left[
-\int \varphi\,d\mu+\int \psi\,d\nu
+\int \varphi\mkern3mu d\mu+\int \psi\mkern3mu d\nu
 \right]
 $$
 
@@ -181,7 +181,7 @@ $$
 可以看成熵泛函：
 
 $$
-\mathcal H(\rho)=\int \rho\log\rho\,dx
+\mathcal H(\rho)=\int \rho\log\rho\mkern3mu dx
 $$
 
 在 Wasserstein 空间中的梯度流。
@@ -199,7 +199,7 @@ $$
 设 $F_\mu,F_\nu$ 是两个分布函数，$F_\mu^{-1},F_\nu^{-1}$ 是分位数函数。那么：
 
 $$
-W_p^p(\mu,\nu)=\int_0^1 |F_\mu^{-1}(t)-F_\nu^{-1}(t)|^p\,dt
+W_p^p(\mu,\nu)=\int_0^1 |F_\mu^{-1}(t)-F_\nu^{-1}(t)|^p\mkern3mu dt
 $$
 
 这句话的意思很朴素：把两堆质量都按从左到右排好，最低的 1% 对最低的 1%，中位数对中位数，最高的 1% 对最高的 1%。
@@ -216,7 +216,7 @@ $$
 W_2^2(\mu_0,\mu_1)
 =
 \inf_{\rho_t,v_t}
-\int_0^1\int \rho_t(x)\|v_t(x)\|^2\,dx\,dt
+\int_0^1\int \rho_t(x)\|v_t(x)\|^2\mkern3mu dx\mkern3mu dt
 $$
 
 约束是连续性方程：

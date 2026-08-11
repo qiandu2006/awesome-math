@@ -18,17 +18,17 @@ layout: default
 除非另有说明，函数取复值，等式在几乎处处意义下理解。沿用第 1 章的约定
 
 $$
-\widehat f(\omega)=\int_{\mathbb R}f(t)e^{-i\omega t}\,dt,
+\widehat f(\omega)=\int_{\mathbb R}f(t)e^{-i\omega t}\mkern3mu dt,
 $$
 
 $$
-f(t)=\frac{1}{2\pi}\int_{\mathbb R}\widehat f(\omega)e^{i\omega t}\,d\omega,
+f(t)=\frac{1}{2\pi}\int_{\mathbb R}\widehat f(\omega)e^{i\omega t}\mkern3mu d\omega,
 $$
 
 以及对第一个变量线性的内积
 
 $$
-\langle f,g\rangle=\int_{\mathbb R}f(t)\overline{g(t)}\,dt.
+\langle f,g\rangle=\int_{\mathbb R}f(t)\overline{g(t)}\mkern3mu dt.
 $$
 
 $L^2(\mathbb R)$ 表示平方可积函数按“几乎处处相等”得到的等价类。$\|f\|_2$ 是其范数，$\mathcal S(\mathbb R)$ 是 Schwartz 空间。
@@ -57,8 +57,8 @@ $$
 
 $$
 \widehat f_j(\omega)
-=\int_{\mathbb R}g(t-t_j)e^{-i\omega t}\,dt
-=\int_{\mathbb R}g(u)e^{-i\omega(u+t_j)}\,du.
+=\int_{\mathbb R}g(t-t_j)e^{-i\omega t}\mkern3mu dt
+=\int_{\mathbb R}g(u)e^{-i\omega(u+t_j)}\mkern3mu du.
 $$
 
 因子 $e^{-i\omega t_j}$ 与积分变量 $u$ 无关，可以移到积分号外：
@@ -94,7 +94,7 @@ $$
 取归一化窗函数 $w\in\mathcal S(\mathbb R)$，满足 $\|w\|_2=1$。短时 Fourier 变换（short-time Fourier transform，STFT）定义为
 
 $$
-V_wf(\tau,\omega)=\int_{\mathbb R}f(t)\overline{w(t-\tau)}e^{-i\omega t}\,dt.
+V_wf(\tau,\omega)=\int_{\mathbb R}f(t)\overline{w(t-\tau)}e^{-i\omega t}\mkern3mu dt.
 $$
 
 $\tau$ 是窗口中心，$\omega$ 是角频率。把被积式改写为内积可见，$V_wf(\tau,\omega)$ 测量 $f$ 与局部原子
@@ -112,28 +112,28 @@ Dennis Gabor 1946 年的工作用时间—频率单元分析通信信号，是�
 对 $f\in\mathcal S(\mathbb R)$ 且 $\|f\|_2=1$，定义时间中心与频率中心
 
 $$
-t_0=\int_{\mathbb R}t|f(t)|^2\,dt,
+t_0=\int_{\mathbb R}t|f(t)|^2\mkern3mu dt,
 $$
 
 $$
-\omega_0=\frac{1}{2\pi}\int_{\mathbb R}\omega|\widehat f(\omega)|^2\,d\omega.
+\omega_0=\frac{1}{2\pi}\int_{\mathbb R}\omega|\widehat f(\omega)|^2\mkern3mu d\omega.
 $$
 
 相应方差为
 
 $$
-(\Delta t)^2=\int_{\mathbb R}(t-t_0)^2|f(t)|^2\,dt,
+(\Delta t)^2=\int_{\mathbb R}(t-t_0)^2|f(t)|^2\mkern3mu dt,
 $$
 
 $$
-(\Delta\omega)^2=\frac{1}{2\pi}\int_{\mathbb R}(\omega-\omega_0)^2|\widehat f(\omega)|^2\,d\omega.
+(\Delta\omega)^2=\frac{1}{2\pi}\int_{\mathbb R}(\omega-\omega_0)^2|\widehat f(\omega)|^2\mkern3mu d\omega.
 $$
 
 **定理 1（Heisenberg 不确定性）**
 对上述 $f$，有
 
 $$
-\Delta t\,\Delta\omega\geq\frac12.
+\Delta t\mkern3mu \Delta\omega\geq\frac12.
 $$
 
 等号可由适当平移、调制和缩放的高斯函数取得。
@@ -148,7 +148,7 @@ $$
 
 $$
 \widehat h(\omega)
-=\int_{\mathbb R}f(t+t_0)e^{-i(\omega+\omega_0)t}\,dt
+=\int_{\mathbb R}f(t+t_0)e^{-i(\omega+\omega_0)t}\mkern3mu dt
 =e^{i(\omega+\omega_0)t_0}\widehat f(\omega+\omega_0).
 $$
 
@@ -164,20 +164,20 @@ $$
 
 $$
 \widehat{f'}(\omega)
-=\int_{\mathbb R}f'(t)e^{-i\omega t}\,dt
+=\int_{\mathbb R}f'(t)e^{-i\omega t}\mkern3mu dt
 =i\omega\widehat f(\omega).
 $$
 
 再应用 Plancherel 恒等式，并使用频率中心为 0，得到
 
 $$
-\|f'\|_2^2=\frac{1}{2\pi}\int_{\mathbb R}\omega^2|\widehat f(\omega)|^2\,d\omega=(\Delta\omega)^2.
+\|f'\|_2^2=\frac{1}{2\pi}\int_{\mathbb R}\omega^2|\widehat f(\omega)|^2\mkern3mu d\omega=(\Delta\omega)^2.
 $$
 
 下一步把两个方差联系起来。因为 $f$ 是 Schwartz 函数，$t|f(t)|^2$ 在正负无穷处都趋于零，所以
 
 $$
-0=\int_{\mathbb R}\frac{d}{dt}\bigl(t|f(t)|^2\bigr)\,dt.
+0=\int_{\mathbb R}\frac{d}{dt}\bigl(t|f(t)|^2\bigr)\mkern3mu dt.
 $$
 
 逐项求导：
@@ -187,16 +187,16 @@ $$
 =|f(t)|^2+t f'(t)\overline{f(t)}+t f(t)\overline{f'(t)}.
 $$
 
-后两项互为共轭，其和等于 $2\,\mathrm{Re}(t f'(t)\overline{f(t)})$。积分并使用 $\|f\|_2=1$，得到
+后两项互为共轭，其和等于 $2\mkern3mu \mathrm{Re}(t f'(t)\overline{f(t)})$。积分并使用 $\|f\|_2=1$，得到
 
 $$
-2\,\mathrm{Re}\int_{\mathbb R}t f'(t)\overline{f(t)}\,dt=-1.
+2\mkern3mu \mathrm{Re}\int_{\mathbb R}t f'(t)\overline{f(t)}\mkern3mu dt=-1.
 $$
 
-先取绝对值，再使用 $|\mathrm{Re}\,z|\leq|z|$ 和 Cauchy–Schwarz 不等式：
+先取绝对值，再使用 $|\mathrm{Re}\mkern3mu z|\leq|z|$ 和 Cauchy–Schwarz 不等式：
 
 $$
-\frac12\leq\|tf\|_2\,\|f'\|_2=\Delta t\,\Delta\omega.
+\frac12\leq\|tf\|_2\mkern3mu \|f'\|_2=\Delta t\mkern3mu \Delta\omega.
 $$
 
 最后说明等号确实可以达到。对任意 $c>0$，取归一化高斯函数
@@ -227,7 +227,7 @@ $$
 (\Delta\omega)^2=c,
 $$
 
-从而 $\Delta t\,\Delta\omega=1/2$。故常数 $1/2$ 最优。平移、调制或缩放这个高斯函数仍能给出等号情形。证毕。
+从而 $\Delta t\mkern3mu \Delta\omega=1/2$。故常数 $1/2$ 最优。平移、调制或缩放这个高斯函数仍能给出等号情形。证毕。
 
 定理说明 STFT 的固定窗口存在不可消除的权衡：窄窗改善时间定位，却扩大频率分布；宽窗反之。它并没有证明“小波必然更好”，只说明单一固定分辨率不能同时适应所有尺度。
 
@@ -258,7 +258,7 @@ $$
 
 则 $T_c$ 与 $D_s$ 都是 $L^2(\mathbb R)$ 上的酉算子，且 $\psi_{a,b}=T_bD_a\psi$。
 
-**证明。** 令 $u=(t-b)/a$，则 $dt=a\,du$，所以
+**证明。** 令 $u=(t-b)/a$，则 $dt=a\mkern3mu du$，所以
 
 $$
 \|\psi_{a,b}\|_2^2=\int_{\mathbb R}a^{-1}\left|\psi\left(\frac{t-b}{a}\right)\right|^2dt=\int_{\mathbb R}|\psi(u)|^2du.
@@ -270,7 +270,7 @@ $$
 \|T_cf\|_2^2=\int_{\mathbb R}|f(t-c)|^2dt=\int_{\mathbb R}|f(u)|^2du=\|f\|_2^2.
 $$
 
-缩放中的换元 $u=t/s$、$dt=s\,du$ 给出
+缩放中的换元 $u=t/s$、$dt=s\mkern3mu du$ 给出
 
 $$
 \|D_sf\|_2^2=\int_{\mathbb R}s^{-1}|f(t/s)|^2dt=\int_{\mathbb R}|f(u)|^2du=\|f\|_2^2.
@@ -301,7 +301,7 @@ $a^{-1/2}$ 不是装饰性常数；没有它，不同尺度的原子能量会不
 本章为简化正负频率常数，先讨论实值母小波。设 $\psi\in L^2(\mathbb R)$ 为实值函数，定义单边可容许常数
 
 $$
-C_\psi=\int_0^\infty\frac{|\widehat\psi(\omega)|^2}{\omega}\,d\omega.
+C_\psi=\int_0^\infty\frac{|\widehat\psi(\omega)|^2}{\omega}\mkern3mu d\omega.
 $$
 
 **定义（可容许小波）**
@@ -312,13 +312,13 @@ $$
 **可容许性为什么迫使零均值？** 若进一步有 $\psi\in L^1(\mathbb R)$，则 $\widehat\psi$ 连续，且
 
 $$
-\widehat\psi(0)=\int_{\mathbb R}\psi(t)\,dt.
+\widehat\psi(0)=\int_{\mathbb R}\psi(t)\mkern3mu dt.
 $$
 
 假如 $\widehat\psi(0)\neq0$，连续性保证 $|\widehat\psi(\omega)|$ 在零点附近有正下界，从而 $C_\psi$ 包含一个发散的 $\int_0^\varepsilon d\omega/\omega$。因此可容许性蕴含
 
 $$
-\int_{\mathbb R}\psi(t)\,dt=0.
+\int_{\mathbb R}\psi(t)\mkern3mu dt=0.
 $$
 
 零均值是可容许性的必要结果之一，不是对任意 $L^2$ 函数都可直接书写的先验条件，因为一般 $L^2$ 函数未必可积。
@@ -372,39 +372,39 @@ $$
 设 $\psi\in L^2(\mathbb R)$ 是实值可容许小波。则对任意 $f\in L^2(\mathbb R)$，
 
 $$
-\int_0^\infty\int_{\mathbb R}|W_\psi f(a,b)|^2\,db\,\frac{da}{a^2}=C_\psi\|f\|_2^2.
+\int_0^\infty\int_{\mathbb R}|W_\psi f(a,b)|^2\mkern3mu db\mkern3mu \frac{da}{a^2}=C_\psi\|f\|_2^2.
 $$
 
 并且对任意 $g\in L^2(\mathbb R)$，
 
 $$
-\langle f,g\rangle=\frac{1}{C_\psi}\int_0^\infty\int_{\mathbb R}W_\psi f(a,b)\overline{W_\psi g(a,b)}\,db\,\frac{da}{a^2}.
+\langle f,g\rangle=\frac{1}{C_\psi}\int_0^\infty\int_{\mathbb R}W_\psi f(a,b)\overline{W_\psi g(a,b)}\mkern3mu db\mkern3mu \frac{da}{a^2}.
 $$
 
 因而下面的重建公式在 $L^2$ 弱意义下成立：
 
 $$
-f=\frac{1}{C_\psi}\int_0^\infty\int_{\mathbb R}W_\psi f(a,b)\psi_{a,b}\,db\,\frac{da}{a^2}.
+f=\frac{1}{C_\psi}\int_0^\infty\int_{\mathbb R}W_\psi f(a,b)\psi_{a,b}\mkern3mu db\mkern3mu \frac{da}{a^2}.
 $$
 
 这里“弱意义”是指重建式两边与任意 $g\in L^2$ 作内积后相等；它不自动保证二重积分逐点绝对收敛。
 
-**证明。** 先推导证明中最关键、也最容易跳步的频域公式。对缩放函数令 $u=t/a$、$dt=a\,du$：
+**证明。** 先推导证明中最关键、也最容易跳步的频域公式。对缩放函数令 $u=t/a$、$dt=a\mkern3mu du$：
 
 $$
 \widehat{D_a\psi}(\omega)
-=\int_{\mathbb R}a^{-1/2}\psi(t/a)e^{-i\omega t}\,dt
-=\sqrt a\int_{\mathbb R}\psi(u)e^{-i(a\omega)u}\,du
-=\sqrt a\,\widehat\psi(a\omega).
+=\int_{\mathbb R}a^{-1/2}\psi(t/a)e^{-i\omega t}\mkern3mu dt
+=\sqrt a\int_{\mathbb R}\psi(u)e^{-i(a\omega)u}\mkern3mu du
+=\sqrt a\mkern3mu \widehat\psi(a\omega).
 $$
 
 再对平移函数令 $u=t-b$、$dt=du$：
 
 $$
 \widehat{T_bD_a\psi}(\omega)
-=\int_{\mathbb R}(D_a\psi)(t-b)e^{-i\omega t}\,dt
+=\int_{\mathbb R}(D_a\psi)(t-b)e^{-i\omega t}\mkern3mu dt
 =e^{-i\omega b}\widehat{D_a\psi}(\omega)
-=e^{-i\omega b}\sqrt a\,\widehat\psi(a\omega).
+=e^{-i\omega b}\sqrt a\mkern3mu \widehat\psi(a\omega).
 $$
 
 这两个等式可先对 $L^1\cap L^2$ 函数按积分定义验证，再由 Plancherel 定理延拓到 $L^2$。由于 $\psi_{a,b}=T_bD_a\psi$，Plancherel 内积公式给出
@@ -412,13 +412,13 @@ $$
 $$
 W_\psi f(a,b)
 =\frac{\sqrt a}{2\pi}\int_{\mathbb R}
-\widehat f(\omega)\overline{\widehat\psi(a\omega)}e^{i\omega b}\,d\omega.
+\widehat f(\omega)\overline{\widehat\psi(a\omega)}e^{i\omega b}\mkern3mu d\omega.
 $$
 
 这里的积分确实有意义：$\widehat f(\omega)$ 与 $\widehat\psi(a\omega)$ 都属于 $L^2$，所以它们的乘积由 Cauchy–Schwarz 不等式可知属于 $L^1$。因此，把 $W_\psi f(a,b)$ 视为变量 $b$ 的函数时，它是
 
 $$
-K_a(\omega)=\sqrt a\,\widehat f(\omega)\overline{\widehat\psi(a\omega)}
+K_a(\omega)=\sqrt a\mkern3mu \widehat f(\omega)\overline{\widehat\psi(a\omega)}
 $$
 
 的 Fourier 逆变换。
@@ -426,7 +426,7 @@ $$
 下面先计算 $K_a$ 在全部尺度上的平方积分。被积函数非负，所以 Tonelli 定理允许交换 $a$ 与 $\omega$ 的积分：
 
 $$
-\int_0^\infty\int_{\mathbb R}|K_a(\omega)|^2d\omega\,\frac{da}{a^2}
+\int_0^\infty\int_{\mathbb R}|K_a(\omega)|^2d\omega\mkern3mu \frac{da}{a^2}
 =\int_{\mathbb R}|\widehat f(\omega)|^2I(\omega)d\omega,
 $$
 
@@ -439,13 +439,13 @@ $$
 当 $\omega>0$ 时，令 $s=a\omega$，则 $da/a=ds/s$，所以
 
 $$
-I(\omega)=\int_0^\infty\frac{|\widehat\psi(s)|^2}{s}\,ds=C_\psi.
+I(\omega)=\int_0^\infty\frac{|\widehat\psi(s)|^2}{s}\mkern3mu ds=C_\psi.
 $$
 
 当 $\omega<0$ 时，令 $s=-a\omega$。实值性给出 $\widehat\psi(-s)=\overline{\widehat\psi(s)}$，因此 $|\widehat\psi(-s)|=|\widehat\psi(s)|$，仍有 $I(\omega)=C_\psi$。单点 $\omega=0$ 不影响 Lebesgue 积分。于是
 
 $$
-\int_0^\infty\int_{\mathbb R}|K_a(\omega)|^2d\omega\,\frac{da}{a^2}
+\int_0^\infty\int_{\mathbb R}|K_a(\omega)|^2d\omega\mkern3mu \frac{da}{a^2}
 =2\pi C_\psi\|f\|_2^2<\infty.
 $$
 
@@ -459,7 +459,7 @@ $$
 再对 $a$ 积分，便得到
 
 $$
-\int_0^\infty\int_{\mathbb R}|W_\psi f(a,b)|^2db\,\frac{da}{a^2}=C_\psi\|f\|_2^2.
+\int_0^\infty\int_{\mathbb R}|W_\psi f(a,b)|^2db\mkern3mu \frac{da}{a^2}=C_\psi\|f\|_2^2.
 $$
 
 以上计算只使用了 $f,\psi\in L^2$ 和 $C_\psi<\infty$，因此能量恒等式已经对任意 $f\in L^2$ 成立，无须再假设 $f$ 光滑。
@@ -468,15 +468,15 @@ $$
 
 $$
 \int_0^\infty\int_{\mathbb R}
-W_\psi f(a,b)\overline{W_\psi g(a,b)}\,db\,\frac{da}{a^2}
+W_\psi f(a,b)\overline{W_\psi g(a,b)}\mkern3mu db\mkern3mu \frac{da}{a^2}
 =\frac{C_\psi}{2\pi}\int_{\mathbb R}
-\widehat f(\omega)\overline{\widehat g(\omega)}\,d\omega.
+\widehat f(\omega)\overline{\widehat g(\omega)}\mkern3mu d\omega.
 $$
 
 交换积分的依据不是形式操作：绝对值积分由
 
 $$
-C_\psi\int_{\mathbb R}|\widehat f(\omega)||\widehat g(\omega)|\,d\omega
+C_\psi\int_{\mathbb R}|\widehat f(\omega)||\widehat g(\omega)|\mkern3mu d\omega
 \leq 2\pi C_\psi\|f\|_2\|g\|_2
 $$
 
@@ -492,13 +492,13 @@ $$
 
 $$
 \frac{1}{C_\psi}\int_0^\infty\int_{\mathbb R}
-W_\psi f(a,b)\overline{W_\psi g(a,b)}\,db\,\frac{da}{a^2}
+W_\psi f(a,b)\overline{W_\psi g(a,b)}\mkern3mu db\mkern3mu \frac{da}{a^2}
 =\langle f,g\rangle.
 $$
 
 系数空间中的 Cauchy–Schwarz 不等式保证这个配对积分绝对收敛。它对所有 $g$ 都等于 $\langle f,g\rangle$，这正是所声明的 $L^2$ 弱重建。证毕。
 
-这一定理给出三个重要边界：可容许性负责排除不可重建的直流分量；测度是 $db\,da/a^2$，不能随意换成 $db\,da$；一般 $L^2$ 信号只保证弱重建，要得到逐点重建必须增加正则性和可积性假设。Grossmann 与 Morlet 的经典工作系统阐述了这类连续小波分解 [2]。
+这一定理给出三个重要边界：可容许性负责排除不可重建的直流分量；测度是 $db\mkern3mu da/a^2$，不能随意换成 $db\mkern3mu da$；一般 $L^2$ 信号只保证弱重建，要得到逐点重建必须增加正则性和可积性假设。Grossmann 与 Morlet 的经典工作系统阐述了这类连续小波分解 [2]。
 
 ## 四、从连续框架到离散正交基
 
@@ -690,7 +690,7 @@ $$
 若 $\psi$ 满足
 
 $$
-\int_{\mathbb R}t^m\psi(t)\,dt=0
+\int_{\mathbb R}t^m\psi(t)\mkern3mu dt=0
 $$
 
 对 $m=0,1,\ldots,p-1$ 都成立，则称 $\psi$ 有 $p$ 个消失矩。
@@ -707,7 +707,7 @@ $$
 **证明。** 令 $t=b+as$。因为 $\psi$ 紧支撑，积分有限，并且
 
 $$
-\langle q,\psi_{a,b}\rangle=\sqrt a\int_{\mathbb R}q(b+as)\psi(s)\,ds.
+\langle q,\psi_{a,b}\rangle=\sqrt a\int_{\mathbb R}q(b+as)\psi(s)\mkern3mu ds.
 $$
 
 若 $q(t)=\sum_{r=0}^{p-1}\alpha_rt^r$，二项式公式给出
@@ -720,7 +720,7 @@ $$
 
 $$
 \langle q,\psi_{a,b}\rangle
-=\sqrt a\sum_{m=0}^{p-1}c_m\int_{\mathbb R}s^m\psi(s)\,ds=0.
+=\sqrt a\sum_{m=0}^{p-1}c_m\int_{\mathbb R}s^m\psi(s)\mkern3mu ds=0.
 $$
 
 最后一个等号逐项使用了 $p$ 个消失矩。证毕。
@@ -801,7 +801,7 @@ $$
 硬阈值与软阈值分别定义为
 
 $$
-T_{\mathrm{hard},\lambda}(z)=z\,\mathbf 1_{\lbrace |z|>\lambda\rbrace},
+T_{\mathrm{hard},\lambda}(z)=z\mkern3mu \mathbf 1_{\lbrace |z|>\lambda\rbrace},
 $$
 
 $$

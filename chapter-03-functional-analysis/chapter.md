@@ -10,12 +10,12 @@ layout: default
 
 **傅里叶变换**：把函数 $f$ 写成正弦波的线性组合。系数通过"函数内积"得到：
 $$
-\hat{f}(\omega) = \int f(t) \, e^{-i\omega t} \, dt = \langle f, e^{i\omega t} \rangle
+\hat{f}(\omega) = \int f(t) \mkern3mu  e^{-i\omega t} \mkern3mu  dt = \langle f, e^{i\omega t} \rangle
 $$
 
 **小波变换**：把函数 $f$ 写成小波的线性组合。系数同样通过"函数内积"得到：
 $$
-W_f(a,b) = \frac{1}{\sqrt{a}} \int f(t) \, \psi^*\left(\frac{t-b}{a}\right) dt = \langle f, \psi_{a,b} \rangle
+W_f(a,b) = \frac{1}{\sqrt{a}} \int f(t) \mkern3mu  \psi^*\left(\frac{t-b}{a}\right) dt = \langle f, \psi_{a,b} \rangle
 $$
 
 这是同一个模板的两个实例：
@@ -107,7 +107,7 @@ Hilbert 空间投影定理说：**如果 $M$ 是 Hilbert 空间 $H$ 的一个闭
 
 在 Hilbert 空间中，每个元素可以唯一地写成：
 $$
-x = \sum_{n=1}^\infty \langle x, e_n \rangle \, e_n
+x = \sum_{n=1}^\infty \langle x, e_n \rangle \mkern3mu  e_n
 $$
 
 并且 Parseval 恒等式保证**能量守恒**：

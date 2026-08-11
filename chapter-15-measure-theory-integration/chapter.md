@@ -9,7 +9,7 @@ layout: default
 你已经学过 Riemann 积分。对连续函数来说，它非常自然：
 
 $$
-\int_a^b f(x)\,dx
+\int_a^b f(x)\mkern3mu dx
 $$
 
 就是把区间切成很多小段，用矩形面积近似曲线下方面积。
@@ -44,13 +44,13 @@ $$
 如果 $\mu$ 是概率测度，积分就是期望：
 
 $$
-\mathbb E[X]=\int X\,d\mathbb P
+\mathbb E[X]=\int X\mkern3mu d\mathbb P
 $$
 
 如果 $\mu$ 是计数测度，积分就是求和：
 
 $$
-\int f\,d\mu=\sum_x f(x)
+\int f\mkern3mu d\mu=\sum_x f(x)
 $$
 
 所以测度论不是为了抽象而抽象，而是在回答：
@@ -204,15 +204,15 @@ $$
 定义积分：
 
 $$
-\int s\,d\mu=\sum_{i=1}^n a_i\mu(A_i)
+\int s\mkern3mu d\mu=\sum_{i=1}^n a_i\mu(A_i)
 $$
 
 一般非负可测函数 $f$ 的积分定义为：
 
 $$
-\int f\,d\mu
+\int f\mkern3mu d\mu
 =
-\sup\lbrace\int s\,d\mu\ \mid\ 0\le s\le f,\ s\text{ 是简单函数}\rbrace
+\sup\lbrace\int s\mkern3mu d\mu\ \mid\ 0\le s\le f,\ s\text{ 是简单函数}\rbrace
 $$
 
 ![Riemann 与 Lebesgue 积分的直觉差别](images/fig3_riemann_vs_lebesgue.png)
@@ -232,9 +232,9 @@ $$
 测度论真正强大的地方，不是它能积分更多怪函数，而是它告诉我们什么时候可以交换极限和积分：
 
 $$
-\lim_{n\to\infty}\int f_n\,d\mu
+\lim_{n\to\infty}\int f_n\mkern3mu d\mu
 =
-\int \lim_{n\to\infty} f_n\,d\mu
+\int \lim_{n\to\infty} f_n\mkern3mu d\mu
 $$
 
 这件事在 Riemann 积分里很麻烦，在 Lebesgue 理论中有清晰定理。
@@ -250,7 +250,7 @@ $$
 且 $f_n\to f$，那么：
 
 $$
-\int f_n\,d\mu\to \int f\,d\mu
+\int f_n\mkern3mu d\mu\to \int f\mkern3mu d\mu
 $$
 
 直觉是：如果函数从下往上稳定逼近，面积也从下往上逼近。
@@ -260,9 +260,9 @@ $$
 对非负函数列：
 
 $$
-\int \liminf f_n\,d\mu
+\int \liminf f_n\mkern3mu d\mu
 \le
-\liminf \int f_n\,d\mu
+\liminf \int f_n\mkern3mu d\mu
 $$
 
 它是一个保险丝：即使没有良好收敛，积分的下极限仍然有基本控制。
@@ -278,7 +278,7 @@ $$
 那么：
 
 $$
-\int f_n\,d\mu\to\int f\,d\mu
+\int f_n\mkern3mu d\mu\to\int f\mkern3mu d\mu
 $$
 
 ![三大收敛定理的直觉位置](images/fig4_convergence_theorems.png)
@@ -292,7 +292,7 @@ $$
 有了积分，就可以定义函数的大小：
 
 $$
-\|f\|_p=\left(\int |f|^p\,d\mu\right)^{1/p}
+\|f\|_p=\left(\int |f|^p\mkern3mu d\mu\right)^{1/p}
 $$
 
 满足 $\|f\|_p<\infty$ 的函数组成 $L^p$ 空间。
@@ -306,7 +306,7 @@ $$
 最重要的特例是 $L^2$：
 
 $$
-\langle f,g\rangle=\int f g\,d\mu
+\langle f,g\rangle=\int f g\mkern3mu d\mu
 $$
 
 它是 Hilbert 空间。
@@ -340,15 +340,15 @@ $$
 有了它，才能严肃地谈多重积分：
 
 $$
-\int_{X\times Y} f(x,y)\,d(\mu\times\nu)
+\int_{X\times Y} f(x,y)\mkern3mu d(\mu\times\nu)
 $$
 
 Fubini 定理说，在合适可积条件下：
 
 $$
-\int_{X\times Y} f(x,y)\,d(\mu\times\nu)
+\int_{X\times Y} f(x,y)\mkern3mu d(\mu\times\nu)
 =
-\int_X\left(\int_Y f(x,y)\,d\nu(y)\right)d\mu(x)
+\int_X\left(\int_Y f(x,y)\mkern3mu d\nu(y)\right)d\mu(x)
 $$
 
 也可以反过来先对 $x$ 积分。
@@ -368,7 +368,7 @@ $$
 并写：
 
 $$
-\mathbb P(A)=\int_A p(x)\,dx
+\mathbb P(A)=\int_A p(x)\mkern3mu dx
 $$
 
 但“密度”到底是什么？
@@ -392,7 +392,7 @@ $$
 那么存在一个可测函数 $f$，使得：
 
 $$
-\nu(A)=\int_A f\,d\mu
+\nu(A)=\int_A f\mkern3mu d\mu
 $$
 
 这个 $f$ 记作：
@@ -435,9 +435,9 @@ $$
 是一个 $\mathcal G$-可测随机变量，满足对所有 $A\in\mathcal G$：
 
 $$
-\int_A \mathbb E[X\mid\mathcal G]\,d\mathbb P
+\int_A \mathbb E[X\mid\mathcal G]\mkern3mu d\mathbb P
 =
-\int_A X\,d\mathbb P
+\int_A X\mkern3mu d\mathbb P
 $$
 
 这句话的意思是：
